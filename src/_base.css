@@ -1,0 +1,132 @@
+:root {
+    --primary-color: #1a9f60;
+    --lightGrey-color: #ddd;
+    --grid-maxWidth: 120rem;
+    --grid-gutter: 1.5rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    line-height: 1.15;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    letter-spacing: 0.01em;
+    line-height: 1.6;
+    font-size: 1.6rem;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, Avenir, "Avenir Next", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+a {
+    color: var(--primary-color);
+}
+
+a:hover:not(.button) {
+    opacity: 0.6;
+}
+
+p {
+  margin-top: 0;
+}
+
+blockquote {
+    background-color: #f3f3f3;
+    padding: 1.5rem 2rem;
+    border-left: 3px solid var(--lightGrey-color);
+}
+
+dl dt {
+    font-weight: bold;
+}
+
+hr {
+    border: none;
+    background-color: var(--lightGrey-color);
+    height: 1px;
+    margin: 1rem 0;
+}
+
+table {
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: left;
+}
+
+td,
+th {
+    vertical-align: middle;
+    padding: 1.2rem 0.4rem;
+}
+
+thead {
+    border-bottom: 2px solid var(--lightGrey-color);
+}
+
+tfoot {
+    border-top: 2px solid var(--lightGrey-color);
+}
+
+code,
+kbd,
+pre,
+samp,
+tt {
+    font-family: monaco, "Consolas", "Lucida Console", monospace;
+}
+
+code,
+kbd {
+    padding: 0 0.4rem;
+    font-size: 90%;
+    white-space: nowrap;
+    color: #d00939;
+    border: 1px solid var(--lightGrey-color);
+    border-radius: 4px;
+}
+
+pre {
+    font-size: 1em;
+    background-color: #f3f3f3;
+    padding: 1rem;
+}
+
+abbr[title] {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted;
+}
+
+img {
+    max-width: 100%;
+}
+
+fieldset,
+iframe {
+    border: 1px solid var(--lightGrey-color);
+}

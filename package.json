@@ -1,0 +1,26 @@
+{
+    "name": "chota",
+    "version": "0.1.0",
+    "description": "A really small CSS framework",
+    "main": "dist/chota.min.css",
+    "scripts": {
+        "start": "browser-sync start --server --files '**/*.css' '**/*.html'",
+        "build": "rm -r dist/ && yarn postcss && yarn postcss -- -u cssnano -x .min.css",
+        "postcss": "postcss ./src/chota.css --use postcss-import -d dist/ --no-map",
+        "watch": "yarn postcss -- -u cssnano -x .min.css -w",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "css",
+        "minimal"
+    ],
+    "author": "Jenil Gogari",
+    "license": "MIT",
+    "devDependencies": {
+        "autoprefixer": "^6.7.7",
+        "browser-sync": "^2.18.8",
+        "cssnano": "^3.10.0",
+        "postcss-cli": "^3.0.0",
+        "postcss-import": "^9.1.0"
+    }
+}

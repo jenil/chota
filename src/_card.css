@@ -1,0 +1,10 @@
+.card {
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+.card header > * {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,91 @@
+.pull-right {
+    float: right;
+}
+
+.pull-left {
+    float: left;
+}
+
+.is-text-center {
+    text-align: center;
+}
+
+.is-text-left {
+    text-align: left;
+}
+
+.is-text-right {
+    text-align: right;
+}
+
+.is-text-uppercase {
+    text-transform: uppercase;
+}
+
+.is-text-lowercase {
+    text-transform: lowercase;
+}
+
+.is-text-capitalize {
+    text-transform: capitalize;
+}
+
+.is-full-screen {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.is-full-width {
+    width: 100%;
+}
+
+.is-vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+.is-horizontal-align {
+    display: flex;
+    justify-content: center;
+}
+
+.is-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.is-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.is-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.is-fixed {
+    position: fixed;
+    width: 100%;
+}
+
+.clearfix {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media screen and (max-width: 480px) {
+    .hide-phone {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hide-tablet {
+        display: none;
+    }
+}
