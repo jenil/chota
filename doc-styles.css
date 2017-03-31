@@ -1,0 +1,28 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    flex: 1;
+    flex-direction: column;
+}
+
+.logo svg {
+    width: 100%;
+    max-width: 300px;
+}
+
+.logo h3 {
+  font-weight: 300;
+}
+
+footer {
+    background-color: #fafafa;
+    padding: 4rem;
+}
+
+section {
+    max-width: 700px;
+    margin: 5rem auto;
+}
