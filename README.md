@@ -10,8 +10,8 @@ A really small CSS framework
 ### Get started
 
 CDN:
-```
-https://unpkg.com/chota
+```html
+<link rel="stylesheet" href="https://unpkg.com/chota">
 ```
 
 npm:
