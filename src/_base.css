@@ -105,13 +105,21 @@ code,
 kbd {
     padding: 0 0.4rem;
     font-size: 90%;
-    white-space: nowrap;
+    white-space: pre-wrap;
     border-radius: 4px;
+    color: #c62424;
+    padding: 0.2em 0.4em;
+    background-color: #f7f7f7;
 }
 
 pre {
+    background-color: #f7f7f7;
     font-size: 1em;
     padding: 1rem;
+}
+
+pre code {
+  background: none;
 }
 
 abbr[title] {
