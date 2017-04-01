@@ -1,0 +1,99 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>chota - A small CSS framework</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/chota">
+  <link rel="stylesheet" href="./doc-styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="hero is-full-screen">
+      <div class="logo is-center is-vertical-align">
+        <img src="./logo.svg" alt="">
+        <h3>A <strong>small</strong> (3kb) CSS framework.</h3>
+      </div>
+      <div class="row is-center">
+        <div class="col-3">
+          <nav class="tabs">
+            <a href="#features">features</a>
+            <a href="#start">start</a>
+            <a href="#docs">docs</a>
+            <a href="https://github.com/jenil/chota">github</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <section id="features">
+      <h2>Features</h2>
+      <ul>
+        <li>⚡️&nbsp; Super light-weight. Just 3kb (minified + gzipped).</li>
+        <li>⛔️&nbsp; No preprocessor, just plug-n-play</li>
+        <li>📐&nbsp; Magical 12 column grid</li>
+        <li>🌈&nbsp; Easy to extended with CSS variables</li>
+        <li>🎲&nbsp; Comes with a handful of components &amp; utilities</li>
+        <li>✅&nbsp; Good Semantics</li>
+      </ul>
+    </section>
+    <section id="start">
+      <h2>Getting Started</h2>
+      <p>All you need is 1 CSS file, <code>chota.css</code> to be included in your webpage.</p>
+      <p>Link this CSS in your HTML:</p>
+      {% highlight html %}<link rel="stylesheet" href="https://unpkg.com/chota">{% endhighlight %}
+      <br>
+      <p>You can download it from Github or install it from <code>npm</code> or <code>yarn</code>:</p>
+      {% highlight bash %} npm install chota {% endhighlight %}
+    </section>
+    <section id="docs">
+      <h2>Docs</h2>
+      <p class="catch">
+        Chota is <em>dead</em> simple to use. It doesn't require learning a lot of class names like other frameworks. It applies a few basic styles to the HTML following the <a href="https://www.w3schools.com/html/html5_semantic_elements.asp" target="_blank">HTML Semenatics</a>.
+      </p>
+      <p>Here is a <a href="https://rawgit.com/jenil/chota/master/test/index.html">demo</a>.</p>
+
+      <h3>Customizing</h3>
+      <p>Chota comes with a basic set of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables" target="_blank">CSS variables</a>:</p>
+{% highlight css %}
+:root {
+    --primary-color: #1a9f60;
+    --lightGrey-color: #ddd;
+    --grid-maxWidth: 120rem;
+    --grid-gutter: 1.5rem;
+    --font-family: -apple-system, BlinkMacSystemFont, Avenir, "Avenir Next", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+{% endhighlight %}
+    <p>To override the variables, just add them to your <code>:root</code> selector after importing <code>chota.css</code></p>
+{% highlight css %}
+@import url(chota.css)
+
+:root {
+    --primary-color: #da1d50; /* brand color */
+    --grid-maxWidth: 108rem; /* max container width 1080px */
+}
+
+/* Other styles..... */
+{% endhighlight %}
+    </section>
+  </div>
+  <footer class="is-text-center">
+    <h5>Made by <a href="//jgog.in">Jenil Gogari</a></h5>
+  </footer>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-91125324-3', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</body>
+
+</html>
