@@ -1,5 +1,8 @@
-# chota
+<p align="center">
+<img src="https://cdn.rawgit.com/jenil/chota/gh-pages/logo.svg" />
+<br>
 A really small CSS framework
+</p>
 
 - ⚡️&nbsp; Super light-weight. Just 3kb (minified + gzipped).
 - ✅&nbsp; Good Semantics
