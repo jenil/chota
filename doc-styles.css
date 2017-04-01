@@ -3,6 +3,17 @@
     flex-direction: column;
 }
 
+code {
+  background-color: #f7f7f7;
+  color: #c62424;
+  white-space: pre-wrap;
+  padding: 0.2em 0.4em;
+}
+
+pre code {
+  background: none;
+}
+
 .logo {
     flex: 1;
     flex-direction: column;
@@ -27,7 +38,7 @@ section {
     margin: 5rem auto;
 }
 
-
+.highlight, code { background-color: #f1f5f5; }
 .highlight .c { color: #93a1a1 } /* Comment */
 .highlight .err { color: #586e75 } /* Error */
 .highlight .g { color: #586e75 } /* Generic */
