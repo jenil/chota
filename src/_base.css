@@ -3,6 +3,7 @@
     --lightGrey-color: #ddd;
     --grid-maxWidth: 120rem;
     --grid-gutter: 1.5rem;
+    --font-family: -apple-system, BlinkMacSystemFont, Avenir, "Avenir Next", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
 * {
@@ -22,7 +23,7 @@ body {
     line-height: 1.6;
     font-size: 1.6rem;
     font-weight: 400;
-    font-family: -apple-system, BlinkMacSystemFont, Avenir, "Avenir Next", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-family: var(--font-family);
     margin: 0;
     padding: 0;
 }
@@ -105,14 +106,11 @@ kbd {
     padding: 0 0.4rem;
     font-size: 90%;
     white-space: nowrap;
-    color: #d00939;
-    border: 1px solid var(--lightGrey-color);
     border-radius: 4px;
 }
 
 pre {
     font-size: 1em;
-    background-color: #f3f3f3;
     padding: 1rem;
 }
 
