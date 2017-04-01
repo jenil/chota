@@ -3,17 +3,6 @@
     flex-direction: column;
 }
 
-code {
-  background-color: #f7f7f7;
-  color: #c62424;
-  white-space: pre-wrap;
-  padding: 0.2em 0.4em;
-}
-
-pre code {
-  background: none;
-}
-
 .logo {
     flex: 1;
     flex-direction: column;
@@ -36,6 +25,13 @@ footer {
 section {
     max-width: 700px;
     margin: 5rem auto;
+}
+
+#features ul {
+  list-style-type: none;
+  padding: 0;
+  font-size: 1.2em;
+  font-weight: 200;
 }
 
 .highlight, code { background-color: #f1f5f5; }
