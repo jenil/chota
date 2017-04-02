@@ -83,6 +83,7 @@ button {
     border: none;
     font-size: 1.5rem;
     line-height: 1;
+    text-align: center;
     transition: all 0.2s ease;
     text-decoration: none;
     transform: scale(1);
@@ -110,7 +111,10 @@ button:active {
     transform: scale(0.98);
 }
 
-input[disabled] {
+input[disabled],
+button[disabled],
+input[disabled]:hover,
+button[disabled]:hover {
     opacity: 0.4;
     cursor: not-allowed;
 }

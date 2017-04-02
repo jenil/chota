@@ -63,6 +63,7 @@ h6 {
 
 a {
     color: var(--primary-color);
+    text-decoration: none;
 }
 
 a:hover:not(.button) {
@@ -139,6 +140,7 @@ pre {
 
 pre code {
     background: none;
+    padding: 0;
 }
 
 abbr[title] {

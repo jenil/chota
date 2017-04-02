@@ -45,15 +45,13 @@
 }
 
 .nav .brand {
-    display: flex;
-    align-items: center;
     margin: 0;
 }
 
-.nav a {
+.nav a,
+.nav .brand {
     text-decoration: none;
-    cursor: pointer;
     display: flex;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 0 2rem;
 }
