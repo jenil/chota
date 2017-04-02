@@ -1,3 +1,7 @@
+body>.container {
+    max-width: 720px;
+}
+
 .hero {
     display: flex;
     flex-direction: column;
@@ -14,7 +18,7 @@
 }
 
 .logo h3 {
-  font-weight: 300;
+    font-weight: 300;
 }
 
 footer {
@@ -23,15 +27,42 @@ footer {
 }
 
 section {
-    max-width: 700px;
     margin: 5rem auto;
 }
 
 #features ul {
-  list-style-type: none;
-  padding: 0;
-  font-size: 1.2em;
-  font-weight: 200;
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.2em;
+    font-weight: 200;
+}
+
+figure.highlight {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+hr {
+    margin: 3rem 0;
+}
+
+#grid .card {
+    padding: 1rem 0rem;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background-color: rgba(26, 159, 96, 0.2);
+    font-size: 1.2rem;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.buttons > * {
+    margin: .5rem;
 }
 
 .highlight, code { background-color: #f1f5f5; }
