@@ -1,0 +1,168 @@
+<section id="grid">
+  <h4>Grid</h4>
+  <p>The grid system is a fluid system with a max width of 120rem (1200px), that shrinks with the viewport. The max width can be controlled by changing the <code>--grid-maxWidth</code> in the <code>:root</code>.</p>
+  <p>Much like other frameworks, wrap your content in a <code>.container</code> to center it on the page.</p>
+  <br>
+  <h5>Flexible grid</h5>
+  <p>A simple way to build flexible responsive columns:</p>
+  <ul>
+    <li>Add a <code>.row</code> container</li>
+    <li>Add as many <code>.col</code> elements as you want</li>
+  </ul>
+  <p>Each column will have an <strong>equal width</strong>, in a row. There is no restriction on number of columns, but it is recommended <strong>not</strong> to add more than 12 columns in a row.</p>
+  <div class="row">
+    <div class="col">
+      <div class="card is-center">.col</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card is-center">.col</div>
+    </div>
+    <div class="col">
+      <div class="card is-center">.col</div>
+    </div>
+    <div class="col">
+      <div class="card is-center">.col</div>
+    </div>
+  </div>
+  {% highlight html %}
+<div class="row">
+  <div class="col"> .col </div>
+</div>
+<div class="row">
+  <div class="col"> .col </div>
+  <div class="col"> .col </div>
+  <div class="col"> .col </div>
+</div>
+  {% endhighlight %}
+  <hr>
+  <h5>Sized</h5>
+  <p>You can also specify the size of the columns</p>
+  <ul>
+    <li>Add a <code>.row</code> container</li>
+    <li>Add a <code>.col-n</code> child where <strong>n</strong> can be from 1 to 12</li>
+  </ul>
+  <p>Each column class is named after how many columns you want out of 12. So if you want 4 columns out of 12, use <code>.col-4</code>.</p>
+  <div class="row">
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+    <div class="col-1">
+      <div class="card is-center">.col-1</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <div class="card is-center">.col-4</div>
+    </div>
+    <div class="col-4">
+      <div class="card is-center">.col-4</div>
+    </div>
+    <div class="col-4">
+      <div class="card is-center">.col-4</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card is-center">.col-12</div>
+    </div>
+  </div>
+{% highlight html %}
+<div class="row">
+  <div class="col-1"> .col-1 </div>
+  <!-- repeat 11 times -->
+</div>
+<div class="row">
+  <div class="col-4"> .col-4 </div>
+  <!-- repeat twice -->
+</div>
+<div class="row">
+  <div class="col-12"> .col-12 </div>
+</div>
+{% endhighlight %}
+  <hr>
+  <h5>Mix-n-Match</h5>
+  <p>You can use a combination of <strong>flexible</strong> and <strong>sized</strong> columns.</p>
+  <p>When using a combination, the sized width column takes the size specified and the remaining is filled in by the flexible column.</p>
+  <div class="row">
+    <div class="col-2">
+      <div class="card is-center">.col-2</div>
+    </div>
+    <div class="col-2">
+      <div class="card is-center">.col-2</div>
+    </div>
+    <div class="col">
+      <div class="card is-center">auto</div>
+    </div>
+    <div class="col-3">
+      <div class="card is-center">.col-3</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-10">
+      <div class="card is-center">.col-10</div>
+    </div>
+    <div class="col">
+      <div class="card is-center">auto</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col"><div class="card is-center">auto</div></div>
+    <div class="col"><div class="card is-center">auto</div></div>
+    <div class="is-full-width"></div>
+    <div class="col"><div class="card is-center">auto</div></div>
+    <div class="col"><div class="card is-center">auto</div></div>
+  </div>
+{% highlight html %}
+<div class="row">
+  <div class="col-2"> .col-2 </div>
+  <div class="col-2"> .col-2 </div>
+  <div class="col"> auto </div>
+  <div class="col-3"> .col-3 </div>
+</div>
+<div class="row">
+  <div class="col-10"> .col-10 </div>
+  <div class="col"> auto </div>
+</div>
+<div class="row">
+  <div class="col"> auto </div>
+  <div class="col"> auto </div>
+  <div class="is-full-width"></div>
+  <div class="col"> auto </div>
+  <div class="col"> auto </div>
+</div>
+{% endhighlight %}
+<p><strong>Pro tip:</strong> Create equal-width columns that span multiple rows by inserting a <code>.is-full-width</code> where you want the columns to break to a new line. Here <code>.is-full-width</code> is one of the <a href="#utilities">utility</a> class.</p>
+
+</section>
