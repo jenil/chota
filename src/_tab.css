@@ -8,7 +8,7 @@
 
 .tabs > a {
     padding: 1rem 2rem;
-    flex: 1;
+    flex: 0 1 auto;
     color: #555;
     border-bottom: 2px solid var(--lightGrey-color);
     text-align: center;
@@ -22,4 +22,8 @@
 
 .tabs > a.active {
     border-color: var(--primary-color);
+}
+
+.tabs.is-full a {
+    flex: 1;
 }
