@@ -1,19 +1,16 @@
 .container {
     max-width: var(--grid-maxWidth);
     margin: 0 auto;
-    width: 90%;
+    width: 96%;
+    padding: 0 calc(var(--grid-gutter) / 2);
 }
 
 .row {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
-    margin-top: var(--grid-gutter);
-    margin-bottom: var(--grid-gutter);
-}
-
-.row > :first-child {
-    margin-left: 0;
+    margin-left: calc(var(--grid-gutter) / -2);
+    margin-right: calc(var(--grid-gutter) / -2);
 }
 
 .col {
@@ -23,62 +20,67 @@
 .col,
 [class*=" col-"],
 [class^='col-'] {
-    margin-left: var(--grid-gutter);
+    margin-bottom: var(--grid-gutter);
+    margin-left: calc(var(--grid-gutter) / 2);
+    margin-right: calc(var(--grid-gutter) / 2);
 }
 
 .col-1 {
-    width: calc((100% - var(--grid-gutter)*((12/1) - 1))/(12/1));
+    width: calc((100% / (12/1)) - var(--grid-gutter));
 }
 
 .col-2 {
-    width: calc((100% - var(--grid-gutter)*((12/2) - 1))/(12/2));
+    width: calc((100% / (12/2)) - var(--grid-gutter));
 }
 
 .col-3 {
-    width: calc((100% - var(--grid-gutter)*((12/3) - 1))/(12/3));
+    width: calc((100% / (12/3)) - var(--grid-gutter));
 }
 
 .col-4 {
-    width: calc((100% - var(--grid-gutter)*((12/4) - 1))/(12/4));
+    width: calc((100% / (12/4)) - var(--grid-gutter));
 }
 
 .col-5 {
-    width: calc((100% - var(--grid-gutter)*((12/5) - 1))/(12/5));
+    width: calc((100% / (12/5)) - var(--grid-gutter));
 }
 
 .col-6 {
-    width: calc((100% - var(--grid-gutter)*((12/6) - 1))/(12/6));
+    width: calc((100% / (12/6)) - var(--grid-gutter));
 }
 
 .col-7 {
-    width: calc((100% - var(--grid-gutter)*((12/7) - 1))/(12/7));
+    width: calc((100% / (12/7)) - var(--grid-gutter));
 }
 
 .col-8 {
-    width: calc((100% - var(--grid-gutter)*((12/8) - 1))/(12/8));
+    width: calc((100% / (12/8)) - var(--grid-gutter));
 }
 
 .col-9 {
-    width: calc((100% - var(--grid-gutter)*((12/9) - 1))/(12/9));
+    width: calc((100% / (12/9)) - var(--grid-gutter));
 }
 
 .col-10 {
-    width: calc((100% - var(--grid-gutter)*((12/10) - 1))/(12/10));
+    width: calc((100% / (12/10)) - var(--grid-gutter));
 }
 
 .col-11 {
-    width: calc((100% - var(--grid-gutter)*((12/11) - 1))/(12/11));
+    width: calc((100% / (12/11)) - var(--grid-gutter));
 }
 
 .col-12 {
-    width: calc((100% - var(--grid-gutter)*((12/12) - 1))/(12/12));
+    width: calc((100% / (12/12)) - var(--grid-gutter));
 }
 
 @media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+    
     .col,
     [class*=" col-"],
     [class^='col-'] {
-        margin: var(--grid-gutter) 0;
-        width: 100%;
+        flex-basis: 100%;
     }
 }

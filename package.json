@@ -5,8 +5,10 @@
   "main": "dist/chota.min.css",
   "scripts": {
     "start": "browser-sync start --server --files '**/*.css' '**/*.html'",
-    "build": "rm -r dist/ && yarn postcss && yarn postcss -- -u cssnano -x .min.css",
-    "postcss": "postcss ./src/chota.css --use postcss-import -d dist/ --no-map",
+    "build": "rm -r dist/ && yarn postcss && yarn postcss -- -x .min.css && yarn cssnano && yarn cssnano:min",
+    "postcss": "postcss ./src/chota.css -u postcss-import -d dist/ --no-map",
+    "cssnano": "cssnano ./dist/chota.css ./dist/chota.css --no-calc --no-core",
+    "cssnano:min": "cssnano ./dist/chota.min.css ./dist/chota.min.css --no-calc",
     "watch": "yarn postcss -- -u cssnano -x .min.css -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,8 +30,13 @@
   "devDependencies": {
     "autoprefixer": "^6.7.7",
     "browser-sync": "^2.18.8",
-    "cssnano": "^3.10.0",
+    "cssnano-cli": "^1.0.5",
     "postcss-cli": "^3.0.0",
     "postcss-import": "^9.1.0"
-  }
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "README.md"
+  ]
 }

@@ -8,11 +8,6 @@
     display: flex;
 }
 
-.container > .nav {
-    padding-left: var(--grid-gutter);
-    padding-right: var(--grid-gutter);
-}
-
 .nav-center,
 .nav-left,
 .nav-right {
@@ -53,7 +48,6 @@
     display: flex;
     align-items: center;
     margin: 0;
-    font-weight: 300;
 }
 
 .nav a {

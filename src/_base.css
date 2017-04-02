@@ -2,7 +2,7 @@
     --primary-color: #1a9f60;
     --lightGrey-color: #ddd;
     --grid-maxWidth: 120rem;
-    --grid-gutter: 1.5rem;
+    --grid-gutter: 2rem;
     --font-family: -apple-system, BlinkMacSystemFont, Avenir, "Avenir Next", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
@@ -11,7 +11,6 @@
 }
 
 html {
-    box-sizing: border-box;
     font-size: 62.5%;
     line-height: 1.15;
     -ms-text-size-adjust: 100%;
@@ -34,12 +33,32 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: 600;
+    font-weight: 500;
+    margin: 0.35em 0 0.7em 0;
 }
 
 h1 {
     font-size: 2em;
-    margin: 0.67em 0;
+}
+
+h2 {
+    font-size: 1.75em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+h4 {
+    font-size: 1.25em;
+}
+
+h5 {
+    font-size: 1em;
+}
+
+h6 {
+    font-size: 0.85em;
 }
 
 a {
@@ -51,7 +70,7 @@ a:hover:not(.button) {
 }
 
 p {
-  margin-top: 0;
+    margin-top: 0;
 }
 
 blockquote {
@@ -119,7 +138,7 @@ pre {
 }
 
 pre code {
-  background: none;
+    background: none;
 }
 
 abbr[title] {
