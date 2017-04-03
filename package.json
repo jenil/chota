@@ -4,7 +4,7 @@
   "description": "A really small CSS framework",
   "main": "dist/chota.min.css",
   "scripts": {
-    "start": "browser-sync start --server --files '**/*.css' '**/*.html'",
+    "start": "browser-sync start --server --directory --files '**/*.css' '**/*.html'",
     "build": "rm -r dist/ && yarn postcss && yarn postcss -- -x .min.css && yarn cssnano && yarn cssnano:min",
     "postcss": "postcss ./src/chota.css -u postcss-import -d dist/ --no-map",
     "cssnano": "cssnano ./dist/chota.css ./dist/chota.css --no-calc --no-core",

@@ -50,16 +50,18 @@
     display: flex;
     align-items: center;
     padding: 1rem 2rem;
+    color: #555;
+}
+
+.nav .active:not(.button) {
+    color: #000; /* fallback */
+    color: var(--primary-color);
 }
 
 .nav .brand {
-    margin: 0;
+    font-size: 1.75em;
     padding-top: 0;
     padding-bottom: 0;
-}
-
-.nav .brand a {
-    padding: 0;
 }
 
 .nav .button {
