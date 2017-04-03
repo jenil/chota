@@ -8,8 +8,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <title>chota - A small CSS framework</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="https://unpkg.com/chota">
+  <link rel="stylesheet" href="https://unpkg.com/chota">
   <link rel="stylesheet" href="./doc-styles.css">
+  <link rel="icon" type="image/png" href="favicon.png" />
 </head>
 
 <body id="top">
@@ -19,16 +20,12 @@
         <img src="./logo.svg" alt="">
         <h3>A <strong>small</strong> (3kb) CSS framework.</h3>
       </div>
-      <div class="row">
-        <div class="col is-center">
-          <nav class="tabs">
-            <a href="#features">features</a>
-            <a href="#start">start</a>
-            <a href="#docs">docs</a>
-            <a href="https://github.com/jenil/chota">github</a>
-          </nav>
-        </div>
-      </div>
+      <nav class="tabs is-center">
+        <a href="#features">features</a>
+        <a href="#start">start</a>
+        <a href="#docs">docs</a>
+        <a href="https://github.com/jenil/chota">github</a>
+      </nav>
     </div>
 
     <section id="features">
@@ -38,7 +35,7 @@
         <li>⛔️&nbsp; No preprocessor, just plug-n-play</li>
         <li>📐&nbsp; Magical 12 column grid</li>
         <li>🌈&nbsp; Easy to extended with CSS variables</li>
-        <li>🎲&nbsp; Comes with a handful of components &amp; utilities</li>
+        <li>🎲&nbsp; Comes with a handful of <a href="#components">components</a> &amp; <a href="#utilities">utilities</a></li>
         <li>✅&nbsp; Good Semantics</li>
       </ul>
     </section>
@@ -79,11 +76,11 @@
       <p>Chota comes with a basic set of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables" target="_blank">CSS variables</a>:</p>
 {% highlight css %}
 :root {
---primary-color: #1a9f60;
---lightGrey-color: #ddd;
---grid-maxWidth: 120rem;
---grid-gutter: 1.5rem;
---font-family: "Helvetica Neue", sans-serif;
+  --primary-color: #1a9f60;
+  --lightGrey-color: #ddd;
+  --grid-maxWidth: 120rem;
+  --grid-gutter: 1.5rem;
+  --font-family: "Helvetica Neue", sans-serif;
 }
 {% endhighlight %}
     <br>
@@ -92,8 +89,8 @@
 @import url(chota.css)
 
 :root {
---primary-color: #da1d50; /* brand color */
---grid-maxWidth: 108rem; /* max container width 1080px */
+  --primary-color: #da1d50; /* brand color */
+  --grid-maxWidth: 108rem; /* max container width 1080px */
 }
 
 /* Other styles..... */
@@ -109,6 +106,7 @@
             <a href="#grid">grid</a>
           <a href="#buttons">buttons</a>
           <a href="#nav">nav</a>
+          <a href="#card">card</a>
           <a href="#utilities">utilities</a>
           </nav>
         </div>
@@ -116,6 +114,16 @@
       {% include grid.html %}
       <br>
       {% include buttons.html %}
+      <br>
+      {% include navs.html %}
+      <br>
+      {% include card.html %}
+      <br>
+      {% include utilities.html %}
+      <br>
+      <p class="is-center">
+      <a class="button primary outline" target="_blank" href="https://twitter.com/intent/tweet?url=https://jenil.github.io/chota/&text=chota.css%20-%20A%20small%20CSS%20framework&via=geekGogari&hashtags=web,css">Give a shout-out</a>
+      </p>
     </section>
   </div>
   <footer class="is-text-center">

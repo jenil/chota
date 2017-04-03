@@ -21,7 +21,7 @@ body>.container {
     font-weight: 300;
 }
 
-footer {
+body>footer {
     background-color: #fafafa;
     padding: 4rem;
 }

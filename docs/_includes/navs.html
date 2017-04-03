@@ -1,0 +1,97 @@
+<section id="nav">
+  <h4>Nav</h4>
+  <p>A responsive horizontal nav bar that can contain links, tabs, buttons, icons, and a logo.</p>
+  <p>The <code>.nav</code> container can have 3 parts:</p>
+  <ul>
+    <li><code>.nav-left</code></li>
+    <li><code>.nav-center</code></li>
+    <li><code>.nav-right</code></li>
+  </ul>
+  <p>Each of these containers can have a <code>&lt;a&gt;</code> ,<code>.button</code>, <code>.tabs</code>, <code>.brand</code>. Add a <code>active</code> class to show a active link.</p>
+  <br>
+  <nav class="nav">
+    <div class="nav-left">
+      <a class="brand" href="#">Brand</a>
+      <div class="tabs">
+        <a href="#!">Link 1</a>
+        <a href="#!" class="active">Link 2</a>
+      </div>
+    </div>
+    <div class="nav-right">
+      <a href="#!" class="button outline">Button</a>
+    </div>
+  </nav>
+{% highlight html %}
+<nav class="nav">
+  <div class="nav-left">
+    <a class="brand" href="#">Brand</a>
+    <div class="tabs">
+      <a>Link 1</a>
+      <a class="active">Link 2</a>
+    </div>
+  </div>
+  <div class="nav-right">
+    <a class="button outline">Button</a>
+  </div>
+</nav>
+{% endhighlight %}
+  <hr>
+  <nav class="nav">
+    <div class="nav-left">
+      <a href="#!" class="active">Link 1</a>
+      <a href="#!">Link 2</a>
+    </div>
+    <div class="nav-center">
+      <a class="brand" href="#">
+        <img src="../logo.svg" alt="">
+      </a>
+    </div>
+    <div class="nav-right">
+        <a href="#!">Link 3</a>
+        <a href="#!">Link 4</a>
+    </div>
+  </nav>
+{% highlight html %}
+<nav class="nav">
+  <div class="nav-left">
+    <a class="active">Link 1</a>
+    <a>Link 2</a>
+  </div>
+  <div class="nav-center">
+    <a class="brand">
+      <img src="logo.svg" alt="">
+    </a>
+  </div>
+  <div class="nav-right">
+      <a>Link 3</a>
+      <a>Link 4</a>
+  </div>
+</nav>
+{% endhighlight %}
+  <hr>
+  <p>You can also have tabs without a nav bar. Simply make a <code>.tabs</code> container and add links in it. To make tabs go full width just add a <code>is-full</code> class</p>
+  <br>
+  <nav class="tabs">
+    <a href="#!">Tab 1</a>
+    <a href="#!">Tab 2</a>
+    <a href="#!" class="active">Tab 3</a>
+  </nav>
+  <br>
+  <nav class="tabs is-full">
+    <a href="#!">Tab 1</a>
+    <a href="#!" class="active">Tab 2</a>
+    <a href="#!">Tab 3</a>
+  </nav>
+{% highlight html %}
+<nav class="tabs">
+  <a>Tab 1</a>
+  <a>Tab 2</a>
+  <a class="active">Tab 3</a>
+</nav>
+<nav class="tabs is-full">
+  <a>Tab 1</a>
+  <a class="active">Tab 2</a>
+  <a>Tab 3</a>
+</nav>
+{% endhighlight %}
+</section>
