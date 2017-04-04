@@ -86,6 +86,10 @@
     clear: both;
 }
 
+.is-hidden {
+    display: none !important;
+}
+
 @media screen and (max-width: 480px) {
     .hide-phone {
         display: none;
