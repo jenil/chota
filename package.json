@@ -1,6 +1,6 @@
 {
   "name": "chota",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "A really small CSS framework",
   "main": "dist/chota.min.css",
   "scripts": {
