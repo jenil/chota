@@ -65,10 +65,9 @@ button {
     font-size: 1.5rem;
     line-height: 1;
     text-align: center;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease;
     text-decoration: none;
     transform: scale(1);
-    transition: all 300ms;
     display: inline-block;
 }
 

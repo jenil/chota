@@ -1,6 +1,6 @@
 :root {
     --primary-color: #1a9f60;
-    --lightGrey-color: #ddd;
+    --lightGrey-color: #d2d6dd;
     --grid-maxWidth: 120rem;
     --grid-gutter: 2rem;
     --font-family: -apple-system, BlinkMacSystemFont, Avenir, "Avenir Next", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -137,6 +137,7 @@ pre {
     background-color: #f7f7f7;
     font-size: 1em;
     padding: 1rem;
+    overflow-x: auto;
 }
 
 pre code {
