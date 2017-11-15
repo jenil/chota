@@ -4,19 +4,14 @@
   "description": "A really small CSS framework",
   "main": "dist/chota.min.css",
   "scripts": {
-    "start": "browser-sync start --server --directory --files '**/*.css' '**/*.html'",
-    "build": "rm -r dist/ && yarn postcss && yarn postcss -- -x .min.css && yarn cssnano && yarn cssnano:min",
-    "postcss": "postcss ./src/chota.css -u postcss-import -d dist/ --no-map",
-    "cssnano": "cssnano ./dist/chota.css ./dist/chota.css --no-calc --no-core",
-    "cssnano:min": "cssnano ./dist/chota.min.css ./dist/chota.min.css --no-calc",
-    "watch": "yarn postcss -- -u cssnano -x .min.css -w",
+    "start":
+      "browser-sync start --server --directory --files '**/*.css' '**/*.html'",
+    "build": "rm -r dist/ && yarn postcss &&  NODE_ENV=production yarn postcss -x .min.css",
+    "postcss": "postcss ./src/chota.css -d dist/",
+    "watch": "NODE_ENV=development yarn postcss -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "css",
-    "minimal",
-    "web"
-  ],
+  "keywords": ["css", "minimal", "web"],
   "author": "Jenil Gogari",
   "license": "MIT",
   "homepage": "https://jenil.github.io/chota",
@@ -30,13 +25,9 @@
   "devDependencies": {
     "autoprefixer": "^6.7.7",
     "browser-sync": "^2.18.8",
-    "cssnano-cli": "^1.0.5",
-    "postcss-cli": "^3.0.0",
+    "postcss-cli": "^4.1.1",
+    "postcss-csso": "^3.0.0",
     "postcss-import": "^9.1.0"
   },
-  "files": [
-    "src/",
-    "dist/",
-    "README.md"
-  ]
+  "files": ["src/", "dist/", "README.md"]
 }
