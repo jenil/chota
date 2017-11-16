@@ -10,7 +10,7 @@ A really small CSS framework
 - ⚡️&nbsp; Super light-weight. Just 3kb (minified + gzipped).
 - ⛔️&nbsp; No preprocessor, just plug-n-play
 - 📐&nbsp; Magical 12 column [grid](https://jenil.github.io/chota/#grid)
-- 🌈&nbsp; Easy to [extended](https://jenil.github.io/chota/#customizing) with CSS variables
+- 🌈&nbsp; Easy to [extend](https://jenil.github.io/chota/#customizing) with CSS variables
 - 🎲&nbsp; Comes with a handful of [components](https://jenil.github.io/chota/#components) &amp; [utilities](https://jenil.github.io/chota/#utilities)
 - ✅&nbsp; Good Semantics
 
