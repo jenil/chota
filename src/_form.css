@@ -1,123 +1,133 @@
 fieldset {
-    padding: 0.5rem 2rem;
+  padding: 0.5rem 2rem;
 }
 
 legend {
-    text-transform: uppercase;
-    font-size: 0.8em;
-    letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.1rem;
 }
 
-input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=color]):not([type=button]):not([type=reset]),
+input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="color"]):not([type="button"]):not([type="reset"]),
 select,
 textarea,
-textarea[type=text] {
-    font-family: inherit;
-    padding: 0.7rem 1rem;
-    border-radius: 4px;
-    border: 1px solid var(--lightGrey-color);
-    font-size: 1em;
-    transition: all 0.2s ease;
-    display: block;
-    width: 100%;
+textarea[type="text"] {
+  font-family: inherit;
+  padding: 0.7rem 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--lightGrey-color);
+  font-size: 1em;
+  transition: all 0.2s ease;
+  display: block;
+  width: 100%;
 }
 
-input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=color]):not([type=button]):not([type=reset]):hover,
+input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="color"]):not([type="button"]):not([type="reset"]):hover,
 select:hover,
 textarea:hover,
-textarea[type=text]:hover {
-    border-color: #aaa;
+textarea[type="text"]:hover {
+  border-color: #aaa;
 }
 
-input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=color]):not([type=button]):not([type=reset]):focus,
+input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="color"]):not([type="button"]):not([type="reset"]):focus,
 select:focus,
 textarea:focus,
-textarea[type=text]:focus {
-    outline: none;
-    border-color: var(--primary-color);
+textarea[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
 }
 
 select {
-    -webkit-appearance: none;
-    background: #fafafa no-repeat 100%;
-    background-size: 1ex;
-    background-origin: content-box;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='40' fill='#555'><polygon points='0,0 60,0 30,40'/></svg>");
+  -webkit-appearance: none;
+  background: #fafafa no-repeat 100%;
+  background-size: 1ex;
+  background-origin: content-box;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='40' fill='#555'><polygon points='0,0 60,0 30,40'/></svg>");
 }
 
 [type="checkbox"],
 [type="radio"] {
-    width: 1.6rem;
-    height: 1.6rem;
+  width: 1.6rem;
+  height: 1.6rem;
 }
 
 /* BUTTONS */
 .button,
-[type=button],
-[type=reset],
-[type=submit],
+[type="button"],
+[type="reset"],
+[type="submit"],
 button {
-    padding: 1rem 2.5rem;
-    color: #333;
-    background: #e6e6e6;
-    border-radius: 4px;
-    border: none;
-    font-size: 1.5rem;
-    line-height: 1;
-    text-align: center;
-    transition: opacity 0.2s ease;
-    text-decoration: none;
-    transform: scale(1);
-    display: inline-block;
+  padding: 1rem 2.5rem;
+  color: #333;
+  background: #e6e6e6;
+  border-radius: 4px;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  text-align: center;
+  transition: opacity 0.2s ease;
+  text-decoration: none;
+  transform: scale(1);
+  display: inline-block;
 }
 
 .button + .button {
-    margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 .button:hover,
-[type=button]:hover,
-[type=reset]:hover,
-[type=submit]:hover,
+[type="button"]:hover,
+[type="reset"]:hover,
+[type="submit"]:hover,
 button:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 .button:active,
-[type=button]:active,
-[type=reset]:active,
-[type=submit]:active,
+[type="button"]:active,
+[type="reset"]:active,
+[type="submit"]:active,
 button:active {
-    transform: scale(0.98);
+  transform: scale(0.98);
 }
 
 input[disabled],
 button[disabled],
 input[disabled]:hover,
 button[disabled]:hover {
-    opacity: 0.4;
-    cursor: not-allowed;
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .button.primary,
-[type=submit] {
-    color: #fff;
-    background-color: #000;
-    background: var(--primary-color);
+.button.secondary,
+[type="submit"] {
+  color: #fff;
+  background-color: #000;
+  background: var(--primary-color);
+}
+
+.button.secondary {
+  background: var(--darkGrey-color);
 }
 
 .button.outline {
-    background-color: transparent;
-    border: 1px solid var(--lightGrey-color);
+  background-color: transparent;
+  border: 1px solid var(--lightGrey-color);
 }
 
 .button.outline.primary {
-    border-color: var(--primary-color);
-    color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.button.outline.secondary {
+  border-color: var(--darkGrey-color);
+  color: var(--darkGrey-color);
 }
 
 .button.clear {
-    background-color: transparent;
-    border-color: transparent;
-    color: var(--primary-color);
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--primary-color);
 }

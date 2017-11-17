@@ -1,0 +1,23 @@
+.tag {
+  display: inline-block;
+  border: 1px solid var(--lightGrey-color);
+  text-transform: uppercase;
+  color: var(--darkGrey-color);
+  padding: 0.5rem;
+  line-height: 1;
+  letter-spacing: 0.5px;
+}
+
+.tag.is-small {
+  padding: 0.4rem;
+  font-size: 0.75em;
+}
+
+.tag.is-large {
+  padding: 0.7rem;
+  font-size: 1.125em;
+}
+
+.tag+.tag {
+  margin-left: 1rem;
+}

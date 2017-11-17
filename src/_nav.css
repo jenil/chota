@@ -64,6 +64,10 @@
     padding-bottom: 0;
 }
 
+.nav .brand img {
+    padding-right: 1rem;
+}
+
 .nav .button {
     margin: auto 1rem;
 }
