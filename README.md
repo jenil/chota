@@ -28,6 +28,17 @@ npm or yarn:
 npm install chota
 ```
 
+### SASS
+Just use `src_sass` file and than
+```bash
+npm run sass
+```
+
+or
+```bash
+npm run watch:sass
+```
+
 
 ---
 
