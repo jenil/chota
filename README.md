@@ -28,6 +28,9 @@ npm or yarn:
 npm install chota
 ```
 
+#### SASS support
+Chota is designed keeping in mind *ease-of-use* and *minimalism*, hence it doesn't use any preprocessor or complex build process. If you would still like to extend it further using SASS, head to [palmiak's fork](https://github.com/palmiak/chota).
+
 
 ---
 
