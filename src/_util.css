@@ -92,12 +92,12 @@
 
 @media screen and (max-width: 480px) {
     .hide-phone {
-        display: none;
+        display: none !important;
     }
 }
 
 @media screen and (max-width: 768px) {
     .hide-tablet {
-        display: none;
+        display: none !important;
     }
 }
