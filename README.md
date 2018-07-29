@@ -13,6 +13,7 @@ A really small CSS framework
 - 🌈&nbsp; Easy to [extend](https://jenil.github.io/chota/#customizing) with CSS variables
 - 🎲&nbsp; Comes with a handful of [components](https://jenil.github.io/chota/#components) &amp; [utilities](https://jenil.github.io/chota/#utilities)
 - ✅&nbsp; Good Semantics
+- 🤡&nbsp; Supports icons from [Icongram](https://icongr.am/)
 
 <br>
 

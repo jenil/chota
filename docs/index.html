@@ -19,7 +19,7 @@
       <div class="logo is-center is-vertical-align">
         <img src="./logo.svg" alt="">
         <h3>A <strong>micro</strong> (<3kb) CSS framework.</h3>
-        <small><em>BTW, "choṭā" means "small" in Hindi</em></small>
+        <small><em>FWIW, "choṭā" means "small" in Hindi</em></small>
       </div>
       <nav class="tabs is-center">
         <a href="#features">features</a>
@@ -38,6 +38,7 @@
         <li>🌈&nbsp; Easy to <a href="#customizing">extend</a> with CSS variables</li>
         <li>🎲&nbsp; Comes with a handful of <a href="#components">components</a> &amp; <a href="#utilities">utilities</a></li>
         <li>✅&nbsp; Good Semantics</li>
+        <li>🤡&nbsp; Supports <a href="#icons">icons</a> out-of-the-box</li>
       </ul>
     </section>
 
@@ -71,17 +72,27 @@
       <p>
         Chota is <em>dead</em> simple to use. It doesn't require learning a lot of class names like other frameworks. It applies a few basic styles to the HTML following the <a href="https://www.w3schools.com/html/html5_semantic_elements.asp" target="_blank">HTML Semantics</a>.
       </p>
-      <p>Here is a <a href="https://cdn.rawgit.com/jenil/chota/v0.4.1/test/index.html">demo</a> of the basic HTML elements.</p>
+      <p>Here is a <a href="https://cdn.rawgit.com/jenil/chota/v0.5.0/test/index.html#text__tables">demo</a> of the basic HTML elements. A few addons that Chota provides out-of-the-box for some elements are:</p>
+      <ul>
+        <li><a href="href="https://cdn.rawgit.com/jenil/chota/v0.5.0/test/index.html#text__tables"">Striped tabled</a></li>
+        <li><a href="href="https://cdn.rawgit.com/jenil/chota/v0.5.0/test/index.html#forms__input"">Input states</a></li>
+        <li><a href="href="https://cdn.rawgit.com/jenil/chota/v0.5.0/test/index.html#forms__input"">Horizontal input alignment</a> by just wrapping them with <code>grouped</code> class</li>
+        <li><a href="#icons">Icons</a></li>
+      </ul>
       <br>
       <h3 id="customizing">Customizing</h3>
       <p>Chota comes with a basic set of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables" target="_blank">CSS variables</a>:</p>
 {% highlight css %}
 :root {
-  --primary-color: #1a9f60;
-  --lightGrey-color: #ddd;
-  --darkGrey-color: #888;
+  --color-primary: #1a9f60;
+  --color-lightGrey: #d2d6dd;
+  --color-grey: #7e818b;
+  --color-darkGrey: #3f4144;
+  --color-error: #d43939;
+  --color-success: #28bd14;
   --grid-maxWidth: 120rem;
-  --grid-gutter: 1.5rem;
+  --grid-gutter: 2rem;
+  --font-size: 1.6rem;
   --font-family: "Helvetica Neue", sans-serif;
 }
 {% endhighlight %}
@@ -91,7 +102,7 @@
 @import url(chota.css)
 
 :root {
-  --primary-color: #da1d50; /* brand color */
+  --color-primary: #da1d50; /* brand color */
   --grid-maxWidth: 108rem; /* max container width 1080px */
 }
 
@@ -126,13 +137,19 @@
       <br>
       {% include utilities.html %}
       <br>
+      <section id="icons">
+        <h4>Icons</h4>
+        <p>While you are free to use any icon library that you, I'd just like to drop a link to <a href="http://icongr.am/" target="_blank">Icongram</a> here. It's the <em>quickest</em> way you can add icons to any website.</p>
+      </section>
+      <br>
+      <br>
       <p class="is-center">
-      <a class="button primary outline" target="_blank" href="https://twitter.com/intent/tweet?url=https://jenil.github.io/chota/&text=chota.css%20-%20A%20micro%20CSS%20framework&via=geekGogari&hashtags=web,css">Give a shout-out</a>
+      <a class="button primary outline" target="_blank" href="https://twitter.com/intent/tweet?url=https://jenil.github.io/chota/&text=chota.css%20-%20A%20micro%20CSS%20framework&via=geekGogari&hashtags=web,css">Give a shout-out 📢</a>
       </p>
     </section>
   </div>
   <footer class="is-text-center">
-    <p><a href="#top">back to top</a> &bull; <a href="https://github.com/jenil/chota">report an issue</a></p>
+    <p><a href="#top">🔝 back to top</a> &bull; <a href="https://github.com/jenil/chota">🐛 report an issue</a></p>
     <p>Want icons for your project too? Checkout <a href="https://icongr.am" target="_blank">Icongr.am 🚀</a></p>
     <h5>Made by <a href="https://jgog.in" target="_blank">Jenil Gogari</a></h5>
   </footer>
