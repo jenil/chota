@@ -1,8 +1,8 @@
 .tag {
   display: inline-block;
-  border: 1px solid var(--lightGrey-color);
+  border: 1px solid var(--color-lightGrey);
   text-transform: uppercase;
-  color: var(--darkGrey-color);
+  color: var(--color-grey);
   padding: 0.5rem;
   line-height: 1;
   letter-spacing: 0.5px;

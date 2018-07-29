@@ -9,8 +9,8 @@
 .tabs > a {
     padding: 1rem 2rem;
     flex: 0 1 auto;
-    color: #555;
-    border-bottom: 2px solid var(--lightGrey-color);
+    color: var(--color-darkGrey);
+    border-bottom: 2px solid var(--color-lightGrey);
     text-align: center;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .tabs > a.active {
-    border-color: var(--primary-color);
+    border-color: var(--color-primary);
 }
 
 .tabs.is-full a {

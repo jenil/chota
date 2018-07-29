@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elements</title>
   <link rel="stylesheet" href="../dist/chota.min.css">
+  
+  <!-- For dev -->
+  <!-- <link rel="stylesheet" href="../dist/chota.css"> -->
 </head>
 
 <body>
@@ -141,6 +144,45 @@
           <header>
             <h1>Tabular data</h1></header>
           <table>
+            <caption>Table Caption</caption>
+            <thead>
+              <tr>
+                <th>Table Heading 1</th>
+                <th>Table Heading 2</th>
+                <th>Table Heading 3</th>
+                <th>Table Heading 4</th>
+                <th>Table Heading 5</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>Table Footer 1</th>
+                <th>Table Footer 2</th>
+                <th>Table Footer 3</th>
+                <th>Table Footer 4</th>
+                <th>Table Footer 5</th>
+              </tr>
+            </tfoot>
+            <tbody>
+              <tr>
+                <td>Table Cell 1</td>
+                <td>Table Cell 2</td>
+                <td>Table Cell 3</td>
+                <td>Table Cell 4</td>
+                <td>Table Cell 5</td>
+              </tr>
+              <tr>
+                <td>Table Cell 1</td>
+                <td>Table Cell 2</td>
+                <td>Table Cell 3</td>
+                <td>Table Cell 4</td>
+                <td>Table Cell 5</td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <h4>Table with strips. Just add the <code>striped</code> class to  <code>&lt;table&gt;</code>.</h4>
+          <table class="striped">
             <caption>Table Caption</caption>
             <thead>
               <tr>
@@ -360,15 +402,24 @@
             </p>
             <p>
               <label for="input__text3" class="error">Error</label>
-              <input id="input__text3" class="is-error" type="text" placeholder="Text Input">
+              <input id="input__text3" class="error" type="text" placeholder="Text Input">
             </p>
             <p>
-              <label for="input__text4" class="valid">Valid</label>
-              <input id="input__text4" class="is-valid" type="text" placeholder="Text Input">
+              <label for="input__text4" class="success">Valid</label>
+              <input id="input__text4" class="success" type="text" placeholder="Text Input">
             </p>
             <p>
-              <label for="input__text">Disabled Text Input</label>
-              <input id="input__text" type="text" placeholder="Disabled Text Input" disabled>
+              <label for="input__text5">Disabled Text Input</label>
+              <input id="input__text5" type="text" placeholder="Disabled Text Input" disabled>
+            </p>
+            <p class="grouped">
+              <input type="search" name="input__text6" id="input__text6" placeholder="Search">
+              <button class="button icon-only"><img src="https://icongr.am/feather/search.svg?size=16"></button>
+            </p>
+            <p class="grouped">
+              <input type="text" name="input__text7" id="input__text7" placeholder="Username">
+              <input type="text" name="input__text8" id="input__text8" placeholder="Password">
+              <button class="button primary">Submit</button>
             </p>
           </fieldset>
           <p><a href="#top">[Top]</a></p>
@@ -466,9 +517,13 @@
               <a href="#" class="button">a.button</a>
               <a href="#" class="button primary">a.button.primary</a>
               <a href="#" class="button secondary">a.button.secondary</a>
+              <a href="#" class="button dark">a.button.dark</a>
+              <a href="#" class="button error">a.button.error</a>
+              <a href="#" class="button success">a.button.success</a>
               <a href="#" class="button outline">a.button.outline</a>
               <a href="#" class="button outline primary">a.button.outline.primary</a>
               <a href="#" class="button outline secondary">a.button.outline.secondary</a>
+              <a href="#" class="button outline dark">a.button.outline.dark</a>
               <a href="#" class="button clear">a.button.clear</a>
             </p>
           </fieldset>
