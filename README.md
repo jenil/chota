@@ -2,7 +2,7 @@
 <img src="https://jenil.github.io/chota/logo.svg" />
 <br><br>
 A really small CSS framework
-<br>
+<br><br>
 <img src="https://img.shields.io/npm/v/chota.svg">
 <img src="https://img.shields.io/npm/dt/chota.svg">
 <img src="https://img.shields.io/github/issues/jenil/chota.svg">
