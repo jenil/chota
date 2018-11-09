@@ -399,18 +399,22 @@ button[disabled]:hover {
 }
 .button.outline {
   background-color: transparent;
-  border: 1px solid var(--color-lightGrey);
+  -webkit-box-shadow: inset 0 0 0 1px var(--color-lightGrey);
+          box-shadow: inset 0 0 0 1px var(--color-lightGrey);
 }
 .button.outline.primary {
-  border-color: var(--color-primary);
+  -webkit-box-shadow: inset 0 0 0 1px var(--color-primary);
+          box-shadow: inset 0 0 0 1px var(--color-primary);
   color: var(--color-primary);
 }
 .button.outline.secondary {
-  border-color: var(--color-grey);
+  -webkit-box-shadow: inset 0 0 0 1px var(--color-grey);
+          box-shadow: inset 0 0 0 1px var(--color-grey);
   color: var(--color-grey);
 }
 .button.outline.dark {
-  border-color: var(--color-darkGrey);
+  -webkit-box-shadow: inset 0 0 0 1px var(--color-darkGrey);
+          box-shadow: inset 0 0 0 1px var(--color-darkGrey);
   color: var(--color-darkGrey);
 }
 .button.clear {
