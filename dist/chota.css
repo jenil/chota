@@ -575,8 +575,8 @@ button[disabled]:hover {
 }
 .tabs.is-full a {
     -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
 }
 .tag {
   display: inline-block;
