@@ -13,6 +13,10 @@
     margin-right: calc(var(--grid-gutter) / -2);
 }
 
+.row-reverse {
+  flex-direction: row-reverse;
+}
+
 .col {
     flex: 1;
 }
@@ -87,7 +91,7 @@
     .container {
         width: 100%;
     }
-    
+
     .col,
     [class*=" col-"],
     [class^='col-'] {

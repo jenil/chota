@@ -167,6 +167,12 @@ iframe {
     margin-left: calc(var(--grid-gutter) / -2);
     margin-right: calc(var(--grid-gutter) / -2);
 }
+.row-reverse {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
 .col {
     -webkit-box-flex: 1;
         -ms-flex: 1;
@@ -253,7 +259,7 @@ iframe {
     .container {
         width: 100%;
     }
-    
+
     .col,
     [class*=" col-"],
     [class^='col-'] {
