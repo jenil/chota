@@ -13,7 +13,7 @@
     margin-right: calc(var(--grid-gutter) / -2);
 }
 
-.row-reverse {
+.row.reverse {
   flex-direction: row-reverse;
 }
 
