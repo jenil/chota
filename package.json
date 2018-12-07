@@ -5,9 +5,9 @@
   "main": "dist/chota.min.css",
   "scripts": {
     "start": "browser-sync start --server --directory --files '**/*.css' '**/*.html'",
-    "build": "rm -r dist/ && yarn postcss &&  NODE_ENV=production yarn postcss --ext .min.css && gzip -c dist/chota.min.css  | wc -c",
+    "build": "rm -r dist/ && yarn postcss &&  cross-env NODE_ENV=production yarn postcss --ext .min.css && gzip -c dist/chota.min.css  | wc -c",
     "postcss": "postcss ./src/chota.css -d dist/",
-    "watch": "NODE_ENV=development yarn postcss -w",
+    "watch": "cross-env NODE_ENV=development yarn postcss -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
