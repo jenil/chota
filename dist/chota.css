@@ -340,6 +340,7 @@ button {
   -webkit-transform: scale(1);
           transform: scale(1);
   display: inline-block;
+  cursor: pointer;
 }
 .grouped {
   display: -webkit-box;

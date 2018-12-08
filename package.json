@@ -5,9 +5,9 @@
   "main": "dist/chota.min.css",
   "scripts": {
     "start": "browser-sync start --server --directory --files '**/*.css' '**/*.html'",
-    "build": "rm -r dist/ && yarn postcss &&  NODE_ENV=production yarn postcss --ext .min.css && gzip -c dist/chota.min.css  | wc -c",
+    "build": "rm -r dist/ && yarn postcss &&  cross-env NODE_ENV=production yarn postcss --ext .min.css && gzip -c dist/chota.min.css  | wc -c",
     "postcss": "postcss ./src/chota.css -d dist/",
-    "watch": "NODE_ENV=development yarn postcss -w",
+    "watch": "cross-env NODE_ENV=development yarn postcss -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -26,12 +26,13 @@
     "url": "https://github.com/jenil/chota/issues"
   },
   "devDependencies": {
-    "autoprefixer": "^9.0.1",
-    "browser-sync": "^2.18.8",
-    "cssnano": "^4.0.4",
-    "postcss-cli": "^6.0.0",
+    "autoprefixer": "^9.4.2",
+    "browser-sync": "^2.26.3",
+    "cross-env": "^5.2.0",
+    "cssnano": "^4.1.7",
+    "postcss-cli": "^6.0.1",
     "postcss-csso": "^3.0.0",
-    "postcss-import": "^11.1.0"
+    "postcss-import": "^12.0.1"
   },
   "files": [
     "src/",
