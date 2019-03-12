@@ -4,8 +4,8 @@
 A really small CSS framework
 <br><br>
 <img src="https://img.shields.io/npm/v/chota.svg">
-<img src="https://img.shields.io/npm/dt/chota.svg">
-<img src="https://img.shields.io/github/issues/jenil/chota.svg">
+<a href="https://www.npmjs.com/package/chota"><img src="https://img.shields.io/npm/dt/chota.svg"></a>
+<a href="https://github.com/jenil/chota/issues"><img src="https://img.shields.io/github/issues/jenil/chota.svg"></a>
 </p>
 
 <br>

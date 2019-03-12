@@ -80,6 +80,7 @@ button {
   text-decoration: none;
   transform: scale(1);
   display: inline-block;
+  cursor: pointer;
 }
 
 .grouped {
