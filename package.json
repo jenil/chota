@@ -1,11 +1,11 @@
 {
   "name": "chota",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "A really small CSS framework",
   "main": "dist/chota.min.css",
   "scripts": {
     "start": "browser-sync start --server --directory --files '**/*.css' '**/*.html'",
-    "build": "rm -r dist/ && yarn postcss &&  cross-env NODE_ENV=production yarn postcss --ext .min.css && gzip -c dist/chota.min.css  | wc -c",
+    "build": "rimraf dist/* && yarn postcss &&  cross-env NODE_ENV=production yarn postcss --ext .min.css && gzip -c dist/chota.min.css  | wc -c",
     "postcss": "postcss ./src/chota.css -d dist/",
     "watch": "cross-env NODE_ENV=development yarn postcss -w",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -32,7 +32,8 @@
     "cssnano": "^4.1.7",
     "postcss-cli": "^6.0.1",
     "postcss-csso": "^3.0.0",
-    "postcss-import": "^12.0.1"
+    "postcss-import": "^12.0.1",
+    "rimraf": "^2.6.3"
   },
   "files": [
     "src/",
