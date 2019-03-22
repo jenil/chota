@@ -22,7 +22,7 @@ textarea[type="text"] {
   width: 100%;
 }
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="color"]):not([type="button"]):not([type="reset"]):not[disabled]:hover,
+input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="color"]):not([type="button"]):not([type="reset"]):not(:disabled):hover,
 select:hover,
 textarea:hover,
 textarea[type="text"]:hover {
@@ -112,10 +112,10 @@ button:active {
   transform: scale(0.98);
 }
 
-input[disabled],
-button[disabled],
-input[disabled]:hover,
-button[disabled]:hover {
+input:disabled,
+button:disabled,
+input:disabled:hover,
+button:disabled:hover {
   opacity: 0.4;
   cursor: not-allowed;
 }
