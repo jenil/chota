@@ -1,6 +1,7 @@
 <section id="grid">
   <h4>Grid</h4>
-  <p>The grid system is a fluid system with a max width of 120rem (1200px), that shrinks with the viewport. The max width can be controlled by changing the <code>--grid-maxWidth</code> in the <code>:root</code>.</p>
+  <p>The grid system is a fluid system with a max width of 120rem (1200px), that shrinks with the viewport. The max
+    width can be controlled by changing the <code>--grid-maxWidth</code> in the <code>:root</code>.</p>
   <p>Much like other frameworks, wrap your content in a <code>.container</code> to center it on the page.</p>
   <br>
   <h5>Flexible grid</h5>
@@ -9,7 +10,8 @@
     <li>Add a <code>.row</code> container</li>
     <li>Add as many <code>.col</code> elements as you want</li>
   </ul>
-  <p>Each column will have an <strong>equal width</strong>, in a row. There is no restriction on number of columns, but it is recommended <strong>not</strong> to add more than 12 columns in a row.</p>
+  <p>Each column will have an <strong>equal width</strong>, in a row. There is no restriction on number of columns, but
+    it is recommended <strong>not</strong> to add more than 12 columns in a row.</p>
   <div class="row">
     <div class="col">
       <div class="card is-center">.col</div>
@@ -26,7 +28,7 @@
       <div class="card is-center">.col</div>
     </div>
   </div>
-  {% highlight html %}
+{% highlight html %}
 <div class="row">
   <div class="col"> .col </div>
 </div>
@@ -35,7 +37,7 @@
   <div class="col"> .col </div>
   <div class="col"> .col </div>
 </div>
-  {% endhighlight %}
+{% endhighlight %}
   <hr>
   <h5>Sized</h5>
   <p>You can also specify the size of the columns</p>
@@ -43,7 +45,8 @@
     <li>Add a <code>.row</code> container</li>
     <li>Add a <code>.col-n</code> child where <strong>n</strong> can be from 1 to 12</li>
   </ul>
-  <p>Each column class is named after how many columns you want out of 12. So if you want 4 columns out of 12, use <code>.col-4</code>.</p>
+  <p>Each column class is named after how many columns you want out of 12. So if you want 4 columns out of 12, use
+    <code>.col-4</code>.</p>
   <div class="row">
     <div class="col-1">
       <div class="card is-center">.col-1</div>
@@ -111,10 +114,66 @@
   <div class="col-12"> .col-12 </div>
 </div>
 {% endhighlight %}
+<hr>
+<h5><span class="tag is-small">New</span> Responsive grids:</h5>
+<p>We now have responsive grids that work based on device width.</p>
+<ul>
+  <li>All columns are 100% for device width &lt; 600px</li>
+  <li><code>.col</code> and <code>.col-N</code> for all device sizes &gt;= 600px</li>
+  <li><code>.col-N-md</code> for &gt;= 900px sizes</li>
+  <li><code>.col-N-lg</code> for &gt;= 1200px sizes</li>
+</ul>
+<div class="row">
+  <div class="col-12 col-6-md col-4-lg">
+    <div class="card is-center">.col-12.col-6-md.col-4-lg</div>
+  </div>
+  <div class="col-6 col-3-md col-4-lg">
+    <div class="card is-center">.col-6.col-3-md.col-4-lg</div>
+  </div>
+  <div class="col-6 col-3-md col-4-lg">
+    <div class="card is-center">.col-6.col-3-md.col-4-lg</div>
+  </div>
+</div>
+<div class="row">
+  <div class="col col-6-lg">
+    <div class="card is-center">.col.col-6-lg</div>
+  </div>
+  <div class="col col-3-lg">
+    <div class="card is-center">.col.col-3-lg</div>
+  </div>
+  <div class="col col-3-lg">
+    <div class="card is-center">.col.col-3-lg</div>
+  </div>
+</div>
+{% highlight html %}
+<div class="row">
+<div class="col-12 col-6-md col-4-lg">
+  <div class="card is-center">.col-12.col-6-md.col-4-lg</div>
+</div>
+<div class="col-6 col-3-md col-4-lg">
+  <div class="card is-center">.col-6.col-3-md.col-4-lg</div>
+</div>
+<div class="col-6 col-3-md col-4-lg">
+  <div class="card is-center">.col-6.col-3-md.col-4-lg</div>
+</div>
+</div>
+<div class="row">
+<div class="col col-6-lg">
+  <div class="card is-center">.col.col-6-lg</div>
+</div>
+<div class="col col-3-lg">
+  <div class="card is-center">.col.col-3-lg</div>
+</div>
+<div class="col col-3-lg">
+  <div class="card is-center">.col.col-3-lg</div>
+</div>
+</div>
+{% endhighlight %}
   <hr>
   <h5>Mix-n-Match</h5>
   <p>You can use a combination of <strong>flexible</strong> and <strong>sized</strong> columns.</p>
-  <p>When using a combination, the sized width column takes the size specified and the remaining is filled in by the flexible column.</p>
+  <p>When using a combination, the sized width column takes the size specified and the remaining is filled in by the
+    flexible column.</p>
   <div class="row">
     <div class="col-2">
       <div class="card is-center">.col-2</div>
@@ -138,11 +197,19 @@
     </div>
   </div>
   <div class="row">
-    <div class="col"><div class="card is-center">auto</div></div>
-    <div class="col"><div class="card is-center">auto</div></div>
+    <div class="col">
+      <div class="card is-center">auto</div>
+    </div>
+    <div class="col">
+      <div class="card is-center">auto</div>
+    </div>
     <div class="is-full-width"></div>
-    <div class="col"><div class="card is-center">auto</div></div>
-    <div class="col"><div class="card is-center">auto</div></div>
+    <div class="col">
+      <div class="card is-center">auto</div>
+    </div>
+    <div class="col">
+      <div class="card is-center">auto</div>
+    </div>
   </div>
 {% highlight html %}
 <div class="row">
@@ -163,23 +230,24 @@
   <div class="col"> auto </div>
 </div>
 {% endhighlight %}
-<p><strong>Pro tip:</strong> Create equal-width columns that span multiple rows by inserting a <code>.is-full-width</code> where you want the columns to break to a new line. Here <code>.is-full-width</code> is one of the <a href="#utilities">utility</a> class.</p>
+  <p><strong>Pro tip:</strong> Create equal-width columns that span multiple rows by inserting a
+    <code>.is-full-width</code> where you want the columns to break to a new line. Here <code>.is-full-width</code> is
+    one of the <a href="#utilities">utility</a> class.</p>
 
-
-<hr>
-<h5>Reverse Direction</h5>
-<p>Add <code>.reverse</code> to the <code>.row</code> to reverse the column direction. </p>
-<div class="row reverse">
-  <div class="col-6">
-    <div class="card is-center">.col-6</div>
+  <hr>
+  <h5>Reverse Direction</h5>
+  <p>Add <code>.reverse</code> to the <code>.row</code> to reverse the column direction. </p>
+  <div class="row reverse">
+    <div class="col-6">
+      <div class="card is-center">.col-6</div>
+    </div>
+    <div class="col-3">
+      <div class="card is-center">.col-3</div>
+    </div>
+    <div class="col-3">
+      <div class="card is-center">.col-3</div>
+    </div>
   </div>
-  <div class="col-3">
-    <div class="card is-center">.col-3</div>
-  </div>
-  <div class="col-3">
-    <div class="card is-center">.col-3</div>
-  </div>
-</div>
 {% highlight html %}
 <div class="row reverse">
   <div class="col-6">
@@ -193,5 +261,4 @@
   </div>
 </div>
 {% endhighlight %}
-
 </section>

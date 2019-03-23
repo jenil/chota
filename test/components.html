@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Components</title>
-  <link rel="stylesheet" href="../dist/chota.min.css">
+  <link rel="stylesheet" href="../dist/chota.css">
   <style>
     .nav {
       border: 1px solid red;
@@ -67,7 +67,8 @@
       <nav class="nav">
         <div class="nav-left">
           <a class="brand" href="#">
-            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt=""> Brand</a>
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="">
+            Brand</a>
         </div>
         <div class="nav-right">
           <div class="tabs">
@@ -120,7 +121,8 @@
             <header>
               <h4>Card title</h4>
             </header>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore
               magna aliqua. Ut enim ad minim veniam, quis nostrud exercit.</p>
             <footer class="is-right">
               <a href="#!" class="button primary">Submit</a>
@@ -130,10 +132,13 @@
         </div>
         <div class="col-6">
           <div class="card">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore
               magna aliqua. Ut enim ad minim veniam, quis nostrud exercit.</p>
-            <p>Ipsa magnam consequatur itaque, mollitia non quam voluptate consequuntur dignissimos recusandae ea quas, nobis,
-              debitis officia iure minus et dolore, reprehenderit sapiente iste. Eligendi eveniet ut qui at, deleniti enim!</p>
+            <p>Ipsa magnam consequatur itaque, mollitia non quam voluptate consequuntur dignissimos recusandae ea quas,
+              nobis,
+              debitis officia iure minus et dolore, reprehenderit sapiente iste. Eligendi eveniet ut qui at, deleniti
+              enim!</p>
           </div>
         </div>
       </div>
@@ -316,6 +321,40 @@
           <div class="card is-center">.col-12</div>
         </div>
       </div>
+      <h4>Responsive grids:</h4>
+      <div class="row">
+        <div class="col-12 col-6-md col-4-lg">
+          <div class="card is-center">.col-12.col-6-md.col-4-lg</div>
+        </div>
+        <div class="col-6 col-3-md col-4-lg">
+          <div class="card is-center">.col-6.col-3-md.col-4-lg</div>
+        </div>
+        <div class="col-6 col-3-md col-4-lg">
+          <div class="card is-center">.col-6.col-3-md.col-4-lg</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-6-lg">
+          <div class="card is-center">.col.col-6-lg</div>
+        </div>
+        <div class="col col-3-lg">
+          <div class="card is-center">.col.col-3-lg</div>
+        </div>
+        <div class="col col-3-lg">
+          <div class="card is-center">.col.col-3-lg</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col hide-sm">
+          <div class="card is-center">.hide-sm</div>
+        </div>
+        <div class="col hide-md">
+          <div class="card is-center">.hide-md</div>
+        </div>
+        <div class="col hide-lg">
+          <div class="card is-center">.hide-lg</div>
+        </div>
+      </div>
     </section>
     <section>
       <h1>Helpers</h1>
@@ -350,13 +389,13 @@
     </section>
     <section>
       <h1>Icons</h1>
-      <button type="button" class="button primary icon">New file 
+      <button type="button" class="button primary icon">New file
         <img src="https://icongr.am/feather/file.svg?size=16&color=ffffff" alt="icon">
       </button>
       <button type="button" class="button icon">New file
         <img src="https://icongr.am/feather/file.svg?size=12" alt="icon">
       </button>
-      <button type="button" class="button dark icon">New file 
+      <button type="button" class="button dark icon">New file
         <img src="https://icongr.am/feather/file.svg?size=32&color=ffffff" alt="icon">
       </button>
       <button class="button icon-only">

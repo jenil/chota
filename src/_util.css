@@ -1,7 +1,6 @@
 /* Colors */
 .bg-primary {
     background-color: var(--color-primary);
-    color: #fff;
 }
 
 .bg-light {
@@ -10,22 +9,42 @@
 
 .bg-dark {
     background-color: var(--color-darkGrey);
-    color: #fff;
 }
 
 .bg-grey {
     background-color: var(--color-grey);
-    color: #fff;
 }
 
 .bg-error {
     background-color: var(--color-error);
-    color: #fff;
 }
 
 .bg-success {
     background-color: var(--color-success);
-    color: #fff;
+}
+
+.bd-primary {
+    border: 1px solid var(--color-primary);
+}
+
+.bd-light {
+    border: 1px solid var(--color-lightGrey);
+}
+
+.bd-dark {
+    border: 1px solid var(--color-darkGrey);
+}
+
+.bd-grey {
+    border: 1px solid var(--color-grey);
+}
+
+.bd-error {
+    border: 1px solid var(--color-error);
+}
+
+.bd-success {
+    border: 1px solid var(--color-success);
 }
 
 .text-primary {
@@ -50,6 +69,10 @@
 
 .text-success {
     color: var(--color-success);
+}
+
+.text-white {
+    color: #fff;
 }
 
 /* Position & alignment */
@@ -145,14 +168,20 @@
     display: none !important;
 }
 
-@media screen and (max-width: 480px) {
-    .hide-phone {
+@media screen and (max-width: 599px) {
+    .hide-sm {
         display: none !important;
     }
 }
 
-@media screen and (max-width: 768px) {
-    .hide-tablet {
+@media screen and (min-width: 600px) and (max-width: 1199px) {
+    .hide-md {
+        display: none !important;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .hide-lg {
         display: none !important;
     }
 }
