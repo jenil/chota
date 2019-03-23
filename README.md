@@ -11,7 +11,7 @@ A really small CSS framework
 <br>
 
 
-- ⚡️&nbsp; Super light-weight. Just 3kb (minified + gzipped).
+- ⚡️&nbsp; Super light-weight. Just ~3kb (minified + gzipped).
 - ⛔️&nbsp; No preprocessor, just plug-n-play
 - 📐&nbsp; Magical 12 column [grid](https://jenil.github.io/chota/#grid)
 - 🌈&nbsp; Easy to [extend](https://jenil.github.io/chota/#customizing) with CSS variables
