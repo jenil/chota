@@ -524,11 +524,15 @@ button {
   display: flex;
 }
 .grouped > input:not(:last-child),
+.grouped > select:not(:last-child),
 .grouped > .button:not(:last-child) {
   margin-right: 16px;
 }
 .button + .button {
   margin-left: 1rem;
+}
+.buttons > .button + .button {
+  margin-left: 0;
 }
 .button:hover,
 [type="button"]:hover,
@@ -610,6 +614,9 @@ button:disabled:hover {
   padding: 1rem;
 }
 ::-webkit-input-placeholder {
+  color: #bdbfc4;
+}
+::-moz-placeholder {
   color: #bdbfc4;
 }
 :-ms-input-placeholder {

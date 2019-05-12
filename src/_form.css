@@ -88,12 +88,17 @@ button {
 }
 
 .grouped > input:not(:last-child),
+.grouped > select:not(:last-child),
 .grouped > .button:not(:last-child) {
   margin-right: 16px;
 }
 
 .button + .button {
   margin-left: 1rem;
+}
+
+.buttons > .button + .button {
+  margin-left: 0;
 }
 
 .button:hover,

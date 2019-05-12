@@ -65,6 +65,10 @@ hr {
     margin: .5rem;
 }
 
+.buttons > .button + .button {
+    margin-left: .5rem;
+}
+
 .highlight, code { background-color: #f1f5f5; }
 .highlight .c { color: #93a1a1 } /* Comment */
 .highlight .err { color: #586e75 } /* Error */
