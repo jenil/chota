@@ -929,11 +929,16 @@ button:disabled:hover {
     display: none !important;
 }
 @media screen and (max-width: 599px) {
+    .hide-xs {
+        display: none !important;
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 899px) {
     .hide-sm {
         display: none !important;
     }
 }
-@media screen and (min-width: 600px) and (max-width: 1199px) {
+@media screen and (min-width: 900px) and (max-width: 1199px) {
     .hide-md {
         display: none !important;
     }
