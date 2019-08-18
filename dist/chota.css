@@ -616,6 +616,9 @@ button:disabled:hover {
 ::-webkit-input-placeholder {
   color: #bdbfc4;
 }
+::-moz-placeholder {
+  color: #bdbfc4;
+}
 :-ms-input-placeholder {
   color: #bdbfc4;
 }
