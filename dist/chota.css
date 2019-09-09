@@ -927,6 +927,12 @@ button:disabled:hover {
 .is-marginless {
     margin: 0 !important;
 }
+.is-pointer {
+    cursor: pointer !important;
+}
+.is-rounded {
+    border-radius: 100%;
+}
 .clearfix {
     content: "";
     display: table;
@@ -952,6 +958,11 @@ button:disabled:hover {
 }
 @media screen and (min-width: 1200px) {
     .hide-lg {
+        display: none !important;
+    }
+}
+@media print {
+    .hide-pr {
         display: none !important;
     }
 }

@@ -158,6 +158,14 @@
     margin: 0 !important;
 }
 
+.is-pointer {
+    cursor: pointer !important;
+}
+
+.is-rounded {
+    border-radius: 100%;
+}
+
 .clearfix {
     content: "";
     display: table;
@@ -188,6 +196,12 @@
 
 @media screen and (min-width: 1200px) {
     .hide-lg {
+        display: none !important;
+    }
+}
+
+@media print {
+    .hide-pr {
         display: none !important;
     }
 }
