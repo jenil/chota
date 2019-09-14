@@ -25,10 +25,8 @@ html {
 }
 
 body {
-  letter-spacing: 0.01em;
   line-height: 1.6;
   font-size: var(--font-size);
-  font-weight: 400;
   font-family: "Segoe UI", "Helvetica Neue", sans-serif; /*fallback*/
   font-family: var(--font-family);
   margin: 0;
@@ -76,6 +74,10 @@ a {
 
 a:hover:not(.button) {
   opacity: 0.75;
+}
+
+button {
+  font-family: inherit;
 }
 
 p {

@@ -24,10 +24,8 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
-  letter-spacing: 0.01em;
   line-height: 1.6;
   font-size: var(--font-size);
-  font-weight: 400;
   font-family: "Segoe UI", "Helvetica Neue", sans-serif; /*fallback*/
   font-family: var(--font-family);
   margin: 0;
@@ -66,6 +64,9 @@ a {
 }
 a:hover:not(.button) {
   opacity: 0.75;
+}
+button {
+  font-family: inherit;
 }
 p {
   margin-top: 0;
@@ -718,6 +719,7 @@ button:disabled:hover {
 .card {
     padding: 1rem 2rem;
     border-radius: 4px;
+    background: white;
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
@@ -777,6 +779,15 @@ button:disabled:hover {
 }
 .tag+.tag {
   margin-left: 1rem;
+}
+details.dropdown {
+  position: relative;
+  display: inline-block;
+}
+details.dropdown > :last-child {
+  position: absolute;
+  left: 0;
+  white-space: nowrap;
 }
 /* Colors */
 .bg-primary {
