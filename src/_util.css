@@ -84,27 +84,27 @@
     float: left !important;
 }
 
-.is-text-center {
+.text-center {
     text-align: center;
 }
 
-.is-text-left {
+.text-left {
     text-align: left;
 }
 
-.is-text-right {
+.text-right {
     text-align: right;
 }
 
-.is-text-uppercase {
+.text-uppercase {
     text-transform: uppercase;
 }
 
-.is-text-lowercase {
+.text-lowercase {
     text-transform: lowercase;
 }
 
-.is-text-capitalize {
+.text-capitalize {
     text-transform: capitalize;
 }
 

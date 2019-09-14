@@ -1,4 +1,4 @@
-/*! chota.css v0.6.2 | MIT License | github.com/jenil/chota */
+/*! chota.css v0.7.0 | MIT License | github.com/jenil/chota */
 :root {
   --color-primary: #14854F;
   --color-lightGrey: #d2d6dd;
@@ -854,22 +854,22 @@ details.dropdown > :last-child {
 .pull-left {
     float: left !important;
 }
-.is-text-center {
+.text-center {
     text-align: center;
 }
-.is-text-left {
+.text-left {
     text-align: left;
 }
-.is-text-right {
+.text-right {
     text-align: right;
 }
-.is-text-uppercase {
+.text-uppercase {
     text-transform: uppercase;
 }
-.is-text-lowercase {
+.text-lowercase {
     text-transform: lowercase;
 }
-.is-text-capitalize {
+.text-capitalize {
     text-transform: capitalize;
 }
 .is-full-screen {
