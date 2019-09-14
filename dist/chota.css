@@ -524,16 +524,22 @@ button {
   display: -ms-flexbox;
   display: flex;
 }
-.grouped > input:not(:last-child),
-.grouped > select:not(:last-child),
-.grouped > .button:not(:last-child) {
+.grouped > *:not(:last-child) {
   margin-right: 16px;
+}
+.grouped.gapless > * {
+  margin: 0 0 0 -1px !important;
+  border-radius:0 !important;
+}
+.grouped.gapless > *:first-child {
+  margin: 0 !important;
+  border-radius:4px 0 0 4px !important;
+}
+.grouped.gapless > *:last-child {
+  border-radius:0 4px 4px 0 !important;
 }
 .button + .button {
   margin-left: 1rem;
-}
-.buttons > .button + .button {
-  margin-left: 0;
 }
 .button:hover,
 [type="button"]:hover,
@@ -564,6 +570,7 @@ button:disabled:hover {
 .button.success,
 [type="submit"] {
   color: #fff;
+  z-index: 1; /* hightlight from other button's border when grouped */
   background-color: #000;
   background-color: var(--color-primary);
 }
