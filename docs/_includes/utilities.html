@@ -87,12 +87,34 @@
     <li><code>hide-pr</code> - hides the element for printing</li>
   </ul>
   <h4>Details</h4>
-  <p>You can have a <code>&lt;details&gt;</code> with a <code>.dropdown</code> class to defines a toggle-able block of content with a summary and additional details.</p>
-  <details class="dropdown">
+  <p>You can have a <code>&lt;details&gt;</code> to defines a toggle-able block of content with a summary and additional details.</p>
+  <details>
     <summary>Read more</summary>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra nec
       nulla vitae mollis.
     </p>
   </details>
+  <p>This can be coupled to a <code>.dropdown</code> and a couple of <code>.button</code> and <code>.card</code> classes to defines a dropdown button.</p>
+  <details class=dropdown>
+      <summary class="button outline">My Profile</summary>
+      <div class=card>
+        <p><a href="#">Edit</a></p>
+        <p><a href="#">Alerts&nbsp;<span class=tag>3</span></a></p>
+        <hr/>
+        <p><a href="#" class=text-error>Logout</a></p>
+    </div>
+  </details>
+  <details class=dropdown>
+    <summary class="button outline">Login</summary>
+    <form class="card row">
+      <input class=col-12 placeholder=username>
+      <input class=col-12 placeholder=password type=password>
+      <footer class=is-right>
+        <a class="button clear">Sign up</a>
+        <button type=submit>Sign in</button>
+      </footer>
+    </form>
+  </details>
 </section>
+
