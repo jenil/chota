@@ -745,6 +745,7 @@ button:disabled:hover {
 .tabs a {
     text-decoration: none;
 }
+.tabs > .dropdown > summary,
 .tabs > a {
     padding: 1rem 2rem;
     -webkit-box-flex: 0;

@@ -6,6 +6,7 @@
     text-decoration: none;
 }
 
+.tabs > .dropdown > summary,
 .tabs > a {
     padding: 1rem 2rem;
     flex: 0 1 auto;
