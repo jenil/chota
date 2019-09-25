@@ -871,6 +871,9 @@ details.dropdown > :last-child {
 .text-right {
     text-align: right;
 }
+.text-justify {
+    text-align: justify;
+}
 .text-uppercase {
     text-transform: uppercase;
 }
