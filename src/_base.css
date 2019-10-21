@@ -13,15 +13,16 @@
     "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 html {
+  box-sizing: border-box;
   font-size: 62.5%;
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 body {
