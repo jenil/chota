@@ -16,16 +16,18 @@ Whether you notice the problem by yourself, or found an open issue on our [issue
 - We may see the issue and not get back to you. That doesn't mean that we object to the issue you raised.
 
 ## Work on the Fix
-1. [Fork and clone]() this repository.
+1. [Fork and clone](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) this repository.
 2. Install dependencies with `yarn install` or `npm install`.
 3. Create a new branch with a name such as `<your_username>/issue-45` or `feature-really-cool`.
 4. When you're ready, start the css compiler (postcss) with `yarn watch` (or `npm run watch`). Write the css code in the `/src` folder, and postcss will compile it and output it to the `/dist` folder.
-5. You can see your changes by opening `/test/index.html` in your browser. There's no local server, so you'll have to open the file itself in your browser (`file://Users/.../test/index.html`). If you are using VS Code, you can user @ritwickdey's awesome [live-server extension](https://ritwickdey.github.io/vscode-live-server/) to serve and reload the page in real-time.
+5. You can see your changes by opening `/test/index.html` in your browser. There's no local server, so you'll have to open the file itself in your browser (`file://Users/.../test/index.html`). If you are using VS Code, you can use [@ritwickdey](https://github.com/ritwickdey)'s awesome [live-server extension](https://ritwickdey.github.io/vscode-live-server/) to serve and reload the page in real-time.
 
 ## Open a Pull Request
-> If you're new at contributing to open source, see <http://makeapullrequest.com/>.
+> If you're new to contributing to open source, see <http://makeapullrequest.com/>.
 0. When you're happy with your changes, run `yarn build` or `npm run build`. This will update `/dist/chota.min.css` to reflect any changes you made.
-1. Open a new pull request, and include **a)** a short description of the changes you made, and **b)** a reference to the related issue (just `fixes #45` is fine).
+1. Open a new pull request, and include
+  **a)** a short description of the changes you made, and
+  **b)** a reference to the related issue (just "fixes #45" is fine).
 2. You may be asked to revise your changes, so keep on your toes. Also, we *may* decide not accept the pull request entirely. It's that we don't like you, but...
 3. Advance to [step #4](#relax)
 
