@@ -45,4 +45,8 @@ Chota is designed keeping in mind *ease-of-use* and *minimalism*, hence it doesn
 | Edge 16+| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions
 ---
 
+## Contributing
+Welcome! Please see our [contributing guidelines](https://github.com/jenil/chota/blob/master/.github/CONTRIBUTING.md).
+
+## License
 &copy; Jenil Gogari 2017-present. Code released under the [MIT license](https://github.com/jenil/chota/blob/master/LICENSE).
