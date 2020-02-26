@@ -3,9 +3,11 @@
 <br><br>
 A really small CSS framework
 <br><br>
-<img src="https://img.shields.io/npm/v/chota.svg">
+<img src="https://img.shields.io/npm/v/chota.svg" alt="">
 <a href="https://www.npmjs.com/package/chota"><img src="https://img.shields.io/npm/dt/chota.svg"></a>
 <a href="https://github.com/jenil/chota/issues"><img src="https://img.shields.io/github/issues/jenil/chota.svg"></a>
+<a href="https://bundlephobia.com/result?p=chota@latest"><img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/chota"></a>
+<a href="https://github.com/troxler/awesome-css-frameworks"><img src="https://awesome.re/mentioned-badge.svg" alt="Mentioned in Awesome CSS Frameworks"/></a>
 </p>
 
 <br>
@@ -45,4 +47,8 @@ Chota is designed keeping in mind *ease-of-use* and *minimalism*, hence it doesn
 | Edge 16+| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions
 ---
 
+## Contributing
+Welcome! Please see our [contributing guidelines](https://github.com/jenil/chota/blob/master/.github/CONTRIBUTING.md).
+
+## License
 &copy; Jenil Gogari 2017-present. Code released under the [MIT license](https://github.com/jenil/chota/blob/master/LICENSE).
