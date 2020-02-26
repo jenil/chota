@@ -9,9 +9,10 @@
   --grid-maxWidth: 120rem;
   --grid-gutter: 2rem;
   --font-size: 1.6rem;
-  --font-family: -apple-system, BlinkMacSystemFont, Avenir, "Avenir Next",
+  --font-family-sans: -apple-system, BlinkMacSystemFont, Avenir, "Avenir Next",
     "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
+  --font-family-mono: monaco, "Consolas", "Lucida Console", monospace;
 }
 * {
   -webkit-box-sizing: border-box;
@@ -27,7 +28,7 @@ body {
   line-height: 1.6;
   font-size: var(--font-size);
   font-family: "Segoe UI", "Helvetica Neue", sans-serif; /*fallback*/
-  font-family: var(--font-family);
+  font-family: var(--font-family-sans);
   margin: 0;
   padding: 0;
 }
@@ -111,7 +112,7 @@ kbd,
 pre,
 samp,
 tt {
-  font-family: monaco, "Consolas", "Lucida Console", monospace;
+  font-family: var(--font-family-mono);
 }
 code,
 kbd {
