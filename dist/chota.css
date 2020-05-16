@@ -1,5 +1,7 @@
 /*! chota.css v0.7.2 | MIT License | github.com/jenil/chota */
 :root {
+  --bg-color: #ffffff;
+  --bg-alt-color: #f3f3f6;
   --color-primary: #14854F;
   --color-lightGrey: #d2d6dd;
   --color-grey: #747681;
@@ -9,24 +11,29 @@
   --grid-maxWidth: 120rem;
   --grid-gutter: 2rem;
   --font-size: 1.6rem;
+  --font-color: #333333;
   --font-family-sans: -apple-system, BlinkMacSystemFont, Avenir, "Avenir Next",
     "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
   --font-family-mono: monaco, "Consolas", "Lucida Console", monospace;
 }
-* {
+html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-}
-html {
   font-size: 62.5%;
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
 body {
+  background-color: var(--bg-color);
   line-height: 1.6;
   font-size: var(--font-size);
+  color: var(--font-color);
   font-family: "Segoe UI", "Helvetica Neue", sans-serif; /*fallback*/
   font-family: var(--font-family-sans);
   margin: 0;
@@ -73,7 +80,7 @@ p {
   margin-top: 0;
 }
 blockquote {
-  background-color: #f3f3f6;
+  background-color: var(--bg-alt-color);
   padding: 1.5rem 2rem;
   border-left: 3px solid var(--color-lightGrey);
 }
@@ -94,7 +101,7 @@ table {
   text-align: left;
 }
 table.striped tr:nth-of-type(2n) {
-  background-color: #f3f3f6;
+  background-color: var(--bg-alt-color);
 }
 td,
 th {
@@ -120,12 +127,11 @@ kbd {
   font-size: 90%;
   white-space: pre-wrap;
   border-radius: 4px;
-  color: #d43939;
   padding: 0.2em 0.4em;
-  background-color: #f3f3f6;
+  background-color: var(--bg-alt-color);
 }
 pre {
-  background-color: #f3f3f6;
+  background-color: var(--bg-alt-color);
   font-size: 1em;
   padding: 1rem;
   overflow-x: auto;
@@ -727,9 +733,9 @@ button:disabled:hover {
 .card {
     padding: 1rem 2rem;
     border-radius: 4px;
-    background: white;
-    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    background: var(--bg-color);
+    -webkit-box-shadow: 0 1px 3px var(--color-grey);
+            box-shadow: 0 1px 3px var(--color-grey);
 }
 .card p:last-child {
   margin: 0;

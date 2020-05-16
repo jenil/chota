@@ -1,5 +1,6 @@
 :root {
-  --body-bg-color: #ffffff;
+  --bg-color: #ffffff;
+  --bg-alt-color: #f3f3f6;
   --color-primary: #14854F;
   --color-lightGrey: #d2d6dd;
   --color-grey: #747681;
@@ -29,7 +30,7 @@ html {
 }
 
 body {
-  background-color: var(--body-bg-color);
+  background-color: var(--bg-color);
   line-height: 1.6;
   font-size: var(--font-size);
   color: var(--font-color);
@@ -91,7 +92,7 @@ p {
 }
 
 blockquote {
-  background-color: #f3f3f6;
+  background-color: var(--bg-alt-color);
   padding: 1.5rem 2rem;
   border-left: 3px solid var(--color-lightGrey);
 }
@@ -116,7 +117,7 @@ table {
 }
 
 table.striped tr:nth-of-type(2n) {
-  background-color: #f3f3f6;
+  background-color: var(--bg-alt-color);
 }
 
 td,
@@ -147,13 +148,12 @@ kbd {
   font-size: 90%;
   white-space: pre-wrap;
   border-radius: 4px;
-  color: #d43939;
   padding: 0.2em 0.4em;
-  background-color: #f3f3f6;
+  background-color: var(--bg-alt-color);
 }
 
 pre {
-  background-color: #f3f3f6;
+  background-color: var(--bg-alt-color);
   font-size: 1em;
   padding: 1rem;
   overflow-x: auto;
