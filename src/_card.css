@@ -1,8 +1,8 @@
 .card {
     padding: 1rem 2rem;
     border-radius: 4px;
-    background: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    background: var(--bg-color);
+    box-shadow: 0 1px 3px var(--color-grey);
 }
 
 .card p:last-child {

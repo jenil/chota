@@ -1,3 +1,11 @@
+body.dark {
+    --bg-color: #000;
+    --bg-secondary-color: #131316;
+    --font-color: #f5f5f5;
+    --color-grey: #ccc;
+    --color-darkGrey: #777;
+}
+
 body>.container {
     max-width: 720px;
 }
@@ -24,6 +32,10 @@ body>.container {
 body>footer {
     background-color: #fafafa;
     padding: 4rem;
+}
+
+body.dark>footer {
+    background-color: #1a1a1a;
 }
 
 section {
@@ -69,7 +81,7 @@ hr {
     margin-left: .5rem;
 }
 
-.highlight, code { background-color: #f1f5f5; }
+.highlight, code { background-color: var(--bg-secondary-color); }
 .highlight .c { color: #93a1a1 } /* Comment */
 .highlight .err { color: #586e75 } /* Error */
 .highlight .g { color: #586e75 } /* Generic */
