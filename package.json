@@ -29,11 +29,11 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.6.1",
-    "cross-env": "^5.2.0",
+    "cross-env": "^7.0.2",
     "cssnano": "^4.1.7",
     "npm-run-all": "^4.1.5",
-    "postcss-cli": "^6.1.3",
-    "postcss-csso": "^3.0.0",
+    "postcss-cli": "^7.1.1",
+    "postcss-csso": "^4.0.0",
     "postcss-import": "^12.0.1",
     "rimraf": "^3.0.0"
   },
