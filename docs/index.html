@@ -9,6 +9,7 @@
   <title>chota - A micro CSS framework</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://unpkg.com/chota">
+  <!-- <link rel="stylesheet" href="./dist/chota.css"> -->
   <link rel="stylesheet" href="./doc-styles.css">
   <link rel="icon" type="image/png" href="favicon.png" />
 </head>
@@ -26,6 +27,15 @@
         <a href="#start">start</a>
         <a href="#docs">docs</a>
         <a href="https://github.com/jenil/chota">GitHub</a>
+        <a 
+          href="javascript:void(0)"
+          onclick="
+            const bodyClass = document.body.classList;
+            bodyClass.contains('dark')
+              ? (this.innerHTML = '☀️', bodyClass.remove('dark'))
+              : (this.innerHTML = '🌙', bodyClass.add('dark'));
+          "
+        >☀️</a>
       </nav>
     </div>
 
@@ -38,6 +48,7 @@
         <li>🌈&nbsp; Easy to <a href="#customizing">extend</a> with CSS variables</li>
         <li>🎲&nbsp; Comes with a handful of <a href="#components">components</a> &amp; <a href="#utilities">utilities</a></li>
         <li>✅&nbsp; Good Semantics</li>
+        <li>🌙&nbsp; Easy Dark Mode switch</li>
         <li>🤡&nbsp; Supports <a href="#icons">icons</a> out-of-the-box</li>
       </ul>
     </section>
@@ -107,6 +118,24 @@
 }
 
 /* Other styles..... */
+{% endhighlight %}
+<br>
+<p>Addtionally, you can add dark mode to you site, to support devices that prefer dark mode.</p>
+{% highlight html %}
+  <style>
+    body.dark {
+      --body-bg-color: #000;
+      --font-color: #f5f5f5;
+      --color-grey: #ccc;
+      --color-darkGrey: #aaa;
+    }
+  </style>
+  <script>
+    if (window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.classList.add('dark');
+    }
+  </script>
 {% endhighlight %}
     </section>
     <section id="components">

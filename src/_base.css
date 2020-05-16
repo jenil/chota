@@ -1,4 +1,5 @@
 :root {
+  --body-bg-color: #ffffff;
   --color-primary: #14854F;
   --color-lightGrey: #d2d6dd;
   --color-grey: #747681;
@@ -8,6 +9,7 @@
   --grid-maxWidth: 120rem;
   --grid-gutter: 2rem;
   --font-size: 1.6rem;
+  --font-color: #333333;
   --font-family-sans: -apple-system, BlinkMacSystemFont, Avenir, "Avenir Next",
     "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
@@ -27,8 +29,10 @@ html {
 }
 
 body {
+  background-color: var(--body-bg-color);
   line-height: 1.6;
   font-size: var(--font-size);
+  color: var(--font-color);
   font-family: "Segoe UI", "Helvetica Neue", sans-serif; /*fallback*/
   font-family: var(--font-family-sans);
   margin: 0;
