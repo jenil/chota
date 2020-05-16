@@ -129,6 +129,7 @@ kbd {
   border-radius: 4px;
   padding: 0.2em 0.4em;
   background-color: var(--bg-secondary-color);
+  color: var(--color-error);
 }
 pre {
   background-color: var(--bg-secondary-color);
@@ -731,11 +732,11 @@ button:disabled:hover {
     margin: auto 1rem;
 }
 .card {
-    padding: 1rem 2rem;
-    border-radius: 4px;
-    background: var(--bg-color);
-    -webkit-box-shadow: 0 1px 3px var(--color-grey);
-            box-shadow: 0 1px 3px var(--color-grey);
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  background: var(--bg-color);
+  -webkit-box-shadow: 0 1px 3px var(--color-grey);
+          box-shadow: 0 1px 3px var(--color-grey);
 }
 .card p:last-child {
   margin: 0;

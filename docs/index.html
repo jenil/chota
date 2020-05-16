@@ -8,9 +8,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <title>chota - A micro CSS framework</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://unpkg.com/chota">
+  <!-- <link rel="stylesheet" href="https://unpkg.com/chota"> -->
   <!-- for dev -->
-  <!-- <link rel="stylesheet" href="./dist/chota.css"> -->
+  <link rel="stylesheet" href="http://localhost:5000/dist/chota.css">
   <link rel="stylesheet" href="./doc-styles.css">
   <link rel="icon" type="image/png" href="favicon.png" />
 </head>
@@ -28,7 +28,7 @@
         <a href="#start">start</a>
         <a href="#docs">docs</a>
         <a href="https://github.com/jenil/chota">GitHub</a>
-        <a href="javascript:void(0)" onclick="switchMode(this)">☀️</a>
+        <a href="javascript:void(0)" id="theme-switch" onclick="switchMode(this)">☀️</a>
       </nav>
     </div>
 
@@ -113,7 +113,7 @@
 /* Other styles..... */
 {% endhighlight %}
 <br>
-<p>Addtionally, you can add dark mode to you site, to support devices that prefer dark mode.</p>
+<p>Addtionally, you can add dark mode to your site, to support devices that prefer dark mode.</p>
 {% highlight html %}
   <style>
     body.dark {
@@ -176,7 +176,22 @@
     <p>Want icons for your project too? Checkout <a href="https://icongr.am" target="_blank">Icongr.am 🚀</a></p>
     <h5>Made by <a href="https://jgog.in" target="_blank">Jenil Gogari</a></h5>
   </footer>
-  <script src="./main.js"></script>
+  <script>
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      document.body.classList.add("dark");
+      document.querySelector('#theme-switch').innerHTML = "🌙"
+    }
+
+    function switchMode(el) {
+      const bodyClass = document.body.classList;
+      bodyClass.contains("dark")
+        ? ((el.innerHTML = "☀️"), bodyClass.remove("dark"))
+        : ((el.innerHTML = "🌙"), bodyClass.add("dark"));
+    }
+  </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

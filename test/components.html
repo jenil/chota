@@ -1,432 +1,452 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Components</title>
+    <link rel="stylesheet" href="../dist/chota.css" />
+    <style>
+      .nav {
+        border: 1px solid red;
+      }
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Components</title>
-  <link rel="stylesheet" href="../dist/chota.css">
-  <style>
-    .nav {
-      border: 1px solid red;
-    }    
-    
-    body.dark {
-      --bg-color: #000;
-      --bg-secondary-color: #131316;
-      --font-color: #f5f5f5;
-      --color-grey: #ccc;
-      --color-darkGrey: #777;
-    }
-  </style>
-</head>
+      body.dark {
+        --bg-color: #000;
+        --bg-secondary-color: #131316;
+        --font-color: #f5f5f5;
+        --color-grey: #ccc;
+        --color-darkGrey: #777;
+      }
+    </style>
+  </head>
 
-<body>
-  <div class="container">
-    <h1 class="pull-right" style="margin: 0;">
-      <a href="javascript:void(0)" onclick="switchMode(this)">☀️</a>
-    </h1>
-    <h1>Nav</h1>
-  </div>
-  <div class="clearfix" ></div>
-  <nav class="nav">
+  <body>
     <div class="container">
+      <h1 class="pull-right" style="margin: 0;">
+        <a href="javascript:void(0)" onclick="switchMode(this)">☀️</a>
+      </h1>
+      <h1>Nav</h1>
+    </div>
+    <div class="clearfix"></div>
+    <nav class="nav">
+      <div class="container">
+        <div class="nav-left">
+          <a class="brand" href="#">Logo</a>
+        </div>
+        <div class="nav-center">
+          <a class="button outline" href="#">Centered</a>
+        </div>
+        <div class="nav-right">
+          <a href="#!1.html">Link 1</a>
+          <a href="#!2.html">Link 2</a>
+          <a href="#!3.html" class="active">Link 3</a>
+        </div>
+      </div>
+    </nav>
+    <br />
+    <hr />
+    <br />
+    <nav class="nav">
       <div class="nav-left">
         <a class="brand" href="#">Logo</a>
       </div>
       <div class="nav-center">
-        <a class="button outline" href="#">Centered</a>
+        <a href="#">Centered</a>
       </div>
       <div class="nav-right">
         <a href="#!1.html">Link 1</a>
         <a href="#!2.html">Link 2</a>
-        <a href="#!3.html" class="active">Link 3</a>
+        <a href="#!3.html">Link 3</a>
       </div>
-    </div>
-  </nav>
-  <br>
-  <hr>
-  <br>
-  <nav class="nav">
-    <div class="nav-left">
-      <a class="brand" href="#">Logo</a>
-    </div>
-    <div class="nav-center">
-      <a href="#">Centered</a>
-    </div>
-    <div class="nav-right">
-      <a href="#!1.html">Link 1</a>
-      <a href="#!2.html">Link 2</a>
-      <a href="#!3.html">Link 3</a>
-    </div>
-  </nav>
-  <div class="container">
-    <section>
-      <br>
-      <hr>
-      <br>
-      <nav class="nav">
-        <div class="nav-center">
-          <a href="#!1.html">Link 1</a>
-          <a href="#!2.html">Link 2</a>
-          <a href="#!3.html" class="active">Link 3</a>
-          <a href="#!" class="button primary">Button</a>
-        </div>
-      </nav>
-      <br>
-      <hr>
-      <br>
-      <nav class="nav">
-        <div class="nav-left">
-          <a class="brand" href="#">
-            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="">
-            Brand</a>
-        </div>
-        <div class="nav-right">
-          <div class="tabs">
+    </nav>
+    <div class="container">
+      <section>
+        <br />
+        <hr />
+        <br />
+        <nav class="nav">
+          <div class="nav-center">
             <a href="#!1.html">Link 1</a>
             <a href="#!2.html">Link 2</a>
             <a href="#!3.html" class="active">Link 3</a>
+            <a href="#!" class="button primary">Button</a>
+          </div>
+        </nav>
+        <br />
+        <hr />
+        <br />
+        <nav class="nav">
+          <div class="nav-left">
+            <a class="brand" href="#">
+              <img
+                src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+                alt=""
+              />
+              Brand</a
+            >
+          </div>
+          <div class="nav-right">
+            <div class="tabs">
+              <a href="#!1.html">Link 1</a>
+              <a href="#!2.html">Link 2</a>
+              <a href="#!3.html" class="active">Link 3</a>
+            </div>
+          </div>
+        </nav>
+        <br />
+        <hr />
+        <br />
+        <nav class="nav">
+          <div class="nav-left">
+            <a class="brand" href="#">
+              <img
+                src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+                alt=""
+              />
+            </a>
+            <div class="tabs">
+              <a href="#!1.html">Link 1</a>
+              <a href="#!2.html">Link 2</a>
+              <a href="#!3.html">Link 3</a>
+            </div>
+          </div>
+        </nav>
+        <br />
+        <hr />
+        <br />
+      </section>
+      <section>
+        <h1>Tabs</h1>
+        <div class="tabs">
+          <a class="active" href="#!1.html">Tab 1</a>
+          <a href="#!2.html">Tab 2</a>
+          <a href="#!3.html">Tab 3</a>
+        </div>
+        <br />
+        <hr />
+        <br />
+        <div class="tabs is-full">
+          <a class="active" href="#!1.html">Tab 1</a>
+          <a href="#!2.html">Tab 2</a>
+          <a href="#!3.html">Tab 3</a>
+        </div>
+      </section>
+      <section>
+        <h1>Card</h1>
+        <div class="row is-center">
+          <div class="col-4">
+            <div class="card">
+              <header>
+                <h4>Card title</h4>
+              </header>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercit.
+              </p>
+              <footer class="is-right">
+                <a href="#!" class="button primary">Submit</a>
+                <a href="#!" class="button">Cancel</a>
+              </footer>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercit.
+              </p>
+              <p>
+                Ipsa magnam consequatur itaque, mollitia non quam voluptate
+                consequuntur dignissimos recusandae ea quas, nobis, debitis
+                officia iure minus et dolore, reprehenderit sapiente iste.
+                Eligendi eveniet ut qui at, deleniti enim!
+              </p>
+            </div>
           </div>
         </div>
-      </nav>
-      <br>
-      <hr>
-      <br>
-      <nav class="nav">
-        <div class="nav-left">
-          <a class="brand" href="#">
-            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="">
-          </a>
-          <div class="tabs">
-            <a href="#!1.html">Link 1</a>
-            <a href="#!2.html">Link 2</a>
-            <a href="#!3.html">Link 3</a>
+      </section>
+      <section>
+        <h1>Tag</h1>
+        <p>
+          <span class="tag">One</span>
+          <span class="tag">Two</span>
+          <span class="tag">Three</span>
+          <span class="tag is-small">Small</span>
+          <span class="tag is-large">Large</span>
+        </p>
+      </section>
+      <section>
+        <h1>Grid</h1>
+        <div class="row">
+          <div class="col">
+            <div class="card is-center">.col</div>
           </div>
         </div>
-      </nav>
-      <br>
-      <hr>
-      <br>
-    </section>
-    <section>
-      <h1>Tabs</h1>
-      <div class="tabs">
-        <a class="active" href="#!1.html">Tab 1</a>
-        <a href="#!2.html">Tab 2</a>
-        <a href="#!3.html">Tab 3</a>
-      </div>
-      <br>
-      <hr>
-      <br>
-      <div class="tabs is-full">
-        <a class="active" href="#!1.html">Tab 1</a>
-        <a href="#!2.html">Tab 2</a>
-        <a href="#!3.html">Tab 3</a>
-      </div>
-    </section>
-    <section>
-      <h1>Card</h1>
-      <div class="row is-center">
-        <div class="col-4">
-          <div class="card">
-            <header>
-              <h4>Card title</h4>
-            </header>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore
-              magna aliqua. Ut enim ad minim veniam, quis nostrud exercit.</p>
-            <footer class="is-right">
-              <a href="#!" class="button primary">Submit</a>
-              <a href="#!" class="button">Cancel</a>
-            </footer>
+        <div class="row">
+          <div class="col">
+            <div class="card is-center">.col</div>
+          </div>
+          <div class="col">
+            <div class="card is-center">.col</div>
+          </div>
+          <div class="col">
+            <div class="card is-center">.col</div>
           </div>
         </div>
-        <div class="col-6">
-          <div class="card">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore
-              magna aliqua. Ut enim ad minim veniam, quis nostrud exercit.</p>
-            <p>Ipsa magnam consequatur itaque, mollitia non quam voluptate consequuntur dignissimos recusandae ea quas,
-              nobis,
-              debitis officia iure minus et dolore, reprehenderit sapiente iste. Eligendi eveniet ut qui at, deleniti
-              enim!</p>
+        <div class="row">
+          <div class="col-1">
+            <div class="card is-center">.col-1</div>
+          </div>
+          <div class="col-1">
+            <div class="card is-center">.col-1</div>
+          </div>
+          <div class="col-1">
+            <div class="card is-center">.col-1</div>
+          </div>
+          <div class="col-1">
+            <div class="card is-center">.col-1</div>
+          </div>
+          <div class="col-1">
+            <div class="card is-center">.col-1</div>
+          </div>
+          <div class="col-1">
+            <div class="card is-center">.col-1</div>
+          </div>
+          <div class="col-1">
+            <div class="card is-center">.col-1</div>
+          </div>
+          <div class="col-1">
+            <div class="card is-center">.col-1</div>
+          </div>
+          <div class="col-1">
+            <div class="card is-center">.col-1</div>
+          </div>
+          <div class="col-1">
+            <div class="card is-center">.col-1</div>
+          </div>
+          <div class="col-1">
+            <div class="card is-center">.col-1</div>
+          </div>
+          <div class="col-1">
+            <div class="card is-center">.col-1</div>
           </div>
         </div>
-      </div>
-    </section>
-    <section>
-      <h1>Tag</h1>
-      <p>
-        <span class="tag">One</span>
-        <span class="tag">Two</span>
-        <span class="tag">Three</span>
-        <span class="tag is-small">Small</span>
-        <span class="tag is-large">Large</span>
-      </p>
-    </section>
-    <section>
-      <h1>Grid</h1>
-      <div class="row">
-        <div class="col">
-          <div class="card is-center">.col</div>
+        <div class="row">
+          <div class="col-2">
+            <div class="card is-center">.col-2</div>
+          </div>
+          <div class="col-2">
+            <div class="card is-center">.col-2</div>
+          </div>
+          <div class="col-2">
+            <div class="card is-center">.col-2</div>
+          </div>
+          <div class="col">
+            <div class="card is-center">.col</div>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="card is-center">.col</div>
+        <div class="row">
+          <div class="col-3">
+            <div class="card is-center">.col-3</div>
+          </div>
+          <div class="col-3">
+            <div class="card is-center">.col-3</div>
+          </div>
+          <div class="col-3">
+            <div class="card is-center">.col-3</div>
+          </div>
+          <div class="col-3">
+            <div class="card is-center">.col-3</div>
+          </div>
         </div>
-        <div class="col">
-          <div class="card is-center">.col</div>
+        <div class="row">
+          <div class="col-4">
+            <div class="card is-center">.col-4</div>
+          </div>
+          <div class="col-4">
+            <div class="card is-center">.col-4</div>
+          </div>
+          <div class="col-4">
+            <div class="card is-center">.col-4</div>
+          </div>
         </div>
-        <div class="col">
-          <div class="card is-center">.col</div>
+        <div class="row">
+          <div class="col-5">
+            <div class="card is-center">.col-5</div>
+          </div>
+          <div class="col-5">
+            <div class="card is-center">.col-5</div>
+          </div>
+          <div class="col">
+            <div class="card is-center">.col</div>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-1">
-          <div class="card is-center">.col-1</div>
+        <div class="row">
+          <div class="col-6">
+            <div class="card is-center">.col-6</div>
+          </div>
+          <div class="col-6">
+            <div class="card is-center">.col-6</div>
+          </div>
         </div>
-        <div class="col-1">
-          <div class="card is-center">.col-1</div>
+        <div class="row">
+          <div class="col-7">
+            <div class="card is-center">.col-7</div>
+          </div>
+          <div class="col">
+            <div class="card is-center">.col</div>
+          </div>
+          <div class="col-1">
+            <div class="card is-center">.col-1</div>
+          </div>
         </div>
-        <div class="col-1">
-          <div class="card is-center">.col-1</div>
+        <div class="row">
+          <div class="col-8">
+            <div class="card is-center">.col-8</div>
+          </div>
+          <div class="col">
+            <div class="card is-center">.col</div>
+          </div>
+          <div class="col-1">
+            <div class="card is-center">.col-1</div>
+          </div>
         </div>
-        <div class="col-1">
-          <div class="card is-center">.col-1</div>
+        <div class="row">
+          <div class="col-9">
+            <div class="card is-center">.col-9</div>
+          </div>
+          <div class="col">
+            <div class="card is-center">.col</div>
+          </div>
+          <div class="col-1">
+            <div class="card is-center">.col-1</div>
+          </div>
         </div>
-        <div class="col-1">
-          <div class="card is-center">.col-1</div>
+        <div class="row">
+          <div class="col-10">
+            <div class="card is-center">.col-10</div>
+          </div>
+          <div class="col">
+            <div class="card is-center">.col</div>
+          </div>
         </div>
-        <div class="col-1">
-          <div class="card is-center">.col-1</div>
+        <div class="row">
+          <div class="col-11">
+            <div class="card is-center">.col-11</div>
+          </div>
+          <div class="col">
+            <div class="card is-center">.col</div>
+          </div>
         </div>
-        <div class="col-1">
-          <div class="card is-center">.col-1</div>
+        <div class="row">
+          <div class="col-12">
+            <div class="card is-center">.col-12</div>
+          </div>
         </div>
-        <div class="col-1">
-          <div class="card is-center">.col-1</div>
+        <h4>Responsive grids:</h4>
+        <div class="row">
+          <div class="col-12 col-6-md col-4-lg">
+            <div class="card is-center">.col-12.col-6-md.col-4-lg</div>
+          </div>
+          <div class="col-6 col-3-md col-4-lg">
+            <div class="card is-center">.col-6.col-3-md.col-4-lg</div>
+          </div>
+          <div class="col-6 col-3-md col-4-lg">
+            <div class="card is-center">.col-6.col-3-md.col-4-lg</div>
+          </div>
         </div>
-        <div class="col-1">
-          <div class="card is-center">.col-1</div>
+        <div class="row">
+          <div class="col col-6-lg">
+            <div class="card is-center">.col.col-6-lg</div>
+          </div>
+          <div class="col col-3-lg">
+            <div class="card is-center">.col.col-3-lg</div>
+          </div>
+          <div class="col col-3-lg">
+            <div class="card is-center">.col.col-3-lg</div>
+          </div>
         </div>
-        <div class="col-1">
-          <div class="card is-center">.col-1</div>
+        <div class="row">
+          <div class="col hide-sm">
+            <div class="card is-center">.hide-sm</div>
+          </div>
+          <div class="col hide-md">
+            <div class="card is-center">.hide-md</div>
+          </div>
+          <div class="col hide-lg">
+            <div class="card is-center">.hide-lg</div>
+          </div>
         </div>
-        <div class="col-1">
-          <div class="card is-center">.col-1</div>
+      </section>
+      <section>
+        <h1>Helpers</h1>
+        <h4>Text color</h4>
+        <p class="text-primary">Primary</p>
+        <p class="text-light">Light</p>
+        <p class="text-grey">Grey</p>
+        <p class="text-dark">Dark</p>
+        <p class="text-error">Error</p>
+        <p class="text-success">Success</p>
+        <h4>Background color</h4>
+        <div class="row">
+          <div class="col">
+            <div class="card bg-primary">.bg-primary</div>
+          </div>
+          <div class="col">
+            <div class="card bg-light">.bg-light</div>
+          </div>
+          <div class="col">
+            <div class="card bg-grey">.bg-grey</div>
+          </div>
+          <div class="col">
+            <div class="card bg-dark">.bg-dark</div>
+          </div>
+          <div class="col">
+            <div class="card bg-success">.bg-success</div>
+          </div>
+          <div class="col">
+            <div class="card bg-error">.bg-error</div>
+          </div>
         </div>
-        <div class="col-1">
-          <div class="card is-center">.col-1</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-2">
-          <div class="card is-center">.col-2</div>
-        </div>
-        <div class="col-2">
-          <div class="card is-center">.col-2</div>
-        </div>
-        <div class="col-2">
-          <div class="card is-center">.col-2</div>
-        </div>
-        <div class="col">
-          <div class="card is-center">.col</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-3">
-          <div class="card is-center">.col-3</div>
-        </div>
-        <div class="col-3">
-          <div class="card is-center">.col-3</div>
-        </div>
-        <div class="col-3">
-          <div class="card is-center">.col-3</div>
-        </div>
-        <div class="col-3">
-          <div class="card is-center">.col-3</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-4">
-          <div class="card is-center">.col-4</div>
-        </div>
-        <div class="col-4">
-          <div class="card is-center">.col-4</div>
-        </div>
-        <div class="col-4">
-          <div class="card is-center">.col-4</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-5">
-          <div class="card is-center">.col-5</div>
-        </div>
-        <div class="col-5">
-          <div class="card is-center">.col-5</div>
-        </div>
-        <div class="col">
-          <div class="card is-center">.col</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-6">
-          <div class="card is-center">.col-6</div>
-        </div>
-        <div class="col-6">
-          <div class="card is-center">.col-6</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-7">
-          <div class="card is-center">.col-7</div>
-        </div>
-        <div class="col">
-          <div class="card is-center">.col</div>
-        </div>
-        <div class="col-1">
-          <div class="card is-center">.col-1</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-8">
-          <div class="card is-center">.col-8</div>
-        </div>
-        <div class="col">
-          <div class="card is-center">.col</div>
-        </div>
-        <div class="col-1">
-          <div class="card is-center">.col-1</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-9">
-          <div class="card is-center">.col-9</div>
-        </div>
-        <div class="col">
-          <div class="card is-center">.col</div>
-        </div>
-        <div class="col-1">
-          <div class="card is-center">.col-1</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-10">
-          <div class="card is-center">.col-10</div>
-        </div>
-        <div class="col">
-          <div class="card is-center">.col</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-11">
-          <div class="card is-center">.col-11</div>
-        </div>
-        <div class="col">
-          <div class="card is-center">.col</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="card is-center">.col-12</div>
-        </div>
-      </div>
-      <h4>Responsive grids:</h4>
-      <div class="row">
-        <div class="col-12 col-6-md col-4-lg">
-          <div class="card is-center">.col-12.col-6-md.col-4-lg</div>
-        </div>
-        <div class="col-6 col-3-md col-4-lg">
-          <div class="card is-center">.col-6.col-3-md.col-4-lg</div>
-        </div>
-        <div class="col-6 col-3-md col-4-lg">
-          <div class="card is-center">.col-6.col-3-md.col-4-lg</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-6-lg">
-          <div class="card is-center">.col.col-6-lg</div>
-        </div>
-        <div class="col col-3-lg">
-          <div class="card is-center">.col.col-3-lg</div>
-        </div>
-        <div class="col col-3-lg">
-          <div class="card is-center">.col.col-3-lg</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col hide-sm">
-          <div class="card is-center">.hide-sm</div>
-        </div>
-        <div class="col hide-md">
-          <div class="card is-center">.hide-md</div>
-        </div>
-        <div class="col hide-lg">
-          <div class="card is-center">.hide-lg</div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <h1>Helpers</h1>
-      <h4>Text color</h4>
-      <p class="text-primary">Primary</p>
-      <p class="text-light">Light</p>
-      <p class="text-grey">Grey</p>
-      <p class="text-dark">Dark</p>
-      <p class="text-error">Error</p>
-      <p class="text-success">Success</p>
-      <h4>Background color</h4>
-      <div class="row">
-        <div class="col">
-          <div class="card bg-primary">.bg-primary</div>
-        </div>
-        <div class="col">
-          <div class="card bg-light">.bg-light</div>
-        </div>
-        <div class="col">
-          <div class="card bg-grey">.bg-grey</div>
-        </div>
-        <div class="col">
-          <div class="card bg-dark">.bg-dark</div>
-        </div>
-        <div class="col">
-          <div class="card bg-success">.bg-success</div>
-        </div>
-        <div class="col">
-          <div class="card bg-error">.bg-error</div>
-        </div>
-      </div>
-      <h4>Responsive Helpers</h4>
-      <div class="hide-xs">.hide-xs</div>
-      <div class="hide-sm">.hide-sm</div>
-      <div class="hide-md">.hide-md</div>
-      <div class="hide-lg">.hide-lg</div>
-    </section>
-    <section>
-      <h1>Icons</h1>
-      <button type="button" class="button primary icon">New file
-        <img src="https://icongr.am/feather/file.svg?size=16&color=ffffff" alt="icon">
-      </button>
-      <button type="button" class="button icon">New file
-        <img src="https://icongr.am/feather/file.svg?size=12" alt="icon">
-      </button>
-      <button type="button" class="button dark icon">New file
-        <img src="https://icongr.am/feather/file.svg?size=32&color=ffffff" alt="icon">
-      </button>
-      <button class="button icon-only">
-        <img src="https://icongr.am/feather/search.svg?size=16">
-      </button>
-      <button class="button icon-only">
-        <img src="https://icongr.am/feather/search.svg">
-      </button>
-    </section>
-  </div>
-  <p>
-    <br>
-  </p>
-  <script src="../docs/main.js"></script>
-</body>
-
+        <h4>Responsive Helpers</h4>
+        <div class="hide-xs">.hide-xs</div>
+        <div class="hide-sm">.hide-sm</div>
+        <div class="hide-md">.hide-md</div>
+        <div class="hide-lg">.hide-lg</div>
+      </section>
+      <section>
+        <h1>Icons</h1>
+        <button type="button" class="button primary icon">
+          New file
+          <img
+            src="https://icongr.am/feather/file.svg?size=16&color=ffffff"
+            alt="icon"
+          />
+        </button>
+        <button type="button" class="button icon">
+          New file
+          <img src="https://icongr.am/feather/file.svg?size=12" alt="icon" />
+        </button>
+        <button type="button" class="button dark icon">
+          New file
+          <img
+            src="https://icongr.am/feather/file.svg?size=32&color=ffffff"
+            alt="icon"
+          />
+        </button>
+        <button class="button icon-only">
+          <img src="https://icongr.am/feather/search.svg?size=16" />
+        </button>
+        <button class="button icon-only">
+          <img src="https://icongr.am/feather/search.svg" />
+        </button>
+      </section>
+    </div>
+    <p>
+      <br />
+    </p>
+    <script src="../docs/main.js"></script>
+  </body>
 </html>
