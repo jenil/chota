@@ -1,6 +1,6 @@
 body.dark {
     --bg-color: #000;
-    --bg-alt-color: #131316;
+    --bg-secondary-color: #131316;
     --font-color: #f5f5f5;
     --color-grey: #ccc;
     --color-darkGrey: #777;
@@ -81,7 +81,7 @@ hr {
     margin-left: .5rem;
 }
 
-.highlight, code { background-color: var(--bg-alt-color); }
+.highlight, code { background-color: var(--bg-secondary-color); }
 .highlight .c { color: #93a1a1 } /* Comment */
 .highlight .err { color: #586e75 } /* Error */
 .highlight .g { color: #586e75 } /* Generic */

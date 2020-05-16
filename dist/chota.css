@@ -1,7 +1,7 @@
 /*! chota.css v0.7.2 | MIT License | github.com/jenil/chota */
 :root {
   --bg-color: #ffffff;
-  --bg-alt-color: #f3f3f6;
+  --bg-secondary-color: #f3f3f6;
   --color-primary: #14854F;
   --color-lightGrey: #d2d6dd;
   --color-grey: #747681;
@@ -80,7 +80,7 @@ p {
   margin-top: 0;
 }
 blockquote {
-  background-color: var(--bg-alt-color);
+  background-color: var(--bg-secondary-color);
   padding: 1.5rem 2rem;
   border-left: 3px solid var(--color-lightGrey);
 }
@@ -101,7 +101,7 @@ table {
   text-align: left;
 }
 table.striped tr:nth-of-type(2n) {
-  background-color: var(--bg-alt-color);
+  background-color: var(--bg-secondary-color);
 }
 td,
 th {
@@ -128,10 +128,10 @@ kbd {
   white-space: pre-wrap;
   border-radius: 4px;
   padding: 0.2em 0.4em;
-  background-color: var(--bg-alt-color);
+  background-color: var(--bg-secondary-color);
 }
 pre {
-  background-color: var(--bg-alt-color);
+  background-color: var(--bg-secondary-color);
   font-size: 1em;
   padding: 1rem;
   overflow-x: auto;
