@@ -15,12 +15,14 @@
     text-align: center;
 }
 
+.tabs > a[aria-current="page"],
 .tabs > a.active,
 .tabs > a:hover {
     opacity: 1;
     border-bottom: 2px solid var(--color-darkGrey);
 }
 
+.tabs > a[aria-current="page"],
 .tabs > a.active {
     border-color: var(--color-primary);
 }
