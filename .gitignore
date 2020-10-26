@@ -106,5 +106,3 @@ dist
 .jekyll-cache
 .idea
 .vscode
-package-lock.json
-yarn.lock
