@@ -106,3 +106,5 @@ dist
 .jekyll-cache
 .idea
 .vscode
+
+_site
