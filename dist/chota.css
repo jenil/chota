@@ -33,19 +33,6 @@ html {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
 }
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-lightGrey) var(--bg-primary);
-}
-*::-webkit-scrollbar {
-  width: 8px;
-}
-*::-webkit-scrollbar-track {
-  background: var(--bg-primary);
-}
-*::-webkit-scrollbar-thumb {
-  background: var(--color-lightGrey);
-}
 body {
   background-color: var(--bg-color);
   line-height: 1.6;
