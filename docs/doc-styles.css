@@ -1,3 +1,6 @@
+/* stylelint-disable color-function-notation */
+/* stylelint-disable length-zero-no-unit */
+/* stylelint-disable property-no-vendor-prefix */
 body.dark {
   --bg-color: #000;
   --bg-secondary-color: #262626;
@@ -60,21 +63,21 @@ hr {
   margin: 3rem 0;
 }
 
+body.dark .card {
+  box-shadow: 0 1px 3px var(--color-darkGrey);
+}
+
 #grid .card {
   padding: 1rem 0rem;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  background-color: rgba(26, 159, 96, 0.2);
+  background-color: rgba(26, 159, 96, 20%);
   font-size: 1.2rem;
 }
 
 body.dark #grid .card {
-    background-color: rgba(26, 159, 96, 0.4);
-}
-
-body.dark .card {
-    box-shadow: 0 1px 3px var(--color-darkGrey);
+  background-color: rgba(26, 159, 96, 40%);
 }
 
 .buttons {
@@ -95,6 +98,7 @@ body.dark .card {
 code {
   background-color: var(--bg-secondary-color);
 }
+
 .highlight .c {
   color: #93a1a1;
 } /* Comment */
