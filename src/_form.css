@@ -70,14 +70,6 @@ button:hover {
   opacity: 0.8;
 }
 
-.button:active,
-[type="button"]:active,
-[type="reset"]:active,
-[type="submit"]:active,
-button:active {
-  transform: scale(0.98);
-}
-
 input:disabled,
 input:disabled:hover,
 button:disabled,
@@ -199,6 +191,14 @@ textarea.success {
 
 .button.icon-only {
   padding: 1rem;
+}
+
+.button:active:not(:disabled),
+[type="button"]:active:not(:disabled),
+[type="reset"]:active:not(:disabled),
+[type="submit"]:active:not(:disabled),
+button:active:not(:disabled) {
+  transform: scale(0.98);
 }
 
 ::placeholder {
