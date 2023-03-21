@@ -9,7 +9,7 @@
     "build": "rimraf dist/* && stylelint src/*.css --fix && yarn postcss &&  cross-env NODE_ENV=production yarn postcss --ext .min.css && gzip -c dist/chota.min.css  | wc -c | xargs echo 'Size:'",
     "postcss": "postcss ./src/chota.css -d dist/",
     "watch": "cross-env NODE_ENV=development yarn postcss -w",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "stylelint src/*.css",
     "prepublish": "yarn build"
   },
   "keywords": [
