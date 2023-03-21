@@ -18,6 +18,6 @@
   font-size: 1.125em;
 }
 
-.tag+.tag {
+.tag + .tag {
   margin-left: 1rem;
 }

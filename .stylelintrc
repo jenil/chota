@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-prettier"
+  ],
+  "ignorePath": [
+    "dist/**"
+  ],
+  "rules": {
+    "custom-property-pattern": null
+  }
+}

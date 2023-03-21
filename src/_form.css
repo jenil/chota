@@ -8,7 +8,7 @@ legend {
   letter-spacing: 0.1rem;
 }
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="color"]):not([type="button"]):not([type="reset"]),
+input:not([type="checkbox"], [type="radio"], [type="submit"], [type="color"], [type="button"], [type="reset"]),
 select,
 textarea,
 textarea[type="text"] {
@@ -22,47 +22,14 @@ textarea[type="text"] {
   width: 100%;
 }
 
-input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="color"]):not([type="button"]):not([type="reset"]):not(:disabled):hover,
-select:hover,
-textarea:hover,
-textarea[type="text"]:hover {
-  border-color: var(--color-grey);
-}
-
-input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="color"]):not([type="button"]):not([type="reset"]):focus,
-select:focus,
-textarea:focus,
-textarea[type="text"]:focus {
-  outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 1px var(--color-primary);
-}
-
-input.error:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="color"]):not([type="button"]):not([type="reset"]),
-textarea.error {
-  border-color: var(--color-error);
-}
-
-input.success:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="color"]):not([type="button"]):not([type="reset"]),
-textarea.success {
-  border-color: var(--color-success);
-}
-
 select {
-  -webkit-appearance: none;
+  appearance: none;
   background: #f3f3f6 no-repeat 100%;
   background-size: 1ex;
   background-origin: content-box;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='40' fill='%23555'><polygon points='0,0 60,0 30,40'/></svg>");
 }
 
-[type="checkbox"],
-[type="radio"] {
-  width: 1.6rem;
-  height: 1.6rem;
-}
-
-/* BUTTONS */
 .button,
 [type="button"],
 [type="reset"],
@@ -83,29 +50,16 @@ button {
   cursor: pointer;
 }
 
-.grouped {
-  display: flex;
-}
-
-.grouped > *:not(:last-child) {
-  margin-right: 16px;
-}
-
-.grouped.gapless > * {
-  margin: 0 0 0 -1px !important;
-  border-radius:0 !important;
-}
-.grouped.gapless > *:first-child {
-  margin: 0 !important;
-  border-radius:4px 0 0 4px !important;
-}
-
-.grouped.gapless > *:last-child {
-  border-radius:0 4px 4px 0 !important;
-}
-
-.button + .button {
-  margin-left: 1rem;
+.button.primary,
+.button.secondary,
+.button.dark,
+.button.error,
+.button.success,
+[type="submit"] {
+  color: #fff;
+  z-index: 1; /* hightlight from other button's border when grouped */
+  background-color: #000;
+  background-color: var(--color-primary);
 }
 
 .button:hover,
@@ -125,23 +79,71 @@ button:active {
 }
 
 input:disabled,
-button:disabled,
 input:disabled:hover,
+button:disabled,
 button:disabled:hover {
   opacity: 0.4;
   cursor: not-allowed;
 }
 
-.button.primary,
-.button.secondary,
-.button.dark,
-.button.error,
-.button.success,
-[type="submit"] {
-  color: #fff;
-  z-index: 1; /* hightlight from other button's border when grouped */
-  background-color: #000;
-  background-color: var(--color-primary);
+.grouped {
+  display: flex;
+}
+
+.grouped > *:not(:last-child) {
+  margin-right: 16px;
+}
+
+.grouped.gapless > * {
+  margin: 0 0 0 -1px !important;
+  border-radius: 0 !important;
+}
+
+.grouped.gapless > *:first-child {
+  margin: 0 !important;
+  border-radius: 4px 0 0 4px !important;
+}
+
+.grouped.gapless > *:last-child {
+  border-radius: 0 4px 4px 0 !important;
+}
+
+input:not([type="checkbox"], [type="radio"], [type="submit"], [type="color"], [type="button"], [type="reset"], :disabled):hover,
+select:hover,
+textarea:hover,
+textarea[type="text"]:hover {
+  border-color: var(--color-grey);
+}
+
+input:not([type="checkbox"], [type="radio"], [type="submit"], [type="color"], [type="button"], [type="reset"]):focus,
+select:focus,
+textarea:focus,
+textarea[type="text"]:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 1px var(--color-primary);
+}
+
+input.error:not([type="checkbox"], [type="radio"], [type="submit"], [type="color"], [type="button"], [type="reset"]),
+textarea.error {
+  border-color: var(--color-error);
+}
+
+input.success:not([type="checkbox"], [type="radio"], [type="submit"], [type="color"], [type="button"], [type="reset"]),
+textarea.success {
+  border-color: var(--color-success);
+}
+
+[type="checkbox"],
+[type="radio"] {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+/* BUTTONS */
+
+.button + .button {
+  margin-left: 1rem;
 }
 
 .button.secondary {
@@ -194,6 +196,7 @@ button:disabled:hover {
 .button.icon > img {
   margin-left: 2px;
 }
+
 .button.icon-only {
   padding: 1rem;
 }
