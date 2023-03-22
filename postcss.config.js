@@ -1,4 +1,10 @@
+const { version } = require("./package.json");
+
 let plugins = [
+  require("postcss-banner")({
+    banner: `chota.css v${version} | MIT License | https://github.com/jenil/chota`,
+    important: true,
+  }),
   require("postcss-import")({
     plugins: [require("stylelint")({ fix: true, formatter: "compact" })],
   }),

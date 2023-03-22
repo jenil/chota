@@ -10,7 +10,7 @@
     "postcss": "postcss ./src/chota.css -d dist/",
     "watch": "cross-env NODE_ENV=development yarn postcss -w",
     "test": "stylelint src/*.css",
-    "prepublish": "yarn build"
+    "preversion": "yarn build"
   },
   "keywords": [
     "css",
@@ -34,6 +34,7 @@
     "cssnano": "5.1.13",
     "npm-run-all": "4.1.5",
     "postcss": "8.4.16",
+    "postcss-banner": "4.0.1",
     "postcss-cli": "10.0.0",
     "postcss-csso": "6.0.1",
     "postcss-import": "15.0.0",
