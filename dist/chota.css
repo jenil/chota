@@ -10,6 +10,9 @@
   --color-darkGrey: #3f4144;
   --color-error: #d43939;
   --color-success: #28bd14;
+  --color-warning: #ffc107;
+  --color-info: #0dcaf0;
+  --color-link: #3273dc;
   --grid-maxWidth: 120rem;
   --grid-gutter: 2rem;
   --font-size: 1.6rem;
@@ -593,6 +596,15 @@ textarea.success {
 .button.success {
   background-color: var(--color-success);
 }
+.button.warning {
+  background-color: var(--color-warning);
+}
+.button.info {
+  background-color: var(--color-info);
+}
+.button.link {
+  background-color: var(--color-link);
+}
 .button.outline {
   background-color: transparent;
   border-color: var(--color-lightGrey);
@@ -608,6 +620,18 @@ textarea.success {
 .button.outline.dark {
   border-color: var(--color-darkGrey);
   color: var(--color-darkGrey);
+}
+.button.outline.warning {
+  border-color: var(--color-warning);
+  color: var(--color-warning);
+}
+.button.outline.info {
+  border-color: var(--color-info);
+  color: var(--color-info);
+}
+.button.outline.link {
+  border-color: var(--color-link);
+  color: var(--color-link);
 }
 .button.clear {
   background-color: transparent;
@@ -835,6 +859,15 @@ details.dropdown > :last-child {
 .bg-success {
   background-color: var(--color-success) !important;
 }
+.bg-warning {
+  background-color: var(--color-warning) !important;
+}
+.bg-info {
+  background-color: var(--color-info) !important;
+}
+.bg-link {
+  background-color: var(--color-link) !important;
+}
 .bd-primary {
   border: 1px solid var(--color-primary) !important;
 }
@@ -852,6 +885,15 @@ details.dropdown > :last-child {
 }
 .bd-success {
   border: 1px solid var(--color-success) !important;
+}
+.bd-warning {
+  border: 1px solid var(--color-warning) !important;
+}
+.bd-info {
+  border: 1px solid var(--color-info) !important;
+}
+.bd-link {
+  border: 1px solid var(--color-link) !important;
 }
 .text-primary {
   color: var(--color-primary) !important;
@@ -873,6 +915,15 @@ details.dropdown > :last-child {
 }
 .text-white {
   color: #fff !important;
+}
+.text-warning {
+  color: var(--color-warning) !important;
+}
+.text-info {
+  color: var(--color-info) !important;
+}
+.text-link {
+  color: var(--color-link) !important;
 }
 /* Position & alignment */
 .pull-right {
