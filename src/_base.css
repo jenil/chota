@@ -7,6 +7,9 @@
   --color-darkGrey: #3f4144;
   --color-error: #d43939;
   --color-success: #28bd14;
+  --color-warning: #ffc107;
+  --color-info: #0dcaf0;
+  --color-link: #3273dc;
   --grid-maxWidth: 120rem;
   --grid-gutter: 2rem;
   --font-size: 1.6rem;

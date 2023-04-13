@@ -154,6 +154,18 @@ textarea.success {
   background-color: var(--color-success);
 }
 
+.button.warning {
+  background-color: var(--color-warning);
+}
+
+.button.info {
+  background-color: var(--color-info);
+}
+
+.button.link {
+  background-color: var(--color-link);
+}
+
 .button.outline {
   background-color: transparent;
   border-color: var(--color-lightGrey);
@@ -172,6 +184,21 @@ textarea.success {
 .button.outline.dark {
   border-color: var(--color-darkGrey);
   color: var(--color-darkGrey);
+}
+
+.button.outline.warning {
+  border-color: var(--color-warning);
+  color: var(--color-warning);
+}
+
+.button.outline.info {
+  border-color: var(--color-info);
+  color: var(--color-info);
+}
+
+.button.outline.link {
+  border-color: var(--color-link);
+  color: var(--color-link);
 }
 
 .button.clear {

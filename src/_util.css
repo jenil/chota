@@ -23,6 +23,18 @@
   background-color: var(--color-success) !important;
 }
 
+.bg-warning {
+  background-color: var(--color-warning) !important;
+}
+
+.bg-info {
+  background-color: var(--color-info) !important;
+}
+
+.bg-link {
+  background-color: var(--color-link) !important;
+}
+
 .bd-primary {
   border: 1px solid var(--color-primary) !important;
 }
@@ -45,6 +57,18 @@
 
 .bd-success {
   border: 1px solid var(--color-success) !important;
+}
+
+.bd-warning {
+  border: 1px solid var(--color-warning) !important;
+}
+
+.bd-info {
+  border: 1px solid var(--color-info) !important;
+}
+
+.bd-link {
+  border: 1px solid var(--color-link) !important;
 }
 
 .text-primary {
@@ -73,6 +97,18 @@
 
 .text-white {
   color: #fff !important;
+}
+
+.text-warning {
+  color: var(--color-warning) !important;
+}
+
+.text-info {
+  color: var(--color-info) !important;
+}
+
+.text-link {
+  color: var(--color-link) !important;
 }
 
 /* Position & alignment */
