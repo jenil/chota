@@ -909,6 +909,9 @@ details.dropdown > :last-child {
 .is-full-width {
   width: 100% !important;
 }
+.is-full-height {
+  height: 100% !important;
+}
 .is-vertical-align {
   display: -webkit-box;
   display: -ms-flexbox;
