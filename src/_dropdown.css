@@ -8,3 +8,8 @@ details.dropdown > :last-child {
   left: 0;
   white-space: nowrap;
 }
+
+.nav-right>details.dropdown>:last-child {
+    right: 0;
+    left: auto;
+}
