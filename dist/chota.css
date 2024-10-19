@@ -475,6 +475,12 @@ textarea[type="text"] {
   display: block;
   width: 100%;
 }
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"],
+progress {
+  accent-color: var(--color-primary);
+}
 select {
   -webkit-appearance: none;
      -moz-appearance: none;
