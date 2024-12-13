@@ -1,12 +1,9 @@
-/*! chota.css v0.8.0 | MIT License | github.com/jenil/chota */
 @import "_base.css";
 @import "_grid.css";
 @import "_form.css";
-
 @import "_nav.css";
 @import "_card.css";
 @import "_tab.css";
 @import "_tag.css";
 @import "_dropdown.css";
-
 @import "_util.css";
