@@ -1,5 +1,5 @@
 .card {
-  padding: 1rem 2rem;
+  padding: 0.625rem 1.25rem;
   border-radius: 4px;
   background: var(--bg-color);
   box-shadow: 0 1px 3px var(--color-grey);
@@ -11,5 +11,5 @@
 
 .card header > * {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0.625rem;
 }

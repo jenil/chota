@@ -1,11 +1,11 @@
 .nav {
   display: flex;
-  min-height: 5rem;
+  min-height: 3.125rem;
   align-items: stretch;
 }
 
 .nav img {
-  max-height: 3rem;
+  max-height: 1.875rem;
 }
 
 .nav > .container {
@@ -50,7 +50,7 @@
   text-decoration: none;
   display: flex;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.625rem 1.25rem;
   color: var(--color-darkGrey);
 }
 
@@ -67,9 +67,9 @@
 }
 
 .nav .brand img {
-  padding-right: 1rem;
+  padding-right: 0.625rem;
 }
 
 .nav .button {
-  margin: auto 1rem;
+  margin: auto 0.625rem;
 }
