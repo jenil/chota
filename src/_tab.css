@@ -8,7 +8,7 @@
 
 .tabs > .dropdown > summary,
 .tabs > a {
-  padding: 1rem 2rem;
+  padding: 0.625rem 1.25rem;
   flex: 0 1 auto;
   color: var(--color-darkGrey);
   border-bottom: 2px solid var(--color-lightGrey);

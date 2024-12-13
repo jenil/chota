@@ -7,9 +7,9 @@
   --color-darkGrey: #3f4144;
   --color-error: #d43939;
   --color-success: #28bd14;
-  --grid-maxWidth: 120rem;
-  --grid-gutter: 2rem;
-  --font-size: 1.6rem;
+  --grid-maxWidth: 75rem;
+  --grid-gutter: 1.25rem;
+  --font-size: 1rem;
   --font-color: #333;
   --font-family-sans: -apple-system, "BlinkMacSystemFont", "Avenir",
     "Avenir Next", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
@@ -19,7 +19,6 @@
 
 html {
   box-sizing: border-box;
-  font-size: 62.5%;
   line-height: 1.15;
   text-size-adjust: 100%;
 }
@@ -94,7 +93,7 @@ p {
 
 blockquote {
   background-color: var(--bg-secondary-color);
-  padding: 1.5rem 2rem;
+  padding: 0.9375rem 1.25rem;
   border-left: 3px solid var(--color-lightGrey);
 }
 
@@ -106,7 +105,7 @@ hr {
   border: none;
   background-color: var(--color-lightGrey);
   height: 1px;
-  margin: 1rem 0;
+  margin: 0.625rem 0;
 }
 
 table {
@@ -124,7 +123,7 @@ table.striped tr:nth-of-type(2n) {
 td,
 th {
   vertical-align: middle;
-  padding: 1.2rem 0.4rem;
+  padding: 0.75rem 0.25rem;
 }
 
 thead {
@@ -156,7 +155,7 @@ kbd {
 pre {
   background-color: var(--bg-secondary-color);
   font-size: 1em;
-  padding: 1rem;
+  padding: 0.625rem;
   overflow-x: auto;
 }
 
