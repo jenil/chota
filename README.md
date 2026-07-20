@@ -33,6 +33,8 @@ CDN:
 npm or yarn:
 ```bash
 npm install chota
+# or
+yarn add chota
 ```
 
 #### SASS support

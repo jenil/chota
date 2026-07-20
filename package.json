@@ -2,14 +2,23 @@
   "name": "chota",
   "version": "0.9.2",
   "description": "A really small CSS framework",
+  "packageManager": "yarn@1.22.22",
+  "volta": {
+    "node": "24.18.0",
+    "yarn": "1.22.22"
+  },
   "main": "dist/chota.min.css",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "start": "run-p docs watch",
     "docs": "bundle exec jekyll s -s docs",
-    "build": "rimraf dist/* && stylelint src/*.css --fix && yarn postcss &&  cross-env NODE_ENV=production yarn postcss --ext .min.css && gzip -c dist/chota.min.css  | wc -c | xargs echo 'Size:'",
+    "build": "rimraf dist/* && stylelint src/*.css && postcss ./src/chota.css -d dist/ && cross-env NODE_ENV=production postcss ./src/chota.css -d dist/ --ext .min.css && node scripts/size-gate.js",
     "postcss": "postcss ./src/chota.css -d dist/",
-    "watch": "cross-env NODE_ENV=development yarn postcss -w",
-    "test": "stylelint src/*.css"
+    "watch": "cross-env NODE_ENV=development postcss ./src/chota.css -d dist/ -w",
+    "test": "stylelint src/*.css",
+    "baselines": "node scripts/baselines.js"
   },
   "keywords": [
     "css",
@@ -28,7 +37,6 @@
   },
   "devDependencies": {
     "autoprefixer": "10.4.8",
-    "caniuse-lite": "1.0.30001468",
     "cross-env": "7.0.2",
     "cssnano": "5.1.13",
     "npm-run-all": "4.1.5",
@@ -50,7 +58,11 @@
     "README.md"
   ],
   "browserslist": [
-    "last 2 versions"
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Edge versions",
+    "Safari >= 15.4",
+    "ios >= 15.4"
   ],
   "prettier": {
     "tabWidth": 2

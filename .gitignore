@@ -107,3 +107,7 @@ typings/
 .vscode
 
 _site
+
+# Local agent artifacts
+.pi-subagents/
+PLAN.md

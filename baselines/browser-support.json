@@ -1,0 +1,23 @@
+{
+  "capturedAt": "2026-07-20T02:29:06.425Z",
+  "branch": "v1",
+  "buildCommand": "yarn build",
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Edge versions",
+    "Safari >= 15.4",
+    "ios >= 15.4"
+  ],
+  "supported": [
+    "Chrome (last 2 versions)",
+    "Firefox (last 2 versions)",
+    "Edge (last 2 versions)",
+    "Safari 15.4 and later",
+    "iOS Safari 15.4 and later"
+  ],
+  "dropped": [
+    "Internet Explorer",
+    "Opera"
+  ]
+}

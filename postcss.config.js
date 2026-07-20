@@ -6,7 +6,7 @@ let plugins = [
     important: true,
   }),
   require("postcss-import")({
-    plugins: [require("stylelint")({ fix: true, formatter: "compact" })],
+    plugins: [require("stylelint")({ formatter: "compact" })],
   }),
   require("autoprefixer")(),
   require("postcss-reporter")({ clearReportedMessages: true }),

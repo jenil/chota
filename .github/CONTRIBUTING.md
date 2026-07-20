@@ -17,19 +17,24 @@ Whether you notice the problem by yourself, or found an open issue on our [issue
 
 ## Work on the Fix
 1. [Fork and clone](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) this repository.
-2. Install dependencies with `yarn install` or `npm install`.
-3. Create a new branch with a name such as `<your_username>/issue-45` or `feature-really-cool`.
-4. When you're ready, start the css compiler (postcss) with `yarn watch` (or `npm run watch`). Write the css code in the `/src` folder, and postcss will compile it and output it to the `/dist` folder.
-5. You can see your changes by opening `/test/index.html` in your browser. There's no local server, so you'll have to open the file itself in your browser (`file://Users/.../test/index.html`). If you are using VS Code, you can use [@ritwickdey](https://github.com/ritwickdey)'s awesome [live-server extension](https://ritwickdey.github.io/vscode-live-server/) to serve and reload the page in real-time.
+2. Install [Volta](https://volta.sh/). This project pins its Node and Yarn versions in `package.json`; Volta selects them when you enter the repository.
+3. Run `yarn install --frozen-lockfile`, `yarn test`, and `yarn build`. A clean checkout must pass all three before a change is submitted.
+4. Create a new branch with a name such as `<your_username>/issue-45` or `feature-really-cool`.
+5. When you're ready, start the css compiler with `yarn watch`. Write CSS in `/src`; PostCSS writes generated output to `/dist`.
+6. You can see your changes by opening `/test/index.html` in your browser. There's no local server, so you'll have to open the file itself in your browser (`file://Users/.../test/index.html`). If you are using VS Code, you can use [@ritwickdey](https://github.com/ritwickdey)'s awesome [live-server extension](https://ritwickdey.github.io/vscode-live-server/) to serve and reload the page in real-time.
 
 ## Open a Pull Request
 > If you're new to contributing to open source, see <http://makeapullrequest.com/>.
-0. When you're happy with your changes, run `yarn build` or `npm run build`. This will update `/dist/chota.min.css` to reflect any changes you made.
+0. When you're happy with your changes, run `yarn test` and `yarn build`. This updates `/dist/chota.min.css` to reflect any source changes.
 1. Open a new pull request, and include
   **a)** a short description of the changes you made, and
   **b)** a reference to the related issue (just "fixes #45" is fine).
 2. You may be asked to revise your changes, so keep on your toes. Also, we *may* decide not accept the pull request entirely. It's that we don't like you, but...
 3. Advance to [step #4](#relax)
+
+## Dependency Maintenance
+
+Dependabot opens grouped development-dependency updates monthly. Review and batch approved updates quarterly with the documented Yarn commands; do not change package-manager or dependency versions as unrelated cleanup in a CSS change.
 
 ## Relax
 You're done! :unicorn: Thanks for joining the club. Now, go tell everyone about *this great new css framework you heard of*.
