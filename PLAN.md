@@ -10,6 +10,13 @@ Not v1 scope: grid redesign, behavior-heavy components (modals/toasts), a custom
 
 The GitHub Project is the live queue. GitHub issue cards contain implementation procedure, file scope, test cases, and handoff evidence; this document controls sequencing and release gates.
 
+### Cross-references
+
+- Live tracking issue: [#121](https://github.com/jenil/chota/issues/121) — the source of truth for integration-branch readiness, evidence links, sequencing, and release gates. This issue is updated in sync with plan.md and the GitHub Project board.
+- GitHub Project #2 ("Chota v1.0") — the live queue. Issue cards contain implementation procedure, file scope, test cases, and handoff evidence.
+- Current integration branch: `v1` (commit `58997f3` as of 2026-07-26)
+- Latest commit: `bd95ad5` (feat: establish CSS public API contract test with deliberate failure demos)
+
 ## Branch and review policy
 
 - `v1` is the sole long-lived integration branch. Do not merge v1 implementation work to `main` until the owner-approved release PR from `v1` to `main`.
@@ -27,9 +34,11 @@ The GitHub Project is the live queue. GitHub issue cards contain implementation 
 4. Obtain the required review and open a PR to `v1`.
 5. Merge only with green required checks. Attach the PR and evidence to the card, then mark it **Done**.
 
-A card is not Done because code exists, a branch merged, or an artifact was created. It is Done only with the evidence required by its GitHub card. A failed check or review returns it to In Progress.
+A card is not Done because code exists, a branch merged, or an artifact was created. It is Done only with the evidence required by its GitHub card. A failed check or review returns it to **In Progress** (not **Ready** or **Todo**) — the coordinator re-evaluates whether the card is still viable, still blocked, or should be cancelled.
 
-**Subagent delegation rule:** When delegating a card to a subagent, the coordinator must first move the card to **In Progress** on the project board. The card remains In Progress while the subagent executes, and is only moved to **Done** (or back to **Ready** on failure) when the subagent completes or fails. This ensures the project board accurately reflects active work at all times — never leave a card as "Ready" while a subagent is executing on it.
+**Subagent delegation rule:** When delegating a card to a subagent, the coordinator must first move the card to **In Progress** on the project board. The card remains In Progress while the subagent executes, and is only moved to **Done** (or back to **In Progress** on failure) when the subagent completes or fails. This ensures the project board accurately reflects active work at all times — never leave a card as "Ready" while a subagent is executing on it.
+
+**Failure path:** When a card fails (test, review, or evidence check), the coordinator moves it to **In Progress**, evaluates whether to retry, re-scope, or cancel, then either re-delegates or removes it from the board. Cards are never silently abandoned.
 
 ### Agent handoff
 
@@ -54,12 +63,18 @@ Evidence must be real and current: commands and exit status, commit SHA, test/VR
 | 1 | 2 | #125 release baselines, #128 dependency policy | #125 depends on #123; #128 is independent. |
 | 1 | 3 | #127 portable size gate | Requires #123 and #125. |
 | 2 | 1 | #129 CI, #124 Chromium VRT, #130 a11y baseline, #131 CSS API contract | Requires verified Week 1 evidence. |
-| 2 | 2 | #132–#136 issue validation | Validation only; create a separate fix card only after reproduction and decision. |
+| 2 | 2 | #132 validate #102 (mobile grid overflow) | Validation only; create a separate fix card after reproduction and decision. |
+| 2 | 2 | #133 validate #77 (WordPress tag collision) | Validation only; create a separate fix card after reproduction and decision. |
+| 2 | 2 | #134 validate #111 (full-height nav logo) | Validation only; create a separate fix card after reproduction and decision. |
+| 2 | 2 | #135 validate #114 (grouped controls) | Validation only; create a separate fix card after reproduction and decision. |
+| 2 | 2 | #136 validate #61 (spacing utilities) | Validation only; create a separate fix card after reproduction and decision. |
 | 3 | 1 | #139 focus, #140 dark-mode docs, #141 interaction docs | #139 uses #130 findings; #140/#141 can run independently. |
-| 3 | 2 | #137 root-font migration, #138 token normalization | #137 needs #124; avoid concurrent edits to shared base/token CSS. |
-| 3 | 3 | #142 migration/API docs | Requires final Week 3 API and issue decisions. |
+| 3 | 2 | #137 root-font migration, #138 token normalization | #137 needs #124 (VRT) and #131 (API contract); avoid concurrent edits to shared base/token CSS. |
+| 3 | 3 | #142 migration/API docs | Requires #137 and #138 completion; verifies against current source and built dist/. |
 | 4 | 1 | #143 RC readiness, #144 RC validation | Feature scope is frozen except owner-approved release blockers. |
 | 4 | 2 | #145 final release, #146 post-v1 roadmap | #145 is the sole `v1` to `main` integration path. |
+
+**Parallelism guidance:** Cards within the same Week are independent unless a dependency is explicitly noted. They may run in parallel (separate branches, separate PRs) or sequentially — the choice is a coordinator decision. Parallel execution saves time but increases merge conflict risk on shared files (e.g., base CSS, package.json). Sequential execution is safer for shared files.
 
 ## Current Progress (Updated 2026-07-26)
 
@@ -71,7 +86,7 @@ Evidence must be real and current: commands and exit status, commit SHA, test/VR
 - ✅ #127 add portable size gate
 - ✅ #128 configure dependency maintenance policy
 
-### Week 2 — IN PROGRESS (3/10 cards)
+### Week 2 — IN PROGRESS (4/10 cards)
 - ✅ #129 add pull request CI quality gate (PR #153)
 - ✅ #124 establish Chromium VRT (PR #154, 4 baseline screenshots)
 - ✅ #130 establish a11y baseline (axe-core, 9 real violations documented)
@@ -96,9 +111,9 @@ Evidence must be real and current: commands and exit status, commit SHA, test/VR
 
 ### Summary
 - **Total cards:** 26
-- **Completed:** 9 (35%)
+- **Completed:** 10 (38%)
 - **Week 1:** 6/6 (100%)
-- **Week 2:** 3/10 (30%)
+- **Week 2:** 4/10 (40%)
 - **Week 3:** 0/6 (0%)
 - **Week 4:** 0/4 (0%)
 
@@ -134,6 +149,17 @@ Run CI, Chromium VRT, accessibility baseline checks, and public CSS API checks o
 ### Gate
 
 Before a compatibility fix merges, CI must demonstrate that it can catch a selector removal, a meaningful visual change, and a size regression. #132–#136 decide whether a report is reproducible and v1-worthy; they do not ship a fix themselves.
+
+### Week 2 exit gate
+
+Week 3 cannot start merely because Week 2 cards say Done. The owner must confirm all of the following:
+
+- CI workflow (`.github/workflows/ci.yml`) runs install, lint, build, API contract, VRT, and a11y steps on PRs targeting `v1`.
+- VRT baseline screenshots are committed and pass locally (`npx playwright test` green).
+- a11y baseline reports exist with real findings (not placeholders), dispositions linked to implementation cards.
+- CSS API contract test passes (`yarn test:api` green) with a reviewed `test/vrt/api-manifest.json`.
+- Deliberate failure demonstrations prove the CI pipeline catches: selector removal, visual regression, size regression, and a11y violations.
+- All Week 2 evidence is attached to its GitHub card and the card is marked Done on the project board.
 
 ## Week 3 — safe API and documentation improvements
 
