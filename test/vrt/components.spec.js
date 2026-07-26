@@ -43,7 +43,6 @@ test.describe('Components page (components.html)', () => {
     await page.evaluate(() => document.fonts.ready);
     
     const screenshot = await page.screenshot({ fullPage: false });
-    const expectedPath = 'test/vrt/snapshots/components-desktop.png';
     await expect(screenshot).toMatchSnapshot('components-desktop.png');
     
     await context.close();
@@ -63,7 +62,6 @@ test.describe('Components page (components.html)', () => {
     await page.evaluate(() => document.fonts.ready);
     
     const screenshot = await page.screenshot({ fullPage: false });
-    const expectedPath = 'test/vrt/snapshots/components-mobile.png';
     await expect(screenshot).toMatchSnapshot('components-mobile.png');
     
     await context.close();

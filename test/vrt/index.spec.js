@@ -43,7 +43,6 @@ test.describe('Elements page (index.html)', () => {
     await page.evaluate(() => document.fonts.ready);
     
     const screenshot = await page.screenshot({ fullPage: false });
-    const expectedPath = 'test/vrt/snapshots/index-desktop.png';
     await expect(screenshot).toMatchSnapshot('index-desktop.png');
     
     await context.close();
@@ -63,7 +62,6 @@ test.describe('Elements page (index.html)', () => {
     await page.evaluate(() => document.fonts.ready);
     
     const screenshot = await page.screenshot({ fullPage: false });
-    const expectedPath = 'test/vrt/snapshots/index-mobile.png';
     await expect(screenshot).toMatchSnapshot('index-mobile.png');
     
     await context.close();

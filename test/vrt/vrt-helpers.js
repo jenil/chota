@@ -2,7 +2,8 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const FIXTURES_DIR = path.join(__dirname, '..');
+const FIXTURES_DIR = path.resolve(__dirname, '..');
+const DIST_DIR = path.resolve(__dirname, '../..');
 
 /**
  * Find an available port starting from the given port.
@@ -27,10 +28,20 @@ async function startFixtureServer(startPort) {
   
   return new Promise((resolve, reject) => {
     const server = http.createServer((req, res) => {
-      let filePath = path.join(FIXTURES_DIR, req.url === '/' ? 'index.html' : req.url);
+      let filePath;
+      let servingDir = FIXTURES_DIR;
+      
+      // Serve CSS from dist/ (project root) when requested as /dist/...
+      if (typeof req.url === 'string' && req.url.startsWith('/dist/')) {
+        filePath = path.join(DIST_DIR, req.url);
+        servingDir = DIST_DIR;
+      } else {
+        filePath = path.join(FIXTURES_DIR, req.url === '/' ? 'index.html' : req.url);
+        servingDir = FIXTURES_DIR;
+      }
       
       // Security: prevent directory traversal
-      if (!filePath.startsWith(FIXTURES_DIR)) {
+      if (!filePath.startsWith(servingDir)) {
         res.writeHead(403);
         res.end('Forbidden');
         return;
