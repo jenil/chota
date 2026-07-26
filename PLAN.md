@@ -44,6 +44,8 @@ A card is not Done because code exists, a branch merged, or an artifact was crea
 
 Every worker brief must name: card/outcome, allowed files, protected public API, non-goals, exact verification commands, required fixture/VRT/a11y coverage, and required handoff evidence. A worker stops for a coordinator decision if the task needs a package-manager/dependency choice, a public API break, a browser-policy exception, or a non-reproducible issue.
 
+Agents follow `AGENTS.md` diagnostic and pull-request rules; a card with unverified evidence stays **In Progress**.
+
 ## Completion evidence
 
 | Status | Meaning |
