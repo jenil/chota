@@ -1,0 +1,108 @@
+{
+  "version": "1.0.0",
+  "axe-core": "4.12.1",
+  "ruleset": "wcag2a,wcag2aa",
+  "viewport": "1280x720",
+  "pages": {
+    "index.html": {
+      "violations": [
+        {
+          "id": "button-name",
+          "impact": "critical",
+          "nodes": [
+            ".icon-only"
+          ],
+          "disposition": "fix in v1 -> #139"
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": [
+            "cite > a[href=\"#!\"]",
+            "h4 > code:nth-child(1)",
+            "h4 > code:nth-child(2)",
+            "kbd",
+            "p:nth-child(2) > code",
+            "pre:nth-child(6) > code",
+            "h3:nth-child(1) > code",
+            "h3:nth-child(3) > code:nth-child(1)",
+            "h3:nth-child(3) > code:nth-child(2)",
+            "h3:nth-child(5) > code:nth-child(1)",
+            "h3:nth-child(5) > code:nth-child(2)",
+            ".success.button[href=\"#\"]"
+          ],
+          "disposition": "defer post-v1 (color palette redesign)"
+        },
+        {
+          "id": "frame-title",
+          "impact": "serious",
+          "nodes": [
+            "iframe"
+          ],
+          "disposition": "explicit limitation (external embeds outside Chota's control)"
+        },
+        {
+          "id": "image-alt",
+          "impact": "critical",
+          "nodes": [
+            ".icon-only > img"
+          ],
+          "disposition": "fix in v1 -> #139"
+        },
+        {
+          "id": "scrollable-region-focusable",
+          "impact": "serious",
+          "nodes": [
+            "pre:nth-child(5)"
+          ],
+          "disposition": "defer post-v1 (Safari-specific, needs browser test)"
+        }
+      ],
+      "incomplete": []
+    },
+    "components.html": {
+      "violations": [
+        {
+          "id": "button-name",
+          "impact": "critical",
+          "nodes": [
+            ".icon-only:nth-child(5)",
+            ".icon-only:nth-child(6)"
+          ],
+          "disposition": "fix in v1 -> #139"
+        },
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": [
+            ".text-light",
+            ".text-success",
+            ".bg-primary",
+            ".bg-grey",
+            ".bg-dark",
+            ".bg-error"
+          ],
+          "disposition": "defer post-v1 (color palette redesign)"
+        },
+        {
+          "id": "image-alt",
+          "impact": "critical",
+          "nodes": [
+            ".icon-only:nth-child(5) > img",
+            ".icon-only:nth-child(6) > img"
+          ],
+          "disposition": "fix in v1 -> #139"
+        },
+        {
+          "id": "link-name",
+          "impact": "serious",
+          "nodes": [
+            "nav:nth-child(12) > .nav-left > .brand[href=\"#\"]"
+          ],
+          "disposition": "fix in v1 -> #139"
+        }
+      ],
+      "incomplete": []
+    }
+  }
+}

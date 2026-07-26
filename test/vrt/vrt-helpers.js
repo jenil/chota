@@ -82,3 +82,15 @@ async function startFixtureServer(startPort) {
 }
 
 module.exports = { startFixtureServer };
+
+/**
+ * Navigate to a fixture page and wait for it to be fully loaded.
+ * Returns the Playwright page object.
+ */
+async function loadFixture(page, server, pageName) {
+  await page.goto(`http://localhost:${server.port}/${pageName}`);
+  await page.waitForLoadState('networkidle');
+  await page.evaluate(() => document.fonts.ready);
+  return page;
+}
+module.exports = { startFixtureServer, loadFixture };
