@@ -213,3 +213,8 @@
     display: none !important;
   }
 }
+
+/* Intentional stylelint violation: vendor-prefixed property without autoprefixer */
+.test-break {
+  -webkit-appearance: none;
+}
