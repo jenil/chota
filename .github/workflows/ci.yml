@@ -26,7 +26,7 @@ jobs:
             ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
             ${{ runner.os }}-yarn-
 
-      - name: Cache Chromium browser
+      - name: Cache browsers
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
@@ -49,9 +49,8 @@ jobs:
       - name: Install Chromium for VRT
         run: npx playwright install --with-deps chromium
 
-      - name: Visual Regression Tests
+      - name: Visual Regression Tests (Chromium)
         run: yarn test:vrt
-        continue-on-error: true
 
       - name: Upload VRT artifacts on failure
         if: failure()
@@ -61,14 +60,28 @@ jobs:
           path: test/vrt/results/
           retention-days: 30
 
+      - name: Install Firefox and WebKit for smoke coverage
+        run: npx playwright install --with-deps firefox webkit
+
       - name: Accessibility (axe-core)
         run: yarn test:a11y
-        continue-on-error: true
 
       - name: Upload a11y artifacts on failure
         if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: a11y-findings
+          path: test/vrt/results/
+          retention-days: 30
+
+      - name: Browser smoke coverage (Firefox + WebKit)
+        run: npx playwright test test/vrt/index.spec.js test/vrt/components.spec.js --project=firefox --project=webkit
+        continue-on-error: true
+
+      - name: Upload smoke coverage artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-coverage
           path: test/vrt/results/
           retention-days: 30

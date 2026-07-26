@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const { startFixtureServer } = require('./vrt-helpers');
+const { startFixtureServer, loadFixture } = require('./vrt-helpers');
 
 // Viewports as specified in card #124
 const DESKTOP = { width: 1280, height: 720 };
@@ -35,16 +35,12 @@ test.describe('Elements page (index.html)', () => {
       viewport: DESKTOP,
     });
     const page = await context.newPage();
-    
-    await page.goto(getPageUrl('index.html'));
-    await page.waitForLoadState('networkidle');
-    
-    // Wait for fonts to load
-    await page.evaluate(() => document.fonts.ready);
-    
+
+    await loadFixture(page, server, 'index.html');
+
     const screenshot = await page.screenshot({ fullPage: false });
     await expect(screenshot).toMatchSnapshot('index-desktop.png');
-    
+
     await context.close();
   });
 
@@ -54,16 +50,12 @@ test.describe('Elements page (index.html)', () => {
       viewport: MOBILE,
     });
     const page = await context.newPage();
-    
-    await page.goto(getPageUrl('index.html'));
-    await page.waitForLoadState('networkidle');
-    
-    // Wait for fonts to load
-    await page.evaluate(() => document.fonts.ready);
-    
+
+    await loadFixture(page, server, 'index.html');
+
     const screenshot = await page.screenshot({ fullPage: false });
     await expect(screenshot).toMatchSnapshot('index-mobile.png');
-    
+
     await context.close();
   });
 });

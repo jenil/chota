@@ -18,10 +18,10 @@
     "postcss": "postcss ./src/chota.css -d dist/",
     "watch": "cross-env NODE_ENV=development postcss ./src/chota.css -d dist/ -w",
     "test": "stylelint src/*.css",
-    "test:vrt": "npx playwright test",
+    "test:vrt": "npx playwright test test/vrt/index.spec.js test/vrt/components.spec.js",
     "test:a11y": "npx playwright test test/vrt/a11y.spec.js test/vrt/a11y-keyboard.spec.js",
-    "baselines": "node scripts/baselines.js",
-    "test:api": "node test/vrt/api.spec.js"
+    "test:api": "npx playwright test test/vrt/api.spec.js",
+    "baselines": "node scripts/baselines.js"
   },
   "keywords": [
     "css",
@@ -60,9 +60,7 @@
   },
   "files": [
     "src/",
-    "dist/",
-    "test/",
-    "README.md"
+    "dist/"
   ],
   "browserslist": [
     "last 2 Chrome versions",
