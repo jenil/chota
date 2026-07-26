@@ -26,6 +26,14 @@ jobs:
             ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
             ${{ runner.os }}-yarn-
 
+      - name: Cache Chromium browser
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
+
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
@@ -34,3 +42,18 @@ jobs:
 
       - name: Build (PostCSS + size gate)
         run: yarn build
+
+      - name: Install Chromium for VRT
+        run: npx playwright install --with-deps chromium
+
+      - name: Visual Regression Tests
+        run: yarn test:vrt
+        continue-on-error: true
+
+      - name: Upload VRT artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vrt-screenshots
+          path: test/vrt/results/
+          retention-days: 30
