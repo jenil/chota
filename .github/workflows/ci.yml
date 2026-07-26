@@ -43,6 +43,9 @@ jobs:
       - name: Build (PostCSS + size gate)
         run: yarn build
 
+      - name: CSS Public API Contract
+        run: yarn test:api
+
       - name: Install Chromium for VRT
         run: npx playwright install --with-deps chromium
 

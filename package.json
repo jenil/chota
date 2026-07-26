@@ -20,7 +20,8 @@
     "test": "stylelint src/*.css",
     "test:vrt": "npx playwright test",
     "test:a11y": "npx playwright test test/vrt/a11y.spec.js test/vrt/a11y-keyboard.spec.js",
-    "baselines": "node scripts/baselines.js"
+    "baselines": "node scripts/baselines.js",
+    "test:api": "node test/vrt/api.spec.js"
   },
   "keywords": [
     "css",
