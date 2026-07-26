@@ -21,7 +21,7 @@ module.exports = defineConfig({
   },
   snapshotDir: 'test/vrt/snapshots',
   outputDir: 'test/vrt/results',
-  reporter: [['html', { outputFolder: 'test/vrt/results/html' }]],
+  reporter: [['html', { outputFolder: 'test/vrt/reports/html' }]],
   // Retry only on flaky network, not visual changes
   retries: 0,
 });
