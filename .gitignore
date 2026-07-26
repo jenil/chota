@@ -111,3 +111,7 @@ _site
 # Local agent artifacts
 .pi-subagents/
 PLAN.md
+
+# VRT test output
+/test/vrt/results/
+/test/vrt/results
