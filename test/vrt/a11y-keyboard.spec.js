@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const { startFixtureServer } = require('./vrt-helpers');
+const { startFixtureServer, loadFixture } = require('./vrt-helpers');
 const fs = require('fs');
 const path = require('path');
 
@@ -25,8 +25,7 @@ function getPageUrl(pageName) {
 test.describe('Manual keyboard observations', () => {
   test('Elements page: visible focus on interactive elements', async ({ page }) => {
     await page.setViewportSize(DESKTOP);
-    await page.goto(getPageUrl('index.html'));
-    await page.waitForLoadState('networkidle');
+    await loadFixture(page, server, 'index.html');
 
     // Tab through interactive elements and check focus ring is visible
     await page.keyboard.press('Tab');
@@ -70,8 +69,7 @@ test.describe('Manual keyboard observations', () => {
 
   test('Elements page: keyboard navigation through links', async ({ page }) => {
     await page.setViewportSize(DESKTOP);
-    await page.goto(getPageUrl('index.html'));
-    await page.waitForLoadState('networkidle');
+    await loadFixture(page, server, 'index.html');
 
     // Tab to links and verify they receive focus
     await page.keyboard.press('Tab');
@@ -85,8 +83,7 @@ test.describe('Manual keyboard observations', () => {
 
   test('Elements page: visible focus on form controls', async ({ page }) => {
     await page.setViewportSize(DESKTOP);
-    await page.goto(getPageUrl('index.html'));
-    await page.waitForLoadState('networkidle');
+    await loadFixture(page, server, 'index.html');
 
     // Tab through to form controls
     for (let i = 0; i < 20; i++) {

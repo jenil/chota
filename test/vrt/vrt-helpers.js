@@ -20,17 +20,18 @@ function findAvailablePort(startPort) {
 }
 
 /**
- * Start a deterministic fixture server for VRT testing.
+ * Start a deterministic fixture server for testing.
  * Returns { server, url, stop }.
+ * Serves HTML from test/ and CSS from dist/.
  */
 async function startFixtureServer(startPort) {
   const port = await findAvailablePort(startPort);
-  
+
   return new Promise((resolve, reject) => {
     const server = http.createServer((req, res) => {
       let filePath;
       let servingDir = FIXTURES_DIR;
-      
+
       // Serve CSS from dist/ (project root) when requested as /dist/...
       if (typeof req.url === 'string' && req.url.startsWith('/dist/')) {
         filePath = path.join(DIST_DIR, req.url);
@@ -39,24 +40,24 @@ async function startFixtureServer(startPort) {
         filePath = path.join(FIXTURES_DIR, req.url === '/' ? 'index.html' : req.url);
         servingDir = FIXTURES_DIR;
       }
-      
+
       // Security: prevent directory traversal
       if (!filePath.startsWith(servingDir)) {
         res.writeHead(403);
         res.end('Forbidden');
         return;
       }
-      
+
       const mimeTypes = {
         '.html': 'text/html',
         '.css': 'text/css',
         '.js': 'application/javascript',
         '.json': 'application/json',
       };
-      
+
       const ext = path.extname(filePath).toLowerCase();
       const mimeType = mimeTypes[ext] || 'application/octet-stream';
-      
+
       fs.readFile(filePath, (err, data) => {
         if (err) {
           res.writeHead(404);
@@ -67,7 +68,7 @@ async function startFixtureServer(startPort) {
         res.end(data);
       });
     });
-    
+
     server.listen(port, () => {
       resolve({
         server,
@@ -76,9 +77,20 @@ async function startFixtureServer(startPort) {
         stop: () => new Promise((cb) => server.close(cb)),
       });
     });
-    
+
     server.on('error', reject);
   });
 }
 
-module.exports = { startFixtureServer };
+/**
+ * Navigate to a fixture page and wait for it to be fully loaded.
+ * Returns the Playwright page object.
+ */
+async function loadFixture(page, server, pageName) {
+  await page.goto(`${server.url}/${pageName}`);
+  await page.waitForLoadState('networkidle');
+  await page.evaluate(() => document.fonts.ready);
+  return page;
+}
+
+module.exports = { startFixtureServer, loadFixture };
