@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validation: Mobile Grid Overflow (#102)</title>
+    <link rel="stylesheet" href="/dist/chota.css" />
+    <style>
+      .demo-label {
+        font-size: 0.8rem;
+        color: var(--color-grey);
+        margin-bottom: 0.5rem;
+      }
+      .card {
+        background: var(--bg-secondary-color);
+        color: var(--font-color);
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+      /* Visual indicators for overflow detection */
+      .overflow-indicator {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: red;
+        z-index: 9999;
+        display: none;
+      }
+      .overflow-indicator.active {
+        display: block;
+      }
+      .container-debug {
+        outline: 2px dashed blue;
+        outline-offset: 0;
+      }
+      .row-debug {
+        outline: 2px dashed green;
+        outline-offset: 0;
+      }
+      .col-debug {
+        outline: 2px dashed orange;
+        outline-offset: 0;
+      }
+      body.dark {
+        --bg-color: #000;
+        --bg-secondary-color: #131316;
+        --font-color: #f5f5f5;
+        --color-grey: #ccc;
+        --color-darkGrey: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="overflow-indicator" id="overflowBar"></div>
+    <div class="container container-debug" role="document">
+      <header role="banner">
+        <h1>Mobile Grid Overflow Validation (#102)</h1>
+        <p class="demo-label">
+          Issue: Columns overflow the right edge on mobile viewports.
+          The reporter needed max-width: 94% on .col in the mobile media query.
+        </p>
+      </header>
+
+      <h2>Single .col (most likely to overflow)</h2>
+      <p class="demo-label">Desktop (1280×720):</p>
+      <div class="row row-debug">
+        <div class="col col-debug"><div class="card">Single .col — desktop</div></div>
+      </div>
+
+      <p class="demo-label">Mobile (375×667):</p>
+      <div class="row row-debug">
+        <div class="col col-debug"><div class="card">Single .col — mobile</div></div>
+      </div>
+
+      <h2>Multiple columns</h2>
+      <p class="demo-label">Mobile (375×667) — two .col-6:</p>
+      <div class="row row-debug">
+        <div class="col-6 col-debug"><div class="card">.col-6</div></div>
+        <div class="col-6 col-debug"><div class="card">.col-6</div></div>
+      </div>
+
+  <p class="demo-label">Mobile (375×667) — twelve .col-1 (stress test):</p>
+      <div class="row row-debug">
+        <div class="col-1 col-debug"><div class="card">1</div></div>
+        <div class="col-1 col-debug"><div class="card">2</div></div>
+        <div class="col-1 col-debug"><div class="card">3</div></div>
+        <div class="col-1 col-debug"><div class="card">4</div></div>
+        <div class="col-1 col-debug"><div class="card">5</div></div>
+        <div class="col-1 col-debug"><div class="card">6</div></div>
+        <div class="col-1 col-debug"><div class="card">7</div></div>
+        <div class="col-1 col-debug"><div class="card">8</div></div>
+        <div class="col-1 col-debug"><div class="card">9</div></div>
+        <div class="col-1 col-debug"><div class="card">10</div></div>
+        <div class="col-1 col-debug"><div class="card">11</div></div>
+        <div class="col-1 col-debug"><div class="card">12</div></div>
+      </div>
+
+      <h2>Container edge visualization</h2>
+      <p class="demo-label">
+        Blue dashed outline = container edge. Green = row edge. Orange = column edge.
+        If orange extends past blue on mobile, the column overflows the container.
+      </p>
+      <div class="row row-debug">
+        <div class="col col-debug"><div class="card">Check if this overflows on mobile</div></div>
+      </div>
+    </div>
+    <script>
+      // Detect horizontal overflow and show red bar
+      (function() {
+        const bar = document.getElementById('overflowBar');
+        function checkOverflow() {
+          const scrollWidth = document.documentElement.scrollWidth;
+          const clientWidth = document.documentElement.clientWidth;
+          if (scrollWidth > clientWidth) {
+            bar.classList.add('active');
+          } else {
+            bar.classList.remove('active');
+          }
+        }
+        window.addEventListener('resize', checkOverflow);
+        checkOverflow();
+      })();
+    </script>
+  </body>
+</html>
