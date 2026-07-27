@@ -17,27 +17,33 @@ test.describe('Browser smoke coverage (Firefox + WebKit)', () => {
     if (server) await server.stop();
   });
 
-  test('index.html loads and renders (desktop)', async ({ page }) => {
-    await loadFixture(page, server, 'index.html');
+  test('index.html navigates to OK and renders fixture-specific content (desktop)', async ({ page }) => {
+    const response = await page.goto(`http://localhost:${PORT}/index.html`);
+    expect(response.status()).toBe(200);
     await page.setViewportSize(DESKTOP);
-    await expect(page.locator('body')).toBeVisible();
+    await expect(page.locator('.container')).toBeVisible();
+    await expect(page.locator('h1')).toBeVisible();
   });
 
-  test('components.html loads and renders (desktop)', async ({ page }) => {
-    await loadFixture(page, server, 'components.html');
+  test('components.html navigates to OK and renders fixture-specific content (desktop)', async ({ page }) => {
+    const response = await page.goto(`http://localhost:${PORT}/components.html`);
+    expect(response.status()).toBe(200);
     await page.setViewportSize(DESKTOP);
-    await expect(page.locator('body')).toBeVisible();
+    await expect(page.locator('.container')).toBeVisible();
+    await expect(page.locator('.tag')).toBeVisible();
   });
 
-  test('index.html renders (mobile viewport)', async ({ page }) => {
-    await loadFixture(page, server, 'index.html');
+  test('index.html mobile viewport renders', async ({ page }) => {
     await page.setViewportSize(MOBILE);
-    await expect(page.locator('body')).toBeVisible();
+    const response = await page.goto(`http://localhost:${PORT}/index.html`);
+    expect(response.status()).toBe(200);
+    await expect(page.locator('.container')).toBeVisible();
   });
 
-  test('components.html renders (mobile viewport)', async ({ page }) => {
-    await loadFixture(page, server, 'components.html');
+  test('components.html mobile viewport renders', async ({ page }) => {
     await page.setViewportSize(MOBILE);
-    await expect(page.locator('body')).toBeVisible();
+    const response = await page.goto(`http://localhost:${PORT}/components.html`);
+    expect(response.status()).toBe(200);
+    await expect(page.locator('.container')).toBeVisible();
   });
 });
