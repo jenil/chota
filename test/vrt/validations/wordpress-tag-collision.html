@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validation: WordPress Tag Collision (#77)</title>
+    <link rel="stylesheet" href="../../../dist/chota.css" />
+    <style>
+      .demo-label {
+        font-size: 0.8rem;
+        color: var(--color-grey);
+        margin-bottom: 0.5rem;
+      }
+      .collision-demo {
+        /* Simulating what WordPress does: adds "tag" class to body */
+      }
+      body.dark {
+        --bg-color: #000;
+        --bg-secondary-color: #131316;
+        --font-color: #f5f5f5;
+        --color-grey: #ccc;
+        --color-darkGrey: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Validation: WordPress Tag Collision (#77)</h1>
+      <p class="demo-label">
+        Issue: WordPress adds <code>tag</code> class to <code>&lt;body&gt;</code> on tag archive pages.
+        Chota's <code>.tag</code> CSS rule (for the tag component) matches <code>body.tag</code>,
+        applying tag styles to the entire body and breaking the layout.
+      </p>
+
+      <h2>Chota .tag CSS rule (from dist/chota.css):</h2>
+      <pre><code>.tag {
+  display: inline-block;
+  border: 1px solid var(--color-lightGrey);
+  text-transform: uppercase;
+  color: var(--color-grey);
+  padding: 0.5rem;
+  line-height: 1;
+  letter-spacing: 0.5px;
+}</code></pre>
+
+      <h2>WordPress body class on tag archive:</h2>
+      <pre><code>&lt;body class="archive tag tag-tutorials tag-49 logged-in wp-embed-responsive"&gt;</code></pre>
+
+      <h2>CSS specificity analysis:</h2>
+      <p class="demo-label">
+        The selector <code>.tag</code> matches any element with <code>class="tag"</code>.
+        When WordPress adds <code>class="tag"</code> to <code>&lt;body&gt;</code>,
+        the selector <code>.tag</code> matches <code>body.tag</code>.
+      </p>
+
+      <h2>Expected collision behavior (if WordPress used a single body):</h2>
+      <p class="demo-label">
+        If <code>&lt;body class="tag"&gt;</code> were the only body element,
+        the .tag CSS rule would apply these styles to the body:
+      </p>
+      <ul>
+        <li><code>display: inline-block</code> — body becomes inline-block instead of block</li>
+        <li><code>border: 1px solid var(--color-lightGrey)</code> — body gets a visible border</li>
+        <li><code>text-transform: uppercase</code> — all body text becomes uppercase</li>
+        <li><code>color: var(--color-grey)</code> — body text becomes grey</li>
+        <li><code>padding: 0.5rem</code> — body gets padding</li>
+        <li><code>letter-spacing: 0.5px</code> — body text gets letter-spacing</li>
+      </ul>
+
+      <h2>Chota .tag component (expected use):</h2>
+      <p>
+        <span class="tag">One</span>
+        <span class="tag">Two</span>
+        <span class="tag is-small">Small</span>
+        <span class="tag is-large">Large</span>
+      </p>
+
+      <h2>Reproduction notes:</h2>
+      <ul>
+        <li>WordPress adds <code>tag</code> to <code>&lt;body&gt;</code> on tag archive pages</li>
+        <li>Chota's <code>.tag</code> selector matches <code>body.tag</code></li>
+        <li>The collision is a CSS specificity issue, not a rendering bug</li>
+        <li>The fix would be to make the .tag selector more specific (e.g., <code>span.tag</code> or <code>div.tag</code>) or use a different class name</li>
+      </ul>
+    </div>
+  </body>
+</html>
