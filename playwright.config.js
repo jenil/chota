@@ -1,5 +1,11 @@
 const { defineConfig } = require('@playwright/test');
 
+const BASE_CONTEXT_OPTIONS = {
+  locale: 'en-US',
+  colorScheme: 'light',
+  reducedMotion: 'reduce',
+};
+
 module.exports = defineConfig({
   testDir: './test/vrt',
   testMatch: '**/*.spec.js',
@@ -9,19 +15,22 @@ module.exports = defineConfig({
       maxDiffPixelRatio: 0.01,
     },
   },
-  use: {
-    // Chromium only (per card #124)
-    browserName: 'chromium',
-    // Deterministic settings
-    locale: 'en-US',
-    colorScheme: 'light',
-    reducedMotion: 'reduce',
-    // Disable animations for deterministic screenshots
-    bypassCSP: true,
-  },
+  projects: [
+    {
+      name: 'chromium',
+      use: { ...BASE_CONTEXT_OPTIONS, browserName: 'chromium', bypassCSP: true },
+    },
+    {
+      name: 'firefox',
+      use: { ...BASE_CONTEXT_OPTIONS, browserName: 'firefox' },
+    },
+    {
+      name: 'webkit',
+      use: { ...BASE_CONTEXT_OPTIONS, browserName: 'webkit' },
+    },
+  ],
   snapshotDir: 'test/vrt/snapshots',
   outputDir: 'test/vrt/results',
   reporter: [['html', { outputFolder: 'test/vrt/reports/html' }]],
-  // Retry only on flaky network, not visual changes
   retries: 0,
 });

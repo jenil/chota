@@ -75,8 +75,7 @@ jobs:
           retention-days: 30
 
       - name: Browser smoke coverage (Firefox + WebKit)
-        run: npx playwright test test/vrt/index.spec.js test/vrt/components.spec.js --project=firefox --project=webkit
-        continue-on-error: true
+        run: npx playwright test test/vrt/browser-smoke.spec.js --project=firefox --project=webkit --workers 1
 
       - name: Upload smoke coverage artifacts on failure
         if: failure()
