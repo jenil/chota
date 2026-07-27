@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validation: Grouped Controls (#114)</title>
+    <link rel="stylesheet" href="../../../dist/chota.css" />
+    <style>
+      .demo-label {
+        font-size: 0.8rem;
+        color: var(--color-grey);
+        margin-bottom: 0.5rem;
+      }
+      .card {
+        background: var(--bg-secondary-color);
+        color: var(--font-color);
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+      .overflow-box {
+        width: 280px;
+        border: 2px solid blue;
+        padding: 8px;
+        overflow: visible;
+      }
+      body.dark {
+        --bg-color: #000;
+        --bg-secondary-color: #131316;
+        --font-color: #f5f5f5;
+        --color-grey: #ccc;
+        --color-darkGrey: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Validation: Grouped Controls (#114)</h1>
+      <p class="demo-label">Issue: "responsive grouped" — grouped form controls (inputs with buttons) don't behave responsively on mobile. On desktop they work fine, but on mobile they overflow or stack incorrectly.</p>
+
+      <h2>Grouped search input (from existing components.html):</h2>
+      <p class="demo-label">Desktop (1280×720):</p>
+      <p class="grouped">
+        <input
+          type="search"
+          name="input__text6"
+          placeholder="Search"
+        />
+        <button class="button icon-only">
+          <img src="https://icongr.am/feather/search.svg?size=16" alt="search" />
+        </button>
+      </p>
+
+      <p class="demo-label">Mobile (375×667):</p>
+      <p class="grouped">
+        <input
+          type="search"
+          name="input__text6-mobile"
+          placeholder="Search"
+        />
+        <button class="button icon-only">
+          <img src="https://icongr.am/feather/search.svg?size=16" alt="search" />
+        </button>
+      </p>
+
+      <h2>Grouped login form (from existing components.html):</h2>
+      <p class="demo-label">Desktop (1280×720):</p>
+      <p class="grouped">
+        <input
+          type="text"
+          name="input__text7"
+          placeholder="Username"
+        />
+        <input
+          type="text"
+          name="input__text8"
+          placeholder="Password"
+        />
+        <button class="button primary">Submit</button>
+      </p>
+
+      <p class="demo-label">Mobile (375×667):</p>
+      <p class="grouped">
+        <input
+          type="text"
+          name="input__text7-mobile"
+          placeholder="Username"
+        />
+        <input
+          type="text"
+          name="input__text8-mobile"
+          placeholder="Password"
+        />
+        <button class="button primary">Submit</button>
+      </p>
+
+      <h2>Grouped responsive test — narrow viewport:</h2>
+      <p class="demo-label">Simulated narrow viewport (280px):</p>
+      <div class="overflow-box">
+        <p class="grouped">
+          <input
+            type="search"
+            name="narrow-search"
+            placeholder="Search in narrow view"
+          />
+          <button class="button icon-only">
+            <img src="https://icongr.am/feather/search.svg?size=16" alt="search" />
+          </button>
+        </p>
+      </div>
+
+      <h2>Grouped with long text — overflow test:</h2>
+      <p class="demo-label">Very long placeholder text in grouped input:</p>
+      <p class="grouped">
+        <input
+          type="text"
+          name="long-text"
+          placeholder="This is a very long placeholder text that might overflow on mobile"
+        />
+        <button class="button primary">Submit</button>
+      </p>
+    </div>
+  </body>
+</html>
