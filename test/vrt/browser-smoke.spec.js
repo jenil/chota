@@ -18,17 +18,17 @@ test.describe('Browser smoke coverage (Firefox + WebKit)', () => {
   });
 
   test('index.html navigates to OK and renders fixture-specific content (desktop)', async ({ page }) => {
+    await page.setViewportSize(DESKTOP);
     const response = await page.goto(`http://localhost:${PORT}/index.html`);
     expect(response.status()).toBe(200);
-    await page.setViewportSize(DESKTOP);
     await expect(page.locator('.container').first()).toBeVisible();
     await expect(page.locator('h1', { hasText: 'Chota CSS' })).toBeVisible();
   });
 
   test('components.html navigates to OK and renders fixture-specific content (desktop)', async ({ page }) => {
+    await page.setViewportSize(DESKTOP);
     const response = await page.goto(`http://localhost:${PORT}/components.html`);
     expect(response.status()).toBe(200);
-    await page.setViewportSize(DESKTOP);
     await expect(page.locator('.container').first()).toBeVisible();
     await expect(page.locator('.tag').first()).toBeVisible();
   });
