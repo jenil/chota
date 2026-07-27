@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validation: Spacing Utilities (#61)</title>
+    <link rel="stylesheet" href="../../../dist/chota.css" />
+    <style>
+      .demo-label {
+        font-size: 0.8rem;
+        color: var(--color-grey);
+        margin-bottom: 0.5rem;
+      }
+      .card {
+        background: var(--bg-secondary-color);
+        color: var(--font-color);
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+      .spacing-demo {
+        border: 1px dashed var(--color-grey);
+        padding: 1rem;
+        margin-bottom: 1rem;
+      }
+      .narrow-viewport {
+        width: 280px;
+        border: 2px solid blue;
+        padding: 8px;
+      }
+      .custom-margin {
+        margin-bottom: 8px;
+      }
+      .custom-padding {
+        padding: 12px;
+      }
+      body.dark {
+        --bg-color: #000;
+        --bg-secondary-color: #131316;
+        --font-color: #f5f5f5;
+        --color-grey: #ccc;
+        --color-darkGrey: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Validation: Spacing Utilities (#61)</h1>
+      <p class="demo-label">Issue: Spacing utilities in Chota are inconsistent or insufficient. This validation checks whether Chota provides adequate spacing helpers (margin/padding utilities) beyond the basic .container and grid system.</p>
+
+      <h2>Current spacing helpers in Chota:</h2>
+      <ul>
+        <li><code>.container</code> — max-width wrapper</li>
+        <li><code>.row</code> / <code>.col-*</code> — grid system with gutters</li>
+        <li><code>.pull-right</code> / <code>.pull-left</code> — float utilities</li>
+        <li><code>.clearfix</code> — clearfix helper</li>
+        <li><code>.is-center</code> — center alignment on cards</li>
+        <li><code>.is-right</code> — right alignment on card footer</li>
+        <li><code>.is-full</code> — full-width tabs</li>
+        <li><code>.hide-sm/md/lg/xs</code> — responsive visibility</li>
+        <li><code>.grouped</code> — flexbox container</li>
+      </ul>
+
+      <h2>What Chota does NOT provide:</h2>
+      <p>Unlike Bootstrap, Chota has <strong>no</strong> margin/padding utility classes:</p>
+      <ul>
+        <li>No <code>.mt-1</code> through <code>.mt-5</code> (margin-top)</li>
+        <li>No <code>.mb-1</code> through <code>.mb-5</code> (margin-bottom)</li>
+        <li>No <code>.pt-1</code> through <code>.pt-5</code> (padding-top)</li>
+        <li>No <code>.p-1</code> through <code>.p-5</code> (padding)</li>
+        <li>No <code>.m-*</code> or <code>.p-*</code> shorthand utilities</li>
+      </ul>
+
+      <h2>Spacing gaps between elements (using default gutters):</h2>
+      <p class="demo-label">Default Chota spacing (no utilities):</p>
+      <div class="spacing-demo">
+        <div class="card">Element 1</div>
+        <div class="card">Element 2</div>
+        <div class="card">Element 3</div>
+      </div>
+
+      <h2>Grid gutter spacing:</h2>
+      <p class="demo-label">Default .row .col spacing:</p>
+      <div class="row">
+        <div class="col-4"><div class="card">.col-4 (default gutter)</div></div>
+        <div class="col-4"><div class="card">.col-4 (default gutter)</div></div>
+        <div class="col-4"><div class="card">.col-4 (default gutter)</div></div>
+      </div>
+
+      <h2>Comparison: Chota vs Bootstrap spacing:</h2>
+      <p class="demo-label">Bootstrap provides .mt-1 through .mt-5, .p-1 through .p-5, etc.</p>
+      <p class="demo-label">Chota has no equivalent margin/padding utility classes.</p>
+
+      <h2>Workaround: Custom spacing classes (consumers must define):</h2>
+      <p class="demo-label">Consumers must define their own spacing utilities:</p>
+      <div class="spacing-demo">
+        <div class="card custom-margin">Custom margin-bottom: 8px</div>
+        <div class="card custom-margin">Custom margin-bottom: 8px</div>
+        <div class="card custom-padding">Custom padding: 12px</div>
+      </div>
+
+      <h2>Mobile spacing (narrow viewport):</h2>
+      <p class="demo-label">On mobile, spacing becomes more critical:</p>
+      <div class="narrow-viewport">
+        <div class="card" style="font-size: 0.85rem;">Narrow viewport — spacing matters more</div>
+        <div class="card" style="font-size: 0.85rem;">Without spacing utilities, consumers must inline-style everything</div>
+        <div class="card" style="font-size: 0.85rem;">This is a pain point for rapid development</div>
+      </div>
+    </div>
+  </body>
+</html>
