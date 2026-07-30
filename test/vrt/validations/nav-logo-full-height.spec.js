@@ -4,6 +4,17 @@ const { startFixtureServer, loadFixture } = require('../vrt-helpers');
 const DESKTOP = { width: 1280, height: 720 };
 const MOBILE = { width: 375, height: 667 };
 
+// ── Validation disposition for Card #134 ──
+// Decision: PROMOTE — separate implementation card needed.
+// Rationale: The validation (PR #167) proves the opt-in modifier
+// `.nav img.is-full-height { max-height: none; height: 100%; object-fit: contain; }`
+// works correctly: default nav images stay constrained to 30px (3rem),
+// opt-in images expand to full nav height, mixed/overflow cases are safe.
+// No production CSS changes are included in this PR. A future implementation
+// card should add the `.is-full-height` modifier to src/_nav.css.
+// This PR provides the complete validation evidence: DOM inspection,
+// VRT baselines, and accessibility assessment.
+
 let server;
 let PORT;
 
@@ -459,8 +470,8 @@ test.describe('Full-Height Navigation Logo Accessibility (#111, #134)', () => {
     await context.close();
   });
 
-  // Actual Tab key navigation: verify focus order is logical
-  test('a11y: Tab key cycles through nav links in document order', async ({ browser }) => {
+  // Actual Tab key navigation: verify focus advances in document order
+  test('a11y: Tab key advances focus through nav links in document order', async ({ browser }) => {
     const context = await browser.newContext({
       locale: 'en-US',
       colorScheme: 'light',
@@ -495,24 +506,31 @@ test.describe('Full-Height Navigation Logo Accessibility (#111, #134)', () => {
 
     expect(focusableElements.length).toBeGreaterThan(0);
 
-    // Start by focusing the first nav's first link
+    // Build expected next-link text for each position
+    const expectedNextTexts = focusableElements.slice(1).map(f => f.text);
+
+    // Focus the first link, then Tab through verifying document order
     const firstLink = page.locator('nav.nav-border a[href]').first();
     await firstLink.focus();
 
-    // Tab through several links and verify document.activeElement matches
-    for (let i = 0; i < Math.min(focusableElements.length - 1, 10); i++) {
+    for (let i = 0; i < Math.min(expectedNextTexts.length, 10); i++) {
       await page.keyboard.press('Tab');
-      const activeText = await page.evaluate(() => {
+
+      // Check document.activeElement matches the expected next link in document order
+      const activeMatch = await page.evaluate((expected) => {
         const el = document.activeElement;
-        return el ? (el.tagName + ':' + (el.textContent || '').trim().substring(0, 40)) : 'null';
-      });
-      expect(activeText).not.toBe('null');
+        if (!el) return false;
+        const text = (el.textContent || '').trim().substring(0, 60);
+        return text === expected;
+      }, expectedNextTexts[i]);
+
+      expect(activeMatch, `Tab ${i + 1}: expected next link text "${expectedNextTexts[i]}" but activeElement was "${await page.evaluate(() => (document.activeElement?.textContent || '').trim().substring(0, 60))}"`).toBe(true);
     }
 
     console.log('=== A11y Assessment: Tab Navigation ===');
     console.log(`Total focusable nav elements: ${focusableElements.length}`);
-    console.log(`Tab key cycles through links in document order: PASS`);
-    console.log('document.activeElement updates correctly on each Tab press: PASS');
+    console.log(`Tab key advances focus through links in document order: PASS`);
+    console.log(`Verified ${Math.min(expectedNextTexts.length, 10)} Tab presses match expected document order: PASS`);
     console.log('=== END A11y ===');
 
     await context.close();

@@ -10,6 +10,7 @@ module.exports = defineConfig({
   testDir: './test/vrt',
   testMatch: '**/*.spec.js',
   timeout: 60000,
+  snapshotIdFormat: name => name, // platform-independent: no -chromium-darwin/-linux suffixes
   expect: {
     toHaveScreenshot: {
       maxDiffPixelRatio: 0.01,
