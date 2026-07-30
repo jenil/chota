@@ -87,7 +87,6 @@ button:disabled:hover {
 
 .grouped {
   display: flex;
-  flex-wrap: wrap;
 }
 
 .grouped > *:not(:last-child) {
@@ -106,6 +105,16 @@ button:disabled:hover {
 
 .grouped.gapless > *:last-child {
   border-radius: 0 4px 4px 0 !important;
+}
+
+/* Responsive wrapping: enabled only on narrow viewports.
+   On desktop, grouped controls stay horizontal (existing behavior).
+   On narrow viewports, items wrap to vertical layout instead of
+   overflowing horizontally (fixes issue #114). */
+@media (max-width: 480px) {
+  .grouped {
+    flex-wrap: wrap;
+  }
 }
 
 input:not([type="checkbox"], [type="radio"], [type="submit"], [type="color"], [type="button"], [type="reset"], :disabled):hover,
