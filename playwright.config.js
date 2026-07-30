@@ -31,6 +31,6 @@ module.exports = defineConfig({
   ],
   snapshotDir: 'test/vrt/snapshots',
   outputDir: 'test/vrt/results',
-  reporter: [['html', { outputFolder: 'test/vrt/results/html' }]],
+  reporter: [['html', { outputFolder: 'test/vrt/report' }]],
   retries: 0,
 });
