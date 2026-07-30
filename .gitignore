@@ -113,5 +113,6 @@ _site
 PLAN.md
 
 # VRT test output
+/test/vrt/report/
 /test/vrt/results/
 /test/vrt/results
