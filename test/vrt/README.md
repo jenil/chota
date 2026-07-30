@@ -37,9 +37,8 @@ test/vrt/
 ├── snapshots/                 # Reference screenshots (git-tracked)
 │   ├── index.spec.js-snapshots/
 │   └── components.spec.js-snapshots/
-└── results/                   # Test output (git-ignored)
-    ├── html/                  # HTML report (generated on each run)
-    └── *                      # Screenshot/a11y/smoke artifacts (uploaded on failure)
+├── report/                    # HTML report (git-ignored, generated on each run)
+└── results/                   # Screenshot/a11y/smoke artifacts (uploaded on failure)
 ```
 
 ## Coverage
