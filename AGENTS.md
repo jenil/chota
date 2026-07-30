@@ -51,6 +51,13 @@ A screenshot supplements required behavioral or computed-style assertions; it
 does not replace them. A test may claim keyboard behavior only if it performs
 the keyboard interaction and asserts the resulting focus target or order.
 
+## Git commits
+
+Always ask the user for permission before running `git commit`. Report the
+diff, changed files, and test evidence. Only proceed with the commit after
+explicit user approval. This is separate from the GitHub write restriction
+below — local commits are a staging step, not a final action.
+
 ## Validation
 
 Do not run typecheck until the very end, immediately before committing code.
