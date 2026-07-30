@@ -71,7 +71,7 @@ test.describe('Grouped controls — spacing and alignment assertions (#135)', ()
     expect(gap).toBeLessThan(18);
 
     // Visual evidence: screenshot the single fixture layout
-    await grouped.screenshot({ path: 'test/vrt/snapshots/grouped-controls-desktop.png' });
+    await grouped.screenshot({ path: 'test/vrt/snapshots/grouped-controls.spec.js-snapshots/grouped-controls-desktop.png' });
 
     await context.close();
   });
@@ -114,7 +114,7 @@ test.describe('Grouped controls — spacing and alignment assertions (#135)', ()
     expect(rowGap).toBeLessThan(18);
 
     // Visual evidence: screenshot the wrapped layout
-    await grouped.screenshot({ path: 'test/vrt/snapshots/grouped-controls-narrow.png' });
+    await grouped.screenshot({ path: 'test/vrt/snapshots/grouped-controls.spec.js-snapshots/grouped-controls-narrow.png' });
 
     await context.close();
   });
@@ -161,7 +161,7 @@ test.describe('Grouped controls — spacing and alignment assertions (#135)', ()
     expect(lastBorderRadius).toContain('4px');
 
     // Visual evidence: screenshot the gapless wrapped layout
-    await grouped.screenshot({ path: 'test/vrt/snapshots/grouped-controls-gapless-narrow.png' });
+    await grouped.screenshot({ path: 'test/vrt/snapshots/grouped-controls.spec.js-snapshots/grouped-controls-gapless-narrow.png' });
 
     await context.close();
   });
@@ -196,7 +196,7 @@ test.describe('Grouped controls — spacing and alignment assertions (#135)', ()
     expect(heights[2]).toBeCloseTo(38, 0); // button
 
     // Visual evidence: screenshot the mixed layout
-    await grouped.screenshot({ path: 'test/vrt/snapshots/grouped-controls-mixed-narrow.png' });
+    await grouped.screenshot({ path: 'test/vrt/snapshots/grouped-controls.spec.js-snapshots/grouped-controls-mixed-narrow.png' });
 
     await context.close();
   });
