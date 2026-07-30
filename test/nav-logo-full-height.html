@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validation: Full-Height Navigation Logo (#111, #134)</title>
+    <link rel="stylesheet" href="../dist/chota.css" />
+    <style>
+      .demo-label {
+        font-size: 0.8rem;
+        color: var(--color-grey);
+        margin-bottom: 0.5rem;
+      }
+      .card {
+        background: var(--bg-secondary-color);
+        color: var(--font-color);
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+      .container-border {
+        border: 2px solid blue;
+      }
+      .nav-border {
+        border: 2px solid rgba(255, 0, 0, 0.4);
+      }
+      body.dark {
+        --bg-color: #000;
+        --bg-secondary-color: #131316;
+        --font-color: #f5f5f5;
+        --color-grey: #ccc;
+        --color-darkGrey: #777;
+      }
+      /* Fixture-local CSS for opt-in full-height behavior ONLY */
+      .nav img.is-full-height {
+        max-height: none;
+        height: 100%;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container container-border">
+      <h1>Validation: Full-Height Navigation Logo (#111, #134)</h1>
+      <p class="demo-label">
+        Issue #111: Portrait/tall logos are clipped by the global <code>.nav img { max-height: 3rem }</code> rule.
+        This fixture tests whether an opt-in modifier <code>.is-full-height</code> can let a logo
+        use the full nav height while preserving default behavior for all other nav images.
+      </p>
+
+      <!-- SECTION 1: Default behavior — all nav images constrained to 3rem max-height -->
+      <h2>Section 1: Default behavior (no modifier)</h2>
+      <p class="demo-label">
+        All images inside <code>.nav</code> should be constrained to <code>max-height: 3rem</code>
+        regardless of their intrinsic dimensions. The nav <code>min-height: 5rem</code> should still apply.
+      </p>
+
+      <!-- 3rem nav — default tall logo (2:3 aspect ratio, 100x150) -->
+      <h3>Nav with min-height 3rem — default tall logo</h3>
+      <p class="demo-label">Tall logo (100×150) inside 3rem nav — should be constrained to 3rem max-height.</p>
+      <nav class="nav nav-border" style="min-height: 3rem;">
+        <div class="container">
+          <div class="nav-left">
+            <a class="brand" href="#">
+              <img class="logo-tall-default" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='150' viewBox='0 0 100 150'%3E%3Crect width='100' height='150' fill='%233498db' rx='4'/%3E%3Ctext x='50' y='80' text-anchor='middle' fill='white' font-size='16' font-weight='bold'%3ETALL%3C/text%3E%3C/svg%3E" alt="Tall logo (default)" />
+            </a>
+          </div>
+          <div class="nav-right">
+            <a href="#">Link</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- 4rem nav — default tall logo -->
+      <h3>Nav with min-height 4rem — default tall logo</h3>
+      <p class="demo-label">Tall logo (100×150) inside 4rem nav — should still be constrained to 3rem max-height.</p>
+      <nav class="nav nav-border" style="min-height: 4rem;">
+        <div class="container">
+          <div class="nav-left">
+            <a class="brand" href="#">
+              <img class="logo-tall-default" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='150' viewBox='0 0 100 150'%3E%3Crect width='100' height='150' fill='%233498db' rx='4'/%3E%3Ctext x='50' y='80' text-anchor='middle' fill='white' font-size='16' font-weight='bold'%3ETALL%3C/text%3E%3C/svg%3E" alt="Tall logo (default)" />
+            </a>
+          </div>
+          <div class="nav-right">
+            <a href="#">Link</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- 6rem nav — default tall logo -->
+      <h3>Nav with min-height 6rem — default tall logo</h3>
+      <p class="demo-label">Tall logo (100×150) inside 6rem nav — should still be constrained to 3rem max-height.</p>
+      <nav class="nav nav-border" style="min-height: 6rem;">
+        <div class="container">
+          <div class="nav-left">
+            <a class="brand" href="#">
+              <img class="logo-tall-default" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='150' viewBox='0 0 100 150'%3E%3Crect width='100' height='150' fill='%233498db' rx='4'/%3E%3Ctext x='50' y='80' text-anchor='middle' fill='white' font-size='16' font-weight='bold'%3ETALL%3C/text%3E%3C/svg%3E" alt="Tall logo (default)" />
+            </a>
+          </div>
+          <div class="nav-right">
+            <a href="#">Link</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- 3rem nav — default wide logo (3:1 aspect ratio, 300x100) -->
+      <h3>Nav with min-height 3rem — default wide logo</h3>
+      <p class="demo-label">Wide logo (300×100) inside 3rem nav — should be constrained to 3rem max-height.</p>
+      <nav class="nav nav-border" style="min-height: 3rem;">
+        <div class="container">
+          <div class="nav-left">
+            <a class="brand" href="#">
+              <img class="logo-wide-default" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='100' viewBox='0 0 300 100'%3E%3Crect width='300' height='100' fill='%23e74c3c' rx='4'/%3E%3Ctext x='150' y='55' text-anchor='middle' fill='white' font-size='16' font-weight='bold'%3EWIDE%3C/text%3E%3C/svg%3E" alt="Wide logo (default)" />
+            </a>
+          </div>
+          <div class="nav-right">
+            <a href="#">Link</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- 3rem nav — default square logo (1:1 aspect ratio, 100x100) -->
+      <h3>Nav with min-height 3rem — default square logo</h3>
+      <p class="demo-label">Square logo (100×100) inside 3rem nav — should be constrained to 3rem max-height.</p>
+      <nav class="nav nav-border" style="min-height: 3rem;">
+        <div class="container">
+          <div class="nav-left">
+            <a class="brand" href="#">
+              <img class="logo-square-default" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%232ecc71' rx='4'/%3E%3Ctext x='50' y='55' text-anchor='middle' fill='white' font-size='16' font-weight='bold'%3ESQ%3C/text%3E%3C/svg%3E" alt="Square logo (default)" />
+            </a>
+          </div>
+          <div class="nav-right">
+            <a href="#">Link</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- 3rem nav — default normal content image (not a logo, 4:3 aspect ratio, 200x150) -->
+      <h3>Nav with min-height 3rem — default normal image content</h3>
+      <p class="demo-label">Normal content image (200×150) inside 3rem nav — should be constrained to 3rem max-height.</p>
+      <nav class="nav nav-border" style="min-height: 3rem;">
+        <div class="container">
+          <div class="nav-left">
+            <a class="button" href="#">
+              <img class="content-img-default" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150' viewBox='0 0 200 150'%3E%3Crect width='200' height='150' fill='%239b59b6' rx='4'/%3E%3Ctext x='100' y='80' text-anchor='middle' fill='white' font-size='12'%3ECONTENT%3C/text%3E%3C/svg%3E" alt="Content image (default)" />
+            </a>
+          </div>
+          <div class="nav-right">
+            <a href="#">Link</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- SECTION 2: Opt-in full-height behavior -->
+      <h2>Section 2: Opt-in full-height modifier (<code>.is-full-height</code>)</h2>
+      <p class="demo-label">
+        With the <code>.is-full-height</code> modifier applied, the logo should use the full nav height
+        via <code>max-height: none; height: 100%; object-fit: contain;</code>.
+        This is an opt-in path — default behavior must remain unchanged.
+      </p>
+
+      <!-- 3rem nav — opt-in tall logo -->
+      <h3>Nav with min-height 3rem — opt-in tall logo</h3>
+      <p class="demo-label">Tall logo (100×150) with <code>.is-full-height</code> inside 3rem nav — should fill nav height.</p>
+      <nav class="nav nav-border" style="min-height: 3rem;">
+        <div class="container">
+          <div class="nav-left">
+            <a class="brand" href="#">
+              <img class="logo-tall-optin is-full-height" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='150' viewBox='0 0 100 150'%3E%3Crect width='100' height='150' fill='%233498db' rx='4'/%3E%3Ctext x='50' y='80' text-anchor='middle' fill='white' font-size='16' font-weight='bold'%3ETALL%3C/text%3E%3C/svg%3E" alt="Tall logo (opt-in)" />
+            </a>
+          </div>
+          <div class="nav-right">
+            <a href="#">Link</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- 4rem nav — opt-in tall logo -->
+      <h3>Nav with min-height 4rem — opt-in tall logo</h3>
+      <p class="demo-label">Tall logo (100×150) with <code>.is-full-height</code> inside 4rem nav — should fill nav height.</p>
+      <nav class="nav nav-border" style="min-height: 4rem;">
+        <div class="container">
+          <div class="nav-left">
+            <a class="brand" href="#">
+              <img class="logo-tall-optin is-full-height" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='150' viewBox='0 0 100 150'%3E%3Crect width='100' height='150' fill='%233498db' rx='4'/%3E%3Ctext x='50' y='80' text-anchor='middle' fill='white' font-size='16' font-weight='bold'%3ETALL%3C/text%3E%3C/svg%3E" alt="Tall logo (opt-in)" />
+            </a>
+          </div>
+          <div class="nav-right">
+            <a href="#">Link</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- 6rem nav — opt-in tall logo -->
+      <h3>Nav with min-height 6rem — opt-in tall logo</h3>
+      <p class="demo-label">Tall logo (100×150) with <code>.is-full-height</code> inside 6rem nav — should fill nav height.</p>
+      <nav class="nav nav-border" style="min-height: 6rem;">
+        <div class="container">
+          <div class="nav-left">
+            <a class="brand" href="#">
+              <img class="logo-tall-optin is-full-height" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='150' viewBox='0 0 100 150'%3E%3Crect width='100' height='150' fill='%233498db' rx='4'/%3E%3Ctext x='50' y='80' text-anchor='middle' fill='white' font-size='16' font-weight='bold'%3ETALL%3C/text%3E%3C/svg%3E" alt="Tall logo (opt-in)" />
+            </a>
+          </div>
+          <div class="nav-right">
+            <a href="#">Link</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- 3rem nav — opt-in wide logo -->
+      <h3>Nav with min-height 3rem — opt-in wide logo</h3>
+      <p class="demo-label">Wide logo (300×100) with <code>.is-full-height</code> inside 3rem nav — should fill nav height.</p>
+      <nav class="nav nav-border" style="min-height: 3rem;">
+        <div class="container">
+          <div class="nav-left">
+            <a class="brand" href="#">
+              <img class="logo-wide-optin is-full-height" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='100' viewBox='0 0 300 100'%3E%3Crect width='300' height='100' fill='%23e74c3c' rx='4'/%3E%3Ctext x='150' y='55' text-anchor='middle' fill='white' font-size='16' font-weight='bold'%3EWIDE%3C/text%3E%3C/svg%3E" alt="Wide logo (opt-in)" />
+            </a>
+          </div>
+          <div class="nav-right">
+            <a href="#">Link</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- 3rem nav — opt-in square logo -->
+      <h3>Nav with min-height 3rem — opt-in square logo</h3>
+      <p class="demo-label">Square logo (100×100) with <code>.is-full-height</code> inside 3rem nav — should fill nav height.</p>
+      <nav class="nav nav-border" style="min-height: 3rem;">
+        <div class="container">
+          <div class="nav-left">
+            <a class="brand" href="#">
+              <img class="logo-square-optin is-full-height" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%232ecc71' rx='4'/%3E%3Ctext x='50' y='55' text-anchor='middle' fill='white' font-size='16' font-weight='bold'%3ESQ%3C/text%3E%3C/svg%3E" alt="Square logo (opt-in)" />
+            </a>
+          </div>
+          <div class="nav-right">
+            <a href="#">Link</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- SECTION 3: Mixed case — default and opt-in in same nav -->
+      <h2>Section 3: Mixed case — default and opt-in in same nav</h2>
+      <p class="demo-label">
+        Both default and opt-in logos in the same nav — only the opt-in should expand to full height.
+        Default behavior must remain unaffected.
+      </p>
+      <nav class="nav nav-border" style="min-height: 4rem;">
+        <div class="container">
+          <div class="nav-left">
+            <a class="brand" href="#">
+              <img class="logo-tall-default" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='150' viewBox='0 0 100 150'%3E%3Crect width='100' height='150' fill='%233498db' rx='4'/%3E%3Ctext x='50' y='80' text-anchor='middle' fill='white' font-size='16' font-weight='bold'%3ETALL%3C/text%3E%3C/svg%3E" alt="Default logo" />
+            </a>
+            <span style="margin: 0 0.5rem;">|</span>
+            <a class="brand" href="#">
+              <img class="logo-tall-optin is-full-height" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='150' viewBox='0 0 100 150'%3E%3Crect width='100' height='150' fill='%233498db' rx='4'/%3E%3Ctext x='50' y='80' text-anchor='middle' fill='white' font-size='16' font-weight='bold'%3ETALL%3C/text%3E%3C/svg%3E" alt="Opt-in logo" />
+            </a>
+          </div>
+          <div class="nav-right">
+            <a href="#">Link</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- SECTION 4: Nav overflow and content displacement -->
+      <h2>Section 4: Nav overflow and content displacement</h2>
+      <p class="demo-label">
+        Opt-in full-height logos should NOT cause nav overflow or displace sibling nav items.
+        <code>object-fit: contain</code> should preserve aspect ratio within the nav height.
+      </p>
+
+      <!-- 6rem nav with opt-in tall logo — check for overflow -->
+      <h3>6rem nav — opt-in tall logo (overflow check)</h3>
+      <nav class="nav nav-border" style="min-height: 6rem;">
+        <div class="container">
+          <div class="nav-left">
+            <a class="brand" href="#">
+              <img class="logo-tall-optin is-full-height" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='150' viewBox='0 0 100 150'%3E%3Crect width='100' height='150' fill='%233498db' rx='4'/%3E%3Ctext x='50' y='80' text-anchor='middle' fill='white' font-size='16' font-weight='bold'%3ETALL%3C/text%3E%3C/svg%3E" alt="Tall logo (opt-in, overflow check)" />
+            </a>
+          </div>
+          <div class="nav-center">
+            <a class="button outline" href="#">Centered</a>
+          </div>
+          <div class="nav-right">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </body>
+</html>
