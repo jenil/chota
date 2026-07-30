@@ -87,6 +87,7 @@ button:disabled:hover {
 
 .grouped {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .grouped > *:not(:last-child) {

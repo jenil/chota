@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grouped Controls — Validation Fixtures (#135)</title>
+    <link rel="stylesheet" href="dist/chota.css" />
+    <style>
+      /* Validation-only layout helpers */
+      .validation-section {
+        margin: 2rem 0;
+        padding: 1rem;
+        border: 1px dashed var(--color-grey);
+      }
+      .validation-section h3 {
+        margin-top: 0;
+      }
+      .measurement {
+        font-family: monospace;
+        font-size: 0.8em;
+        color: var(--color-primary);
+        background: var(--color-lightGrey);
+        padding: 0.2rem 0.5rem;
+        border-radius: 3px;
+        display: inline-block;
+        margin-bottom: 0.5rem;
+      }
+      .fixture-row {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        align-items: stretch;
+      }
+      .fixture-row .fixture-label {
+        font-size: 0.75em;
+        color: var(--color-grey);
+        min-width: 120px;
+        flex-shrink: 0;
+      }
+      .fixture-row .fixture-content {
+        flex: 1;
+      }
+      /* Narrow container for wrapping test */
+      .narrow-container {
+        max-width: 250px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Grouped Controls — Validation Fixtures</h1>
+      <p>Issue #135: Validate grouped controls spacing/alignment behavior.</p>
+
+      <!-- FIXTURE 1: Horizontal grouped (current behavior) -->
+      <div class="validation-section" data-fixture="1" id="fixture1">
+        <h3>Fixture 1: Horizontal Grouped (Desktop)</h3>
+        <p class="measurement">Expected: items side-by-side, 16px gaps</p>
+        <p class="grouped">
+          <input
+            type="search"
+            name="q"
+            placeholder="Search query"
+          />
+          <button class="button primary">Search</button>
+          <button class="button">Lucky</button>
+        </p>
+      </div>
+
+      <!-- FIXTURE 2: Narrow viewport horizontal group -->
+      <div class="validation-section" data-fixture="2">
+        <h3>Fixture 2: Horizontal Grouped (Narrow / Mobile)</h3>
+        <p class="measurement">Expected (current): overflow, no wrap</p>
+        <div class="narrow-container">
+          <p class="grouped">
+            <input
+              type="search"
+              name="q"
+              placeholder="Search query"
+            />
+            <button class="button primary">Search</button>
+            <button class="button">Lucky</button>
+          </p>
+        </div>
+      </div>
+
+      <!-- FIXTURE 3: Gapless grouped (current behavior) -->
+      <div class="validation-section" data-fixture="3" id="fixture3">
+        <h3>Fixture 3: Gapless Grouped (Desktop)</h3>
+        <p class="measurement">Expected: joined borders, no gap, rounded corners on ends</p>
+        <p class="grouped gapless">
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+          />
+          <input
+            type="text"
+            name="domain"
+            placeholder="Domain"
+          />
+          <button class="button primary">Submit</button>
+        </p>
+      </div>
+
+      <!-- FIXTURE 4: Gapless narrow -->
+      <div class="validation-section" data-fixture="4">
+        <h3>Fixture 4: Gapless Grouped (Narrow / Mobile)</h3>
+        <p class="measurement">Expected (current): overflow, no wrap, broken joins</p>
+        <div class="narrow-container">
+          <p class="grouped gapless">
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+            />
+            <input
+              type="text"
+              name="domain"
+              placeholder="Domain"
+            />
+            <button class="button primary">Submit</button>
+          </p>
+        </div>
+      </div>
+
+      <!-- FIXTURE 5: Mixed control types (desktop) -->
+      <div class="validation-section" data-fixture="5" id="fixture5">
+        <h3>Fixture 5: Mixed Control Types (Grouped)</h3>
+        <p class="measurement">Expected: consistent alignment, borders, heights</p>
+        <p class="grouped">
+          <select>
+            <option>Category</option>
+            <option>Option One</option>
+            <option>Option Two</option>
+          </select>
+          <input
+            type="text"
+            placeholder="Filter text"
+          />
+          <button class="button primary">Go</button>
+        </p>
+      </div>
+
+      <!-- FIXTURE 9: Mixed control types (narrow, for wrap test) -->
+      <div class="validation-section" data-fixture="9">
+        <h3>Fixture 9: Mixed Control Types (Narrow Wrap Test)</h3>
+        <p class="measurement">Expected: wraps, equal heights</p>
+        <div class="narrow-container">
+          <p class="grouped">
+            <select>
+              <option>Category</option>
+              <option>Option One</option>
+              <option>Option Two</option>
+            </select>
+            <input
+              type="text"
+              placeholder="Filter text"
+            />
+            <button class="button primary">Go</button>
+          </p>
+        </div>
+      </div>
+
+      <!-- FIXTURE 6: Disabled controls in group -->
+      <div class="validation-section" data-fixture="6" id="fixture6">
+        <h3>Fixture 6: Disabled Controls in Group</h3>
+        <p class="measurement">Expected: opacity 0.4, preserved spacing</p>
+        <p class="grouped">
+          <input
+            type="text"
+            placeholder="Enabled"
+          />
+          <input
+            type="text"
+            placeholder="Disabled"
+            disabled
+          />
+          <button class="button" disabled>Disabled Btn</button>
+        </p>
+      </div>
+
+      <!-- FIXTURE 7: Focus outlines in group -->
+      <div class="validation-section" data-fixture="7" id="fixture7">
+        <h3>Fixture 7: Focus Outlines in Group</h3>
+        <p class="measurement">Expected: primary border + box-shadow, no overlap issues</p>
+        <p class="grouped">
+          <input
+            type="text"
+            placeholder="Focus me"
+          />
+          <button class="button primary">Focus me</button>
+        </p>
+      </div>
+
+      <!-- FIXTURE 8: Many items (wrapping stress test) -->
+      <div class="validation-section" data-fixture="8">
+        <h3>Fixture 8: Many Items (Wrapping Stress Test)</h3>
+        <p class="measurement">Expected (current): horizontal overflow on narrow</p>
+        <div class="narrow-container">
+          <p class="grouped">
+            <button class="button">A</button>
+            <button class="button">B</button>
+            <button class="button">C</button>
+            <button class="button">D</button>
+            <button class="button">E</button>
+          </p>
+        </div>
+      </div>
+
+      <p><a href="#top">[Top]</a></p>
+    </div>
+  </body>
+</html>

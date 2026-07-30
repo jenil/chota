@@ -12,7 +12,8 @@
   "source": "src/chota.css",
   "dist_chota_css_bytes": 17768,
   "dist_chota_min_css_bytes": 14080,
-  "gzip_bytes": 3310,
+  "gzip_bytes": 3312,
   "gzip_ceiling_bytes": 4096,
-  "gzip_budget_remaining_bytes": 786
+  "gzip_budget_remaining_bytes": 786,
+  "rationale": "2-byte increase from adding flex-wrap: wrap to .grouped (src/_form.css). Enables responsive wrapping of grouped controls on narrow viewports, fixing issue #114. flex-wrap is supported by all target browsers. No API or visual regression at desktop widths."
 }

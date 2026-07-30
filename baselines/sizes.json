@@ -11,9 +11,9 @@
   ],
   "css": {
     "chotaCssBytes": 17768,
-    "chotaMinCssBytes": 14080,
-    "chotaMinCssGzipBytes": 3310
+    "chotaMinCssBytes": 14082,
+    "chotaMinCssGzipBytes": 3312
   },
   "gzipCeilingBytes": 4096,
-  "gzipBudgetRemainingBytes": 786
+  "gzipBudgetRemainingBytes": 784
 }
