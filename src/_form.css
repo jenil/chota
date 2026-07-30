@@ -87,10 +87,7 @@ button:disabled:hover {
 
 .grouped {
   display: flex;
-}
-
-.grouped > *:not(:last-child) {
-  margin-right: 16px;
+  gap: 0 16px;
 }
 
 .grouped.gapless > * {
@@ -114,6 +111,12 @@ button:disabled:hover {
 @media (max-width: 480px) {
   .grouped {
     flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* Gapless groups keep joined borders — no gap spacing. */
+  .grouped.gapless {
+    gap: 0;
   }
 }
 
