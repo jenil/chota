@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validation: Mobile Grid Overflow (#102)</title>
+    <link rel="stylesheet" href="../dist/chota.css" />
+    <style>
+      .demo-label {
+        font-size: 0.8rem;
+        color: var(--color-grey);
+        margin-bottom: 0.5rem;
+      }
+      .card {
+        background: var(--bg-secondary-color);
+        color: var(--font-color);
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+      .container-border {
+        border: 2px solid blue;
+      }
+      .row-border {
+        border: 2px solid red;
+      }
+      body.dark {
+        --bg-color: #000;
+        --bg-secondary-color: #131316;
+        --font-color: #f5f5f5;
+        --color-grey: #ccc;
+        --color-darkGrey: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container container-border">
+      <h1>Validation: Mobile Grid Overflow (#102)</h1>
+      <p class="demo-label">Issue: Columns overflow the right edge on mobile viewports. The reporter needed max-width: 94% on .col in the mobile media query.</p>
+
+      <h2>Desktop (1280×720):</h2>
+      <p class="demo-label">Three equal columns — no overflow expected:</p>
+      <div class="row row-border">
+        <div class="col-4"><div class="card">.col-4 (left)</div></div>
+        <div class="col-4"><div class="card">.col-4 (center)</div></div>
+        <div class="col-4"><div class="card">.col-4 (right)</div></div>
+      </div>
+
+      <h2>Mobile (375×667):</h2>
+      <p class="demo-label">Single .col — check for overflow:</p>
+      <div class="row row-border">
+        <div class="col"><div class="card">.col (check overflow)</div></div>
+      </div>
+
+      <p class="demo-label">Two .col-6 — check for overflow:</p>
+      <div class="row row-border">
+        <div class="col-6"><div class="card">.col-6</div></div>
+        <div class="col-6"><div class="card">.col-6</div></div>
+      </div>
+
+      <p class="demo-label">Twelve .col-1 (stress test):</p>
+      <div class="row row-border">
+        <div class="col-1"><div class="card">1</div></div>
+        <div class="col-1"><div class="card">2</div></div>
+        <div class="col-1"><div class="card">3</div></div>
+        <div class="col-1"><div class="card">4</div></div>
+        <div class="col-1"><div class="card">5</div></div>
+        <div class="col-1"><div class="card">6</div></div>
+        <div class="col-1"><div class="card">7</div></div>
+        <div class="col-1"><div class="card">8</div></div>
+        <div class="col-1"><div class="card">9</div></div>
+        <div class="col-1"><div class="card">10</div></div>
+        <div class="col-1"><div class="card">11</div></div>
+        <div class="col-1"><div class="card">12</div></div>
+      </div>
+
+      <h2>Overflow indicator (red border = viewport edge):</h2>
+      <p class="demo-label">The blue container border should align with the red row border. Any content extending past the red border indicates overflow.</p>
+    </div>
+  </body>
+</html>
