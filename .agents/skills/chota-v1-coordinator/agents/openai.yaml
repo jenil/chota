@@ -1,0 +1,4 @@
+interface:
+  display_name: "Chota v1 Coordinator"
+  short_description: "Coordinate one Chota v1 card safely"
+  default_prompt: "Use $chota-v1-coordinator to coordinate one Chota v1 card from scope through verified handoff."
