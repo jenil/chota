@@ -50,6 +50,25 @@ Do not create a branch, commit, push, PR, issue comment, board change, merge, or
 
 If a phase fails, correct it within the approved scope or stop as `BLOCKED`; do not skip to a later phase.
 
+## Junior-agent execution gates
+
+Use these gates when delegating a card to a junior agent or when the task needs close supervision.
+
+1. **Scout is read-only.** Before any edit, the agent must return the card/source-issue scope, base and branch, initial `git status --short --untracked-files=all`, allowed files, protected files, each required command, the artifact each command will produce, and the stop condition. The owner must accept this brief before execution.
+2. **One edit cycle at a time.** Make one bounded edit, then immediately run and report the literal output of:
+
+   ```sh
+   git status --short --untracked-files=all
+   git diff --name-status
+   git diff --check
+   ```
+
+   Do not make a second edit until the reported state is in scope. Do not summarize an expected clean state as an observed one.
+3. **Claims require proof.** Every claim such as `passes`, `clean`, `no production change`, `covered by CI`, or `correctly overrides` must cite the exact command, exit status, and directly relevant output or artifact. A report may not replace an assertion, a command result, or a live worktree check.
+4. **Validation stays narrow.** A validation agent may edit only the files in its approved brief. It must not change source CSS, `dist/`, package scripts, Playwright configuration, workflows, snapshot conventions, or baselines unless the owner separately approves that exact change and, for shared configuration, an impact matrix.
+5. **Prefer small deterministic fixtures.** Use stable `data-test-id` locators and minimal fixture markup. Avoid broad first-fold fixtures, fragile positional selectors, duplicated display-only computed values, and screenshots substituted for behavioral or computed-style assertions.
+6. **Stop for review.** At the end of every phase, the agent must end with `STOP: awaiting review` and report the current worktree. A reviewer should compare the report with the live diff and test code before the agent proceeds to a commit, CI claim, or disposition. The reviewer has no edit authority for that review.
+
 ## Evidence integrity
 
 Accept a result only when the exact artifact and command prove it.
