@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spacing Utilities — Issue #61 Regression</title>
+  <link rel="stylesheet" href="/dist/chota.css">
+</head>
+<body>
+
+<!-- Container baseline and utilities -->
+<div class="container" data-test-id="container-baseline">Baseline .container</div>
+<div class="container is-marginless" data-test-id="container-marginless">.is-marginless on .container</div>
+<div class="container is-paddingless" data-test-id="container-paddingless">.is-paddingless on .container</div>
+
+<!-- Row baseline and utilities -->
+<div class="container">
+  <div class="row" data-test-id="row-baseline">Baseline .row</div>
+  <div class="row is-marginless" data-test-id="row-marginless">.is-marginless on .row</div>
+  <div class="row is-paddingless" data-test-id="row-paddingless">.is-paddingless on .row</div>
+</div>
+
+<!-- Col variants with utilities -->
+<div class="container">
+  <div class="row">
+    <div class="col" data-test-id="col-baseline">Baseline .col</div>
+    <div class="col is-marginless" data-test-id="col-marginless">.is-marginless on .col</div>
+    <div class="col is-paddingless" data-test-id="col-paddingless">.is-paddingless on .col</div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-6 is-marginless" data-test-id="col6-marginless">.col-6.is-marginless</div>
+  </div>
+</div>
+
+<!-- Full nesting: .container > .row > .col -->
+<div class="container">
+  <div class="row" data-test-id="nested-row">
+    <div class="col" data-test-id="nested-col">Full nesting baseline</div>
+  </div>
+</div>
+
+</body>
+</html>
