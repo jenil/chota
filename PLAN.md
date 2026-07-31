@@ -14,8 +14,7 @@ The GitHub Project is the live queue. GitHub issue cards contain implementation 
 
 - Live tracking issue: [#121](https://github.com/jenil/chota/issues/121) — the source of truth for integration-branch readiness, evidence links, sequencing, and release gates. This issue is updated in sync with plan.md and the GitHub Project board.
 - GitHub Project #2 ("Chota v1.0") — the live queue. Issue cards contain implementation procedure, file scope, test cases, and handoff evidence.
-- Current integration branch: `v1` (commit `58997f3` as of 2026-07-26)
-- Latest commit: `bd95ad5` (feat: establish CSS public API contract test with deliberate failure demos)
+- Current integration branch: `v1`. Use the tracking issue and project board for live commit and card status rather than recording short-lived SHAs here.
 
 ## Branch and review policy
 
@@ -64,10 +63,10 @@ Evidence must be real and current: commands and exit status, commit SHA, test/VR
 | 1 | 3 | #127 portable size gate | Requires #123 and #125. |
 | 2 | 1 | #129 CI, #124 Chromium VRT, #130 a11y baseline, #131 CSS API contract | Requires verified Week 1 evidence. |
 | 2 | 2 | #132 validate #102 (mobile grid overflow) | Validation only; create a separate fix card after reproduction and decision. |
-| 2 | 2 | #133 validate #77 (WordPress tag collision) | Validation only; create a separate fix card after reproduction and decision. |
 | 2 | 2 | #134 validate #111 (full-height nav logo) | Validation only; create a separate fix card after reproduction and decision. |
 | 2 | 2 | #135 validate #114 (grouped controls) | Validation only; create a separate fix card after reproduction and decision. |
 | 2 | 2 | #136 validate #61 (spacing utilities) | Validation only; create a separate fix card after reproduction and decision. |
+| 2 | 3 | #177 harden regression coverage | Test-harness only; must land before shared CSS migrations. |
 | 3 | 1 | #139 focus, #140 dark-mode docs, #141 interaction docs | #139 uses #130 findings; #140/#141 can run independently. |
 | 3 | 2 | #137 root-font migration, #138 token normalization | #137 needs #124 (VRT) and #131 (API contract); avoid concurrent edits to shared base/token CSS. |
 | 3 | 3 | #142 migration/API docs | Requires #137 and #138 completion; verifies against current source and built dist/. |
@@ -76,7 +75,7 @@ Evidence must be real and current: commands and exit status, commit SHA, test/VR
 
 **Parallelism guidance:** Cards within the same Week are independent unless a dependency is explicitly noted. They may run in parallel (separate branches, separate PRs) or sequentially — the choice is a coordinator decision. Parallel execution saves time but increases merge conflict risk on shared files (e.g., base CSS, package.json). Sequential execution is safer for shared files.
 
-## Current Progress (Updated 2026-07-26)
+## Current Progress (Updated 2026-07-30)
 
 ### Week 1 — COMPLETE (6/6 cards)
 - ✅ #122 publish browser support policy
@@ -86,18 +85,20 @@ Evidence must be real and current: commands and exit status, commit SHA, test/VR
 - ✅ #127 add portable size gate
 - ✅ #128 configure dependency maintenance policy
 
-### Week 2 — IN PROGRESS (4/10 cards)
+### Week 2 — COMPLETE (8/9 cards)
 - ✅ #129 add pull request CI quality gate (PR #153)
 - ✅ #124 establish Chromium VRT (PR #154, 4 baseline screenshots)
 - ✅ #130 establish a11y baseline (axe-core, 9 real violations documented)
 - ✅ #131 add CSS public API contract (185 selectors, 14 custom properties)
-- ⏳ #132 validate #102 (mobile grid overflow)
-- ⏳ #133 validate #77 (WordPress tag collision)
-- ⏳ #134 validate #111 (full-height nav logo)
-- ⏳ #135 validate #114 (grouped controls)
-- ⏳ #136 validate #61 (spacing utilities)
+- ✅ #132 validate #102 (mobile grid overflow)
+- ✅ #134 validate #111 (full-height nav logo)
+- ✅ #135 validate #114 (grouped controls)
+- ✅ #136 validate #61 (spacing utilities; computed-style regression coverage)
+- ⬜ #177 harden regression coverage
 
-### Weeks 3–4 — NOT STARTED (0/10 cards)
+#133 (validate #77, WordPress tag collision) was removed from v1 scope and is not included in the plan total.
+
+### Weeks 3–4 — NOT STARTED (0/9 cards)
 - ⏳ #139 restore visible keyboard focus
 - ⏳ #140 document dark-mode convention
 - ⏳ #141 document interaction boundaries
@@ -110,11 +111,11 @@ Evidence must be real and current: commands and exit status, commit SHA, test/VR
 - ⏳ #146 create post-v1 roadmap
 
 ### Summary
-- **Total cards:** 26
-- **Completed:** 10 (38%)
+- **Total cards:** 24 (excludes coordinator #121 and removed #133)
+- **Completed:** 14 (58%)
 - **Week 1:** 6/6 (100%)
-- **Week 2:** 4/10 (40%)
-- **Week 3:** 0/6 (0%)
+- **Week 2:** 8/9 (89%)
+- **Week 3:** 0/5 (0%)
 - **Week 4:** 0/4 (0%)
 
 ## Week 1 — contract and reproducible build
@@ -161,11 +162,29 @@ Week 3 cannot start merely because Week 2 cards say Done. The owner must confirm
 - Deliberate failure demonstrations prove the CI pipeline catches: selector removal, visual regression, size regression, and a11y violations.
 - All Week 2 evidence is attached to its GitHub card and the card is marked Done on the project board.
 
+### Coverage audit and hardening follow-up
+
+The Week 2 audit found a sound CI backbone, but not complete regression coverage. #177 must complete before #137 or #138 changes shared CSS. It must:
+
+- decide whether the #132 mobile-grid and #135 grouped-controls specs join the shared `test:vrt` script; any script change requires an impact matrix covering CI consumers and a proof command;
+- convert direct `page.screenshot({ path })` artifacts into named screenshot assertions when a visual baseline is intended, or reclassify/remove them rather than calling them VRT;
+- add the smallest focused coverage for the protected `body.dark` convention and responsive boundaries at 480/481, 599/600, 899/900, and 1199/1200 pixels;
+- keep screenshot VRT, API, and a11y suites Chromium-pinned. Firefox and WebKit remain functional smoke coverage.
+
+This is a test-harness hardening card, not a product CSS change. It closes the gaps exposed by the audit without reopening completed Week 2 validation decisions.
+
 ## Week 3 — safe API and documentation improvements
 
 ### Outcome
 
 Ship the selected root-font, token, focus, dark-mode, interaction-boundary, and migration/documentation work only after the Week 2 baseline and issue decisions are stable.
+
+### Entry sequence
+
+1. Complete #177 before #137 or #138.
+2. Run #139 with real Tab traversal and visible-focus checks on each affected fixture; use #130 findings as the starting point.
+3. Run #140 and verify the documented `body.dark` convention with the new focused test; #141 may run independently.
+4. Run #137 and #138 sequentially, then #142 against current source and built `dist/`.
 
 ### Guardrails
 
