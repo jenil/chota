@@ -85,7 +85,7 @@ Evidence must be real and current: commands and exit status, commit SHA, test/VR
 - ✅ #127 add portable size gate
 - ✅ #128 configure dependency maintenance policy
 
-### Week 2 — COMPLETE (8/9 cards)
+### Week 2 — COMPLETE (9/9 cards)
 - ✅ #129 add pull request CI quality gate (PR #153)
 - ✅ #124 establish Chromium VRT (PR #154, 4 baseline screenshots)
 - ✅ #130 establish a11y baseline (axe-core, 9 real violations documented)
@@ -94,7 +94,7 @@ Evidence must be real and current: commands and exit status, commit SHA, test/VR
 - ✅ #134 validate #111 (full-height nav logo)
 - ✅ #135 validate #114 (grouped controls)
 - ✅ #136 validate #61 (spacing utilities; computed-style regression coverage)
-- ⬜ #177 harden regression coverage
+- ✅ #177 harden regression coverage (PR #178, behavioral assertions only)
 
 #133 (validate #77, WordPress tag collision) was removed from v1 scope and is not included in the plan total.
 
@@ -112,9 +112,9 @@ Evidence must be real and current: commands and exit status, commit SHA, test/VR
 
 ### Summary
 - **Total cards:** 24 (excludes coordinator #121 and removed #133)
-- **Completed:** 14 (58%)
+- **Completed:** 15 (63%)
 - **Week 1:** 6/6 (100%)
-- **Week 2:** 8/9 (89%)
+- **Week 2:** 9/9 (100%)
 - **Week 3:** 0/5 (0%)
 - **Week 4:** 0/4 (0%)
 
