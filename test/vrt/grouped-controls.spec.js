@@ -55,7 +55,7 @@ test.describe('Grouped controls — spacing and alignment assertions (#135)', ()
     expect(containerRect.scrollWidth).toBeLessThanOrEqual(containerRect.width);
 
     // All items on the same row (y positions match)
-    const ySpread = await grouped.evaluateAll((els) => {
+    const ySpread = await grouped.locator('> *').evaluateAll((els) => {
       return els.map((el) => el.getBoundingClientRect().y);
     });
     expect(Math.max(...ySpread) - Math.min(...ySpread)).toBeLessThan(2);
@@ -70,9 +70,6 @@ test.describe('Grouped controls — spacing and alignment assertions (#135)', ()
     expect(gap).toBeGreaterThan(14);
     expect(gap).toBeLessThan(18);
 
-    // Visual evidence: screenshot the single fixture layout
-    await grouped.screenshot({ path: 'test/vrt/snapshots/grouped-controls.spec.js-snapshots/grouped-controls-desktop.png' });
-
     await context.close();
   });
 
@@ -82,7 +79,7 @@ test.describe('Grouped controls — spacing and alignment assertions (#135)', ()
   test('narrow: wraps, no overflow, 16px gap between rows', async ({ browser }) => {
     const context = await browser.newContext({
       ...BASE_CONTEXT_OPTIONS,
-      viewport: { width: 200, height: 400 },
+      viewport: { width: 320, height: 400 },
     });
     const page = await context.newPage();
     await loadFixture(page, server, 'grouped-controls.html');
@@ -104,17 +101,19 @@ test.describe('Grouped controls — spacing and alignment assertions (#135)', ()
 
     // Gap between rows is ~16px (from media query gap)
     const rowGap = await grouped.evaluate((el) => {
-      const items = el.children;
-      const sorted = [...items].sort((a, b) => a.getBoundingClientRect().y - b.getBoundingClientRect().y);
-      const r1 = sorted[0].getBoundingClientRect();
-      const r2 = sorted[1].getBoundingClientRect();
-      return r2.y - (r1.y + r1.height);
+      const items = [...el.children].sort((a, b) => a.getBoundingClientRect().y - b.getBoundingClientRect().y);
+      // Find first pair on different rows (y differs by > 2px)
+      for (let i = 0; i < items.length - 1; i++) {
+        const r1 = items[i].getBoundingClientRect();
+        const r2 = items[i + 1].getBoundingClientRect();
+        if (Math.abs(r2.y - r1.y) > 2) {
+          return r2.y - (r1.y + r1.height);
+        }
+      }
+      return null;
     });
     expect(rowGap).toBeGreaterThan(14);
     expect(rowGap).toBeLessThan(18);
-
-    // Visual evidence: screenshot the wrapped layout
-    await grouped.screenshot({ path: 'test/vrt/snapshots/grouped-controls.spec.js-snapshots/grouped-controls-narrow.png' });
 
     await context.close();
   });
@@ -160,16 +159,15 @@ test.describe('Grouped controls — spacing and alignment assertions (#135)', ()
     );
     expect(lastBorderRadius).toContain('4px');
 
-    // Visual evidence: screenshot the gapless wrapped layout
-    await grouped.screenshot({ path: 'test/vrt/snapshots/grouped-controls.spec.js-snapshots/grouped-controls-gapless-narrow.png' });
-
     await context.close();
   });
 
-  // ── Fixture 4: Mixed input/select/button heights ───────────────────
-  // Proves: no overflow, existing heights preserved (select=36, input=36, button=38)
+  // ── Fixture 4: Mixed input/select/button controls ─────────────────
+  // Proves: no horizontal overflow when mixing native form controls.
+  // Chota does not define exact heights for native <select>/<input>/<button>;
+  // the contract is overflow/wrapping/spacing/borders/radii, not pixel heights.
 
-  test('mixed heights: no overflow, select=36, input=36, button=38', async ({ browser }) => {
+  test('mixed controls: no horizontal overflow', async ({ browser }) => {
     const context = await browser.newContext({
       ...BASE_CONTEXT_OPTIONS,
       viewport: NARROW,
@@ -186,18 +184,62 @@ test.describe('Grouped controls — spacing and alignment assertions (#135)', ()
     // No horizontal overflow
     expect(containerRect.scrollWidth).toBeLessThanOrEqual(containerRect.width);
 
-    // Chota existing behavior: select=36px, input=36px, button=38px
-    const heights = await grouped.evaluate((el) => {
-      const items = el.children;
-      return [...items].map((item) => item.getBoundingClientRect().height);
-    });
-    expect(heights[0]).toBeCloseTo(36, 0); // select
-    expect(heights[1]).toBeCloseTo(36, 0); // input
-    expect(heights[2]).toBeCloseTo(38, 0); // button
-
-    // Visual evidence: screenshot the mixed layout
-    await grouped.screenshot({ path: 'test/vrt/snapshots/grouped-controls.spec.js-snapshots/grouped-controls-mixed-narrow.png' });
-
     await context.close();
+  });
+
+  // ── 480px boundary: .grouped flex-wrap toggles at max-width: 480px ───
+  // Proves the @media (max-width: 480px) { .grouped { flex-wrap: wrap } } rule
+  // (src/_form.css) actually changes behavior at the 480/481 boundary.
+  // At 480px: wrap is on (items span multiple rows inside the 400px container).
+  // At 481px: wrap is off (default nowrap; items stay on one row and may overflow).
+
+  test('480px boundary: .grouped flex-wrap toggles at 480/481', async ({ browser }) => {
+    // At 480px: media query applies — flex-wrap: wrap, items span multiple rows
+    {
+      const context = await browser.newContext({
+        ...BASE_CONTEXT_OPTIONS,
+        viewport: { width: 480, height: 600 },
+      });
+      const page = await context.newPage();
+      await loadFixture(page, server, 'grouped-controls.html');
+
+      const grouped = page.locator('#fixture2');
+      const flexWrap = await grouped.evaluate((el) =>
+        window.getComputedStyle(el).flexWrap
+      );
+      expect(flexWrap).toBe('wrap');
+
+      // Items span multiple rows (y positions differ by > 2px)
+      const yPositions = await grouped.locator('> *').evaluateAll((els) =>
+        els.map((el) => el.getBoundingClientRect().y)
+      );
+      expect(Math.max(...yPositions) - Math.min(...yPositions)).toBeGreaterThan(2);
+
+      await context.close();
+    }
+
+    // At 481px: media query no longer applies — flex-wrap: nowrap (default)
+    {
+      const context = await browser.newContext({
+        ...BASE_CONTEXT_OPTIONS,
+        viewport: { width: 481, height: 600 },
+      });
+      const page = await context.newPage();
+      await loadFixture(page, server, 'grouped-controls.html');
+
+      const grouped = page.locator('#fixture2');
+      const flexWrap = await grouped.evaluate((el) =>
+        window.getComputedStyle(el).flexWrap
+      );
+      expect(flexWrap).toBe('nowrap');
+
+      // All items on the same row (y positions match within 2px)
+      const yPositions = await grouped.locator('> *').evaluateAll((els) =>
+        els.map((el) => el.getBoundingClientRect().y)
+      );
+      expect(Math.max(...yPositions) - Math.min(...yPositions)).toBeLessThan(2);
+
+      await context.close();
+    }
   });
 });

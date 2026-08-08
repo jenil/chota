@@ -1,6 +1,9 @@
 const { test, expect } = require('@playwright/test');
 const { startFixtureServer, loadFixture } = require('../vrt-helpers');
 
+// Card #177 — Mobile-grid overflow behavioral assertions.
+// Computed-style overflow checks only; no screenshot assertions.
+
 const DESKTOP = { width: 1280, height: 720 };
 const MOBILE = { width: 375, height: 667 };
 const NARROW_414 = { width: 414, height: 896 };
@@ -31,13 +34,18 @@ test.describe('Mobile Grid Overflow Validation (#102)', () => {
     await loadFixture(page, server, 'mobile-grid-overflow.html');
     await page.waitForLoadState('networkidle');
 
+    // Prove /dist/chota.css loaded successfully (200), not a 404.
+    const cssStatus = await page.evaluate(async () => {
+      const r = await fetch('/dist/chota.css');
+      return r.status;
+    });
+    expect(cssStatus).toBe(200);
+
     const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
     const clientWidth = await page.evaluate(() => window.innerWidth);
     const overflow = scrollWidth - clientWidth;
 
     console.log(`Desktop: viewport=${clientWidth}px, scrollWidth=${scrollWidth}px, overflow=${overflow}px`);
-
-    const screenshot = await page.screenshot({ path: 'test/vrt/snapshots/mobile-grid-overflow.spec.js-snapshots/132-desktop-grid.png', fullPage: false });
 
     expect(overflow).toBe(0);
     await context.close();
@@ -60,8 +68,6 @@ test.describe('Mobile Grid Overflow Validation (#102)', () => {
     const overflow = scrollWidth - clientWidth;
 
     console.log(`Mobile 375px: viewport=${clientWidth}px, scrollWidth=${scrollWidth}px, overflow=${overflow}px`);
-
-    const screenshot = await page.screenshot({ path: 'test/vrt/snapshots/mobile-grid-overflow.spec.js-snapshots/132-mobile-grid-full.png', fullPage: false });
 
     expect(overflow).toBe(0);
     await context.close();
