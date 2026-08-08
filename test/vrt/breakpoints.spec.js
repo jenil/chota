@@ -106,6 +106,14 @@ function isHideSmExpectedHidden(viewportWidth) {
 }
 
 /**
+ * Check if .hide-lg is expected to be hidden at a given viewport width.
+ * Chota CSS: @media (min-width: 1200px) { .hide-lg { display: none; } }
+ */
+function isHideLgExpectedHidden(viewportWidth) {
+  return viewportWidth >= 1200;
+}
+
+/**
  * Check if Chota's container should be 100% width at a viewport.
  * Chota CSS: @media (max-width: 599px) { .container { width: 100%; } }
  */
@@ -274,5 +282,55 @@ test.describe('Breakpoint boundaries — components.html', () => {
 
       await context.close();
     });
+  });
+
+  // Dedicated 1200px boundary tests (outside the loop to avoid duplicate titles)
+  test('components.html: 1199px .hide-lg visible, 1200px .hide-lg hidden', async ({ browser }) => {
+    // Below 1200px: .hide-lg should NOT be hidden (Chota CSS: min-width: 1200px)
+    {
+      const context = await browser.newContext({
+        ...BASE_CONTEXT_OPTIONS,
+        viewport: { width: 1199, height: 900 },
+      });
+      const page = await context.newPage();
+      await loadFixture(page, server, 'components.html');
+
+      const hideLgDisplay = await getHideElementVisibility(page, 'hide-lg');
+      expect(hideLgDisplay).not.toBeNull();
+      expect(hideLgDisplay).not.toBe('none');
+
+      await context.close();
+    }
+
+    // At 1200px: .hide-lg should be hidden (Chota CSS: min-width: 1200px)
+    {
+      const context = await browser.newContext({
+        ...BASE_CONTEXT_OPTIONS,
+        viewport: { width: 1200, height: 900 },
+      });
+      const page = await context.newPage();
+      await loadFixture(page, server, 'components.html');
+
+      const hideLgDisplay = await getHideElementVisibility(page, 'hide-lg');
+      expect(hideLgDisplay).not.toBeNull();
+      expect(hideLgDisplay).toBe('none');
+
+      // .hide-sm should NOT be hidden at 1200px (Chota CSS: 600px ≤ max-width ≤ 899px only)
+      const hideSmDisplay = await getHideElementVisibility(page, 'hide-sm');
+      expect(hideSmDisplay).not.toBeNull();
+      expect(hideSmDisplay).not.toBe('none');
+
+      // Verify .col-6-lg (from components.html) has flex layout at 1200px
+      const col6LgWidth = await page.evaluate(() => {
+        const el = document.querySelector('.col-6-lg');
+        if (!el) return null;
+        const cs = window.getComputedStyle(el);
+        return { display: cs.display, width: cs.width };
+      });
+      expect(col6LgWidth).not.toBeNull();
+      expect(col6LgWidth.display).not.toBe('none');
+
+      await context.close();
+    }
   });
 });

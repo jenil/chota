@@ -29,19 +29,19 @@ npx playwright test test/vrt/browser-smoke.spec.js --project=firefox --project=w
 test/vrt/
 ├── index.spec.js              # Elements page screenshots (Chromium)
 ├── components.spec.js         # Components page screenshots (Chromium)
-├── grouped-controls.spec.js   # Grouped controls — computed-style + screenshot artifacts (Chromium)
+├── grouped-controls.spec.js   # Grouped controls — computed-style assertions, no screenshots (Chromium)
 ├── browser-smoke.spec.js      # Firefox/WebKit smoke tests (no screenshots)
 ├── a11y.spec.js               # Accessibility baseline (Chromium)
 ├── a11y-keyboard.spec.js      # Keyboard focus observations (Chromium)
 ├── api.spec.js                # CSS public API contract (Chromium)
+├── dark-mode.spec.js          # Dark-mode custom properties (Chromium)
+├── breakpoints.spec.js        # Responsive breakpoint boundaries (Chromium)
 ├── vrt-helpers.js             # Fixture server startup logic
-├── snapshots/                 # Reference screenshots (git-tracked)
-│   ├── index.spec.js-snapshots/          # toMatchSnapshot baselines (index.html)
-│   ├── components.spec.js-snapshots/     # toMatchSnapshot baselines (components.html)
-│   ├── grouped-controls.spec.js-snapshots/  # direct-screenshot artifacts (grouped-controls.html)
-│   ├── validations/                      # Validation test specs
-│   │   └── nav-logo-full-height.spec.js-snapshots/  # toMatchSnapshot baselines (nav-logo-full-height.html)
-│   └── mobile-grid-overflow.spec.js-snapshots/      # direct-screenshot artifacts (mobile-grid-overflow.html)
+├── snapshots/                 # Reference screenshots (git-tracked, Playwright-managed)
+│   ├── index.spec.js-snapshots/              # toMatchSnapshot baselines (index.html)
+│   ├── components.spec.js-snapshots/         # toMatchSnapshot baselines (components.html)
+│   └── validations/                          # Validation test specs
+│       └── nav-logo-full-height.spec.js-snapshots/  # toMatchSnapshot baselines (nav-logo-full-height.html)
 ├── report/                    # HTML report (git-ignored, generated on each run)
 └── results/                   # Screenshot/a11y/smoke artifacts (uploaded on failure)
 ```
@@ -51,7 +51,7 @@ test/vrt/
 | Test type | Browsers | Pages | Viewports |
 |-----------|----------|-------|-----------|
 | VRT (toMatchSnapshot) | Chromium | index.html, components.html, nav-logo-full-height.html | Desktop (1280×720), Mobile (375×667) |
-| VRT artifacts (direct screenshot) | Chromium | grouped-controls.html, mobile-grid-overflow.html | Desktop (1280×720), Mobile (375×667), narrow (320×568/414×896) |
+| Computed-style (no screenshots) | Chromium | mobile-grid-overflow.html, grouped-controls.html, dark-mode, breakpoints | Desktop (1280×720), Mobile (375×667), narrow (320×568/414×896) |
 | A11y (axe-core) | Chromium | index.html | Desktop (1280×720) |
 | API (selectors) | Chromium | dist/chota.css | N/A |
 | Smoke (functional) | Firefox, WebKit | index.html, components.html | Desktop (1280×720), Mobile (375×667) |
@@ -81,26 +81,13 @@ resolved by any supported execution path.
   exist at `-chromium-darwin.png` so developers can run `yarn test:vrt` locally.
   macOS baselines are **not** a substitute for Linux CI evidence.
 
-### Artifact vs. baseline distinction
-
-- **VRT assertions** (`toMatchSnapshot`): Playwright-managed baselines that
-  fail the test on visual mismatch. These are the only snapshots that provide
-  deliberate-change proof.
-- **Direct-screenshot artifacts** (`page.screenshot({ path })`): Written to
-  disk by the spec but **not** consumed by any `toMatchSnapshot` assertion.
-  They serve as visual evidence only and cannot detect a deliberate visual
-  change. They are organized into spec-named subdirectories under
-  `test/vrt/snapshots/` to keep them separate from VRT baselines.
-
 ### Snapshot naming convention
 
-| Assertion type | Example matcher arg | Resolved path (macOS) | Resolved path (Linux) |
+| Spec | Example matcher arg | Resolved path (macOS) | Resolved path (Linux) |
 |---|---|---|---|
-| VRT (index.html) | `index-desktop.png` | `index.spec.js-snapshots/index-desktop-chromium-darwin.png` | `index.spec.js-snapshots/index-desktop-chromium-linux.png` |
-| VRT (components.html) | `components-mobile.png` | `components.spec.js-snapshots/components-mobile-chromium-darwin.png` | `components.spec.js-snapshots/components-mobile-chromium-linux.png` |
-| VRT (nav-logo) | `134-default-tall.png` | `nav-logo-full-height.spec.js-snapshots/134-default-tall-chromium-darwin.png` | `nav-logo-full-height.spec.js-snapshots/134-default-tall-chromium-linux.png` |
-| Artifact (grouped) | — | `grouped-controls.spec.js-snapshots/grouped-controls-desktop.png` | (same, no platform suffix — artifact only) |
-| Artifact (mobile-grid) | — | `mobile-grid-overflow.spec.js-snapshots/132-desktop-grid.png` | (same, no platform suffix — artifact only) |
+| index.html | `index-desktop.png` | `index.spec.js-snapshots/index-desktop-chromium-darwin.png` | `index.spec.js-snapshots/index-desktop-chromium-linux.png` |
+| components.html | `components-mobile.png` | `components.spec.js-snapshots/components-mobile-chromium-darwin.png` | `components.spec.js-snapshots/components-mobile-chromium-linux.png` |
+| nav-logo-full-height.html | `134-default-tall.png` | `validations/nav-logo-full-height.spec.js-snapshots/134-default-tall-chromium-darwin.png` | `validations/nav-logo-full-height.spec.js-snapshots/134-default-tall-chromium-linux.png` |
 
 ## Deterministic Settings
 
