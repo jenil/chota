@@ -50,11 +50,26 @@ test/vrt/
 
 | Test type | Browsers | Pages | Viewports |
 |-----------|----------|-------|-----------|
-| VRT (toMatchSnapshot) | Chromium | index.html, components.html, nav-logo-full-height.html | Desktop (1280×720), Mobile (375×667) |
-| Computed-style (no screenshots) | Chromium | mobile-grid-overflow.html, grouped-controls.html, dark-mode, breakpoints | Desktop (1280×720), Mobile (375×667), narrow (320×568/414×896) |
+| VRT — first-fold (toMatchSnapshot, `fullPage: false`) | Chromium | index.html, components.html, nav-logo-full-height.html | Desktop (1280×720), Mobile (375×667) |
+| VRT — full-page (toMatchSnapshot, `fullPage: true`) | Chromium | index.html, components.html | Desktop (1280×720), Mobile (375×667) |
+| VRT — per-section element (locator screenshot) | Chromium | index.html, components.html | Desktop (1280×720) only |
+| Computed-style (no screenshots) | Chromium | index.html, components.html, mobile-grid-overflow.html, grouped-controls.html, dark-mode, breakpoints | Desktop (1280×720), Mobile (375×667), narrow (320×568/414×896) |
 | A11y (axe-core) | Chromium | index.html | Desktop (1280×720) |
 | API (selectors) | Chromium | dist/chota.css | N/A |
 | Smoke (functional) | Firefox, WebKit | index.html, components.html | Desktop (1280×720), Mobile (375×667) |
+
+### Section-locator strategy (#180)
+
+Per-section element screenshots target a stable section root:
+
+- **`index.html`** — uses the existing `id` attributes on every `<article>` / `<fieldset>` (e.g. `#forms__input`, `#forms__action`, `#text__tables`). No fixture markup change was required.
+- **`components.html`** — sections had no IDs, so a `data-test-id` attribute was added to each of the 7 `<section>` opening tags (`section-nav`, `section-tabs`, `section-card`, `section-tag`, `section-grid`, `section-helpers`, `section-icons`). The attribute is additive only — no visible or behavioral change.
+
+The full-page and per-section captures supplement (do not replace) the first-fold baselines `index-desktop.png`, `index-mobile.png`, `components-desktop.png`, and `components-mobile.png`, which are preserved unchanged.
+
+### Full-page determinism: `index.html` `#embedded` (#180)
+
+`index.html`'s `#embedded` section contains native `<audio controls>` / `<video controls>`, `<canvas>`, `<meter>`, `<progress>`, and a recursive `<iframe src="index.html">`. When scroll-stitched via `fullPage: true`, these elements render non-deterministically run-to-run (verified: 3 consecutive raw captures all differ byte-for-byte). None of them carry a Chota CSS contract (`.card` / `.tag` / `.button` / `.col-*`), so the index.html full-page tests inject `#embedded { visibility: hidden !important; }` via `page.addStyleTag` before the screenshot. This is a test-only runtime injection — `test/index.html` is not modified. The section's box is preserved (`visibility:hidden`, not `display:none`) so the page layout is unchanged. `components.html` has no such section and needs no injection.
 
 ## Snapshot Layout and Platform Policy
 
