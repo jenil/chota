@@ -117,5 +117,41 @@
       </footer>
     </form>
   </details>
+  <h5>CSS-only interaction boundary</h5>
+  <p>
+    Chota is a CSS-only framework. The <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code>
+    element pair provides <strong>native disclosure behavior</strong> from the browser:
+    the <code>&lt;summary&gt;</code> is keyboard-focusable via <kbd>Tab</kbd>, activated by
+    <kbd>Enter</kbd> and <kbd>Space</kbd>, and toggles the open/closed state. This is
+    provided by the HTML specification and the browser, <em>not</em> by Chota.
+  </p>
+  <p>
+    The <code>.dropdown</code> class is purely visual styling — it sets
+    <code>position: relative</code> on the <code>&lt;details&gt;</code> and
+    <code>position: absolute</code> on its last child so the panel overlays surrounding
+    content. It does <strong>not</strong> turn <code>&lt;details&gt;</code> into a managed menu
+    widget. Chota does <strong>not</strong> provide:
+  </p>
+  <ul>
+    <li>roving focus among menu items (e.g. <kbd>Arrow</kbd> navigation between links)</li>
+    <li><code>role="menu"</code>, <code>role="menuitem"</code>, or <code>aria-haspopup</code> management</li>
+    <li>focus trapping or restoration when the panel closes</li>
+    <li><kbd>Escape</kbd>-to-close coordination or dismiss-on-blur</li>
+    <li>application-specific ARIA state (e.g. <code>aria-expanded</code> beyond what <code>&lt;details&gt;</code> already exposes natively)</li>
+  </ul>
+  <p>
+    Chota does provide a visible keyboard-focus ring on <code>&lt;summary&gt;</code> (and on
+    links, buttons, inputs, selects, textareas, and <code>[tabindex]</code> elements) via the
+    <code>:focus-visible</code> rule. The ring appears after keyboard navigation and does not
+    appear on a mouse click. Chota does <strong>not</strong> manage focus order, traps, or any
+    widget-specific keyboard pattern beyond what the browser provides natively.
+  </p>
+  <p>
+    If you need a real menu widget — for example a listbox or menu with arrow-key
+    navigation, selection, or dismiss-on-blur — you must add your own JavaScript and ARIA.
+    Chota only styles the visual container; an application-owned widget is required for
+    those interactions. See the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/menubar/">WAI-ARIA Authoring Practices for Menu &amp; Menubar</a>
+    for the contract Chota does not own.
+  </p>
 </section>
 

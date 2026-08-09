@@ -94,4 +94,32 @@
   <a>Tab 3</a>
 </nav>
 {% endhighlight %}
+  <h5>CSS-only interaction boundary</h5>
+  <p>
+    <code>.tabs</code> styles <strong>visual navigation links</strong> — it sets
+    <code>display: flex</code> on the container and styles the <code>.tabs a</code> links
+    (padding, border-bottom, color). The <code>active</code> class (or
+    <code>aria-current="page"</code>) marks the current link visually. It is
+    <strong>not</strong> an ARIA Tabs widget: Chota does not add
+    <code>role="tablist"</code>, <code>role="tab"</code>, or <code>role="tabpanel"</code>, and
+    does <strong>not</strong> provide:
+  </p>
+  <ul>
+    <li>arrow-key switching between tabs</li>
+    <li>panel management (showing/hiding associated <code>role="tabpanel"</code> regions)</li>
+    <li>focus movement semantics (e.g. <kbd>Tab</kbd> moving into the active panel, <kbd>Arrow</kbd> moving between tabs)</li>
+  </ul>
+  <p>
+    The links inside <code>.tabs</code> are ordinary anchor navigation. Chota does provide a
+    visible keyboard-focus ring on those links via the <code>:focus-visible</code> rule: the
+    ring appears after keyboard <kbd>Tab</kbd> navigation and does not appear on a mouse
+    click. No tab-specific keyboard pattern is owned by Chota.
+  </p>
+  <p>
+    If you need a real tabbed interface — panels that switch with arrow keys, per the
+    WAI-ARIA Authoring Practices — you must add your own JavaScript and ARIA. Chota only
+    styles the visual nav; an application-owned widget is required for those interactions.
+    See the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/tabs/">WAI-ARIA Authoring Practices for Tabs</a>
+    for the contract Chota does not own.
+  </p>
 </section>
