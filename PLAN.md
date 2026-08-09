@@ -67,6 +67,7 @@ Evidence must be real and current: commands and exit status, commit SHA, test/VR
 | 2 | 2 | #135 validate #114 (grouped controls) | Validation only; create a separate fix card after reproduction and decision. |
 | 2 | 2 | #136 validate #61 (spacing utilities) | Validation only; create a separate fix card after reproduction and decision. |
 | 2 | 3 | #177 harden regression coverage | Test-harness only; must land before shared CSS migrations. |
+| 2 | 3 | #172 nav-logo baseline cleanup, #173 snapshot layout normalization | Test-harness follow-ups to #134/#177; no production CSS or public API change. |
 | 3 | 1 | #139 focus, #140 dark-mode docs, #141 interaction docs | #139 uses #130 findings; #140/#141 can run independently. |
 | 3 | 2 | #137 root-font migration, #138 token normalization | #137 needs #124 (VRT) and #131 (API contract); avoid concurrent edits to shared base/token CSS. |
 | 3 | 3 | #142 migration/API docs | Requires #137 and #138 completion; verifies against current source and built dist/. |
@@ -85,7 +86,7 @@ Evidence must be real and current: commands and exit status, commit SHA, test/VR
 - ✅ #127 add portable size gate
 - ✅ #128 configure dependency maintenance policy
 
-### Week 2 — COMPLETE (9/9 cards)
+### Week 2 — COMPLETE (11/11 cards)
 - ✅ #129 add pull request CI quality gate (PR #153)
 - ✅ #124 establish Chromium VRT (PR #154, 4 baseline screenshots)
 - ✅ #130 establish a11y baseline (axe-core, 9 real violations documented)
@@ -95,8 +96,10 @@ Evidence must be real and current: commands and exit status, commit SHA, test/VR
 - ✅ #135 validate #114 (grouped controls)
 - ✅ #136 validate #61 (spacing utilities; computed-style regression coverage)
 - ✅ #177 harden regression coverage (PR #178, behavioral assertions only)
+- ✅ #172 clean up duplicate nav-logo baselines (follow-up to #134)
+- ✅ #173 normalize Chromium snapshot layout and platform policy (PR #175)
 
-#133 (validate #77, WordPress tag collision) was removed from v1 scope and is not included in the plan total.
+#133 (validate #77, WordPress tag collision) was investigated and closed out-of-scope: the `.tag` public API is preserved and no v1 fix is shipped. It is tracked as a closed validation, not counted in the plan total.
 
 ### Weeks 3–4 — NOT STARTED (0/9 cards)
 - ⏳ #139 restore visible keyboard focus
@@ -111,10 +114,10 @@ Evidence must be real and current: commands and exit status, commit SHA, test/VR
 - ⏳ #146 create post-v1 roadmap
 
 ### Summary
-- **Total cards:** 24 (excludes coordinator #121 and removed #133)
-- **Completed:** 15 (63%)
+- **Total cards:** 26 (excludes coordinator #121; #133 is a closed out-of-scope validation, not counted)
+- **Completed:** 17 (65%)
 - **Week 1:** 6/6 (100%)
-- **Week 2:** 9/9 (100%)
+- **Week 2:** 11/11 (100%)
 - **Week 3:** 0/5 (0%)
 - **Week 4:** 0/4 (0%)
 
