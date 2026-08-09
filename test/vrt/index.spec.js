@@ -158,9 +158,10 @@ test.describe('Elements page (index.html)', () => {
   // #180 — Focused computed-style assertions on rem-derived properties.
   // Screenshots supplement these; they do not replace them (test/AGENTS.md).
   // Values are derived from dist/chota.css and verified against Chromium:
-  //   .button { padding: 1rem 2.5rem; font-size: var(--font-size); line-height: 1;
+  //   .button { padding: 0.625rem 1.5625rem; font-size: var(--font-size); line-height: 1;
   //            border: 1px solid transparent; border-radius: 4px }
-  //   html { font-size: 62.5% } → 1rem = 10px, --font-size: 1.6rem = 16px
+  //   Consumer root is 16px (no 62.5% override after #137): 1rem = 16px,
+  //   --font-size: 1rem = 16px
   //   height = padding-top(10) + padding-bottom(10) + line-height(16) + border(2) = 38px
   test('desktop: .button height in #forms__action is 38px', async ({ browser }) => {
     const context = await browser.newContext({

@@ -30,6 +30,7 @@ test/vrt/
 ├── index.spec.js              # Elements page screenshots (Chromium)
 ├── components.spec.js         # Components page screenshots (Chromium)
 ├── grouped-controls.spec.js   # Grouped controls — computed-style assertions, no screenshots (Chromium)
+├── root-font-scaling.spec.js  # Root-font scaling proof — 16px vs 10px consumer root, computed-style only, no screenshots (Chromium; not wired into test:vrt — run manually)
 ├── browser-smoke.spec.js      # Firefox/WebKit smoke tests (no screenshots)
 ├── a11y.spec.js               # Accessibility baseline (Chromium)
 ├── keyboard-focus.spec.js     # Keyboard focus — :focus-visible assertions + focus-state VRT baselines (Chromium)

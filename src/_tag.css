@@ -3,21 +3,21 @@
   border: 1px solid var(--color-lightGrey);
   text-transform: uppercase;
   color: var(--color-grey);
-  padding: 0.5rem;
+  padding: 0.3125rem;
   line-height: 1;
   letter-spacing: 0.5px;
 }
 
 .tag.is-small {
-  padding: 0.4rem;
+  padding: 0.25rem;
   font-size: 0.75em;
 }
 
 .tag.is-large {
-  padding: 0.7rem;
+  padding: 0.4375rem;
   font-size: 1.125em;
 }
 
 .tag + .tag {
-  margin-left: 1rem;
+  margin-left: 0.625rem;
 }

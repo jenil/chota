@@ -10,10 +10,10 @@
     "ios >= 15.4"
   ],
   "source": "src/chota.css",
-  "dist_chota_css_bytes": 18733,
-  "dist_chota_min_css_bytes": 14353,
-  "gzip_bytes": 3372,
+  "dist_chota_css_bytes": 19039,
+  "dist_chota_min_css_bytes": 14419,
+  "gzip_bytes": 3373,
   "gzip_ceiling_bytes": 4096,
-  "gzip_budget_remaining_bytes": 724,
-  "rationale": "card #139 focus-visible restoration: replaced outline:none + box-shadow :focus rule with a visible :focus-visible ring (outline: 2px solid var(--color-primary); outline-offset: 2px) on all interactive elements (a, button, input, select, textarea, summary, [tabindex]) plus a form-control :focus-visible rule preserving border-color + box-shadow. 46-byte gzip increase from the added grouped outline rule. :focus-visible is supported across the entire browserslist (Safari 15.4+, iOS 15.4+, latest Chrome/Firefox/Edge), so no :focus fallback is needed."
+  "gzip_budget_remaining_bytes": 723,
+  "rationale": "card #137 root-font migration: removed html { font-size: 62.5% } and divided all rem values by 1.6 to preserve rendered pixels at a 16px consumer root. 1-byte gzip increase from marginally longer decimal tokens (e.g. 0.625rem vs 1rem). Body font-size remains 16px (--font-size: 1rem at 16px root). Em-based typography (h1-h6, .tag.is-small/large, .nav .brand, code/kbd) is unchanged."
 }
