@@ -181,12 +181,13 @@ test.describe('Components page (components.html)', () => {
   // #180 — Focused computed-style assertions on rem-derived properties.
   // Screenshots supplement these; they do not replace them (test/AGENTS.md).
   // Values are derived from dist/chota.css and verified against Chromium:
-  //   .card { padding: 1rem 2rem; border-radius: 4px } → 10px 20px, 4px
-  //   .tag  { padding: 0.5rem; font-size: <inherited --font-size> } → 5px, 16px
+  //   .card { padding: 0.625rem 1.25rem; border-radius: 4px } → 10px 20px, 4px
+  //   .tag  { padding: 0.3125rem; font-size: <inherited --font-size> } → 5px, 16px
   //   .col-6 { flex: 0 0 calc(50% - var(--grid-gutter)); max-width: same }
-  //     --grid-gutter: 2rem = 20px; container content-box = 1180px at 1280px
-  //     viewport (max-width 120rem caps .container; row bleeds ±10px each
-  //     side → row content 1200px); .col-6 width = 50% of 1200 − 20 = 580px
+  //     --grid-gutter: 1.25rem = 20px; --grid-maxWidth: 75rem = 1200px;
+  //     container content-box = 1180px at 1280px viewport (max-width 75rem caps
+  //     .container; row bleeds ±10px each side → row content 1200px);
+  //     .col-6 width = 50% of 1200 − 20 = 580px
   test('desktop: .card padding and border-radius in Card section', async ({ browser }) => {
     const context = await browser.newContext({
       ...BASE_CONTEXT_OPTIONS,
