@@ -32,7 +32,7 @@ test/vrt/
 ├── grouped-controls.spec.js   # Grouped controls — computed-style assertions, no screenshots (Chromium)
 ├── browser-smoke.spec.js      # Firefox/WebKit smoke tests (no screenshots)
 ├── a11y.spec.js               # Accessibility baseline (Chromium)
-├── a11y-keyboard.spec.js      # Keyboard focus observations (Chromium)
+├── keyboard-focus.spec.js     # Keyboard focus — :focus-visible assertions + focus-state VRT baselines (Chromium)
 ├── api.spec.js                # CSS public API contract (Chromium)
 ├── dark-mode.spec.js          # Dark-mode custom properties (Chromium)
 ├── breakpoints.spec.js        # Responsive breakpoint boundaries (Chromium)
@@ -40,6 +40,7 @@ test/vrt/
 ├── snapshots/                 # Reference screenshots (git-tracked, Playwright-managed)
 │   ├── index.spec.js-snapshots/              # toMatchSnapshot baselines (index.html)
 │   ├── components.spec.js-snapshots/         # toMatchSnapshot baselines (components.html)
+│   ├── keyboard-focus.spec.js-snapshots/     # toMatchSnapshot baselines (keyboard-focus, focus-state)
 │   └── validations/                          # Validation test specs
 │       └── nav-logo-full-height.spec.js-snapshots/  # toMatchSnapshot baselines (nav-logo-full-height.html)
 ├── report/                    # HTML report (git-ignored, generated on each run)
@@ -55,6 +56,7 @@ test/vrt/
 | VRT — per-section element (locator screenshot) | Chromium | index.html, components.html | Desktop (1280×720) only |
 | Computed-style (no screenshots) | Chromium | index.html, components.html, mobile-grid-overflow.html, grouped-controls.html, dark-mode, breakpoints | Desktop (1280×720), Mobile (375×667), narrow (320×568/414×896) |
 | A11y (axe-core) | Chromium | index.html | Desktop (1280×720) |
+| Keyboard focus (computed-style + VRT) | Chromium | index.html, components.html | Desktop (1280×720) |
 | API (selectors) | Chromium | dist/chota.css | N/A |
 | Smoke (functional) | Firefox, WebKit | index.html, components.html | Desktop (1280×720), Mobile (375×667) |
 
@@ -66,6 +68,20 @@ Per-section element screenshots target a stable section root:
 - **`components.html`** — sections had no IDs, so a `data-test-id` attribute was added to each of the 7 `<section>` opening tags (`section-nav`, `section-tabs`, `section-card`, `section-tag`, `section-grid`, `section-helpers`, `section-icons`). The attribute is additive only — no visible or behavioral change.
 
 The full-page and per-section captures supplement (do not replace) the first-fold baselines `index-desktop.png`, `index-mobile.png`, `components-desktop.png`, and `components-mobile.png`, which are preserved unchanged.
+
+### Keyboard focus (#139)
+
+`keyboard-focus.spec.js` replaces the former observation-only `a11y-keyboard.spec.js` (which logged focus data but never failed). The new spec uses real keyboard interactions (`page.keyboard.press('Tab')`) and asserts the resulting focus target plus its computed outline:
+
+- Real `Tab` navigation until the target selector is `document.activeElement` (not `el.focus()`), so Chromium matches `:focus-visible`.
+- For each focused element, `getComputedStyle` assertions: `outlineStyle` is not `none`, `outlineWidth` is not `0px`, `outlineColor` is not `transparent` / `rgba(0, 0, 0, 0)`, and `el.matches(':focus-visible')` is `true`.
+- Coverage: on `index.html` — text input, native `<button>`, `<textarea>`, `<select>`, checkbox, plain `<a>`; on `components.html` — `.nav a`, `.button`, and the aria-labelled `.icon-only` button.
+- Three focus-state VRT baselines (`focus-input.png`, `focus-button.png`, `focus-link.png`) clipped around the focused element prove the focus ring visually. Baselines are darwin-only at this time and must be (re)generated after the `:focus-visible` CSS lands in `dist/`:
+  ```bash
+  npx playwright test test/vrt/keyboard-focus.spec.js --project=chromium --update-snapshots
+  ```
+
+The spec is Chromium-pinned per the project's test contract and wired into `yarn test:vrt` via the `test:vrt` script in `package.json`.
 
 ### Full-page determinism: `index.html` `#embedded` (#180)
 

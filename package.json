@@ -18,8 +18,8 @@
     "postcss": "postcss ./src/chota.css -d dist/",
     "watch": "cross-env NODE_ENV=development postcss ./src/chota.css -d dist/ -w",
     "test": "stylelint src/*.css",
-    "test:vrt": "npx playwright test test/vrt/index.spec.js test/vrt/components.spec.js test/vrt/grouped-controls.spec.js test/vrt/validations/mobile-grid-overflow.spec.js test/vrt/validations/nav-logo-full-height.spec.js test/vrt/validations/spacing-utilities.spec.js test/vrt/dark-mode.spec.js test/vrt/breakpoints.spec.js --project=chromium",
-    "test:a11y": "npx playwright test test/vrt/a11y.spec.js test/vrt/a11y-keyboard.spec.js --project=chromium",
+    "test:vrt": "npx playwright test test/vrt/index.spec.js test/vrt/components.spec.js test/vrt/grouped-controls.spec.js test/vrt/validations/mobile-grid-overflow.spec.js test/vrt/validations/nav-logo-full-height.spec.js test/vrt/validations/spacing-utilities.spec.js test/vrt/dark-mode.spec.js test/vrt/breakpoints.spec.js test/vrt/keyboard-focus.spec.js --project=chromium",
+    "test:a11y": "npx playwright test test/vrt/a11y.spec.js --project=chromium",
     "test:api": "npx playwright test test/vrt/api.spec.js --project=chromium",
     "baselines": "node scripts/baselines.js"
   },
