@@ -25,3 +25,31 @@ Chota 1.0.0 drops Internet Explorer 11 support. The `browserslist` policy was up
 - All public CSS class names remain compatible: `.container`, `.row`, `.col-*`, `.tag`, `body.dark`.
 - No changes to utility classes or component markup.
 - `!important` usage in utilities is preserved.
+
+## Root Font-Size Migration
+
+### What changed
+
+Chota no longer sets `html { font-size: 62.5% }`. The root font-size is the consumer's responsibility and defaults to the browser's 16px. Every Chota-owned `rem` value was divided by 1.6 so that rendered pixels are unchanged at a 16px consumer root.
+
+### Why
+
+Previously Chota forced `1rem = 10px`, which overrode the consumer's root font-size and broke accessibility zoom and consumer overrides. Removing the override lets Chota respect the consumer's root font-size — including accessibility zoom and consumer overrides — while preserving the rendered design at a 16px root.
+
+### Consumer impact
+
+- **Consumers who did NOT override the root:** no visual change. The body font-size is still 16px — `--font-size: 1rem` at a 16px root = 16px, the same as the old `1.6rem` at a 10px root = 16px.
+- **Consumers who set `html { font-size: 62.5% }`:** Chota now renders at 0.625× its 16px-root size. This is proportional scaling against the consumer's chosen root, not a second baseline.
+- **Consumers who set a different root (e.g. 20px):** Chota scales proportionally to that root.
+
+### Reference table
+
+| Property | Before | After | Rendered px (16px root) |
+|---|---|---|---|
+| `--grid-maxWidth` | `120rem` | `75rem` | 1200px (unchanged) |
+| `--grid-gutter` | `2rem` | `1.25rem` | 20px (unchanged) |
+| `--font-size` | `1.6rem` | `1rem` | 16px (unchanged) |
+
+### Note on em-based typography
+
+Em-based typography (`h1`–`h6`, `.tag.is-small`/`.is-large`, `.nav .brand`, `code`/`kbd`) is unchanged — it was always relative to the body font-size, which remains 16px.

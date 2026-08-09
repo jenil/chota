@@ -85,7 +85,7 @@
       </ul>
       <br>
       <h3 id="customizing">Customizing</h3>
-      <p>Chota comes with a basic set of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables" target="_blank">CSS variables</a>:</p>
+      <p>Chota comes with a basic set of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables" target="_blank">CSS variables</a>. Chota does not set the root font-size — all <code>rem</code> values are relative to the consumer's <code>html</code> font-size (browser default 16px).</p>
 {% highlight css %}
 :root {
   --bg-color: #ffffff;
@@ -96,9 +96,9 @@
   --color-darkGrey: #3f4144;
   --color-error: #d43939;
   --color-success: #28bd14;
-  --grid-maxWidth: 120rem;
-  --grid-gutter: 2rem;
-  --font-size: 1.6rem;
+  --grid-maxWidth: 75rem;
+  --grid-gutter: 1.25rem;
+  --font-size: 1rem;
   --font-color: #333333;
   --font-family-sans: sans-serif;
   --font-family-mono: monaco, "Consolas", "Lucida Console", monospace;
@@ -111,7 +111,7 @@
 
 :root {
   --color-primary: #da1d50; /* brand color */
-  --grid-maxWidth: 108rem; /* max container width 1080px */
+  --grid-maxWidth: 67.5rem; /* max container width 1080px */
 }
 
 /* Other styles..... */
