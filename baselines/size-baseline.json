@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-07-20T02:29:06.425Z",
+  "capturedAt": "2026-08-09T15:15:46.109Z",
   "branch": "v1",
   "buildCommand": "yarn build",
   "browserslist": [
@@ -10,10 +10,10 @@
     "ios >= 15.4"
   ],
   "source": "src/chota.css",
-  "dist_chota_css_bytes": 17768,
-  "dist_chota_min_css_bytes": 14080,
-  "gzip_bytes": 3326,
+  "dist_chota_css_bytes": 18733,
+  "dist_chota_min_css_bytes": 14353,
+  "gzip_bytes": 3372,
   "gzip_ceiling_bytes": 4096,
-  "gzip_budget_remaining_bytes": 770,
-  "rationale": "14-byte increase from scoped media query wrapping: `@media (max-width: 480px) { .grouped { flex-wrap: wrap; } }`. Wrapping is only enabled on narrow viewports (<480px), preserving existing horizontal grouped-control behavior on desktop. This avoids the width:100% input issue that would occur with unscoped flex-wrap. All target browsers support @media queries."
+  "gzip_budget_remaining_bytes": 724,
+  "rationale": "card #139 focus-visible restoration: replaced outline:none + box-shadow :focus rule with a visible :focus-visible ring (outline: 2px solid var(--color-primary); outline-offset: 2px) on all interactive elements (a, button, input, select, textarea, summary, [tabindex]) plus a form-control :focus-visible rule preserving border-color + box-shadow. 46-byte gzip increase from the added grouped outline rule. :focus-visible is supported across the entire browserslist (Safari 15.4+, iOS 15.4+, latest Chrome/Firefox/Edge), so no :focus fallback is needed."
 }

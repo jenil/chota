@@ -77,6 +77,21 @@ button:hover {
   opacity: 0.8;
 }
 
+/* Visible keyboard focus for all interactive elements.
+   :focus-visible is supported across the entire browserslist
+   (Safari 15.4+, iOS 15.4+, latest Chrome/Firefox/Edge),
+   so no :focus fallback is needed. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 input:disabled,
 input:disabled:hover,
 button:disabled,
@@ -127,11 +142,12 @@ textarea[type="text"]:hover {
   border-color: var(--color-grey);
 }
 
-input:not([type="checkbox"], [type="radio"], [type="submit"], [type="color"], [type="button"], [type="reset"]):focus,
-select:focus,
-textarea:focus,
-textarea[type="text"]:focus {
-  outline: none;
+/* Form controls retain their existing border + box-shadow focus
+   signal, but only on keyboard focus (not mouse click). */
+input:not([type="checkbox"], [type="radio"], [type="submit"], [type="color"], [type="button"], [type="reset"]):focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+textarea[type="text"]:focus-visible {
   border-color: var(--color-primary);
   box-shadow: 0 0 1px var(--color-primary);
 }
