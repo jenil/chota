@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  Card #140 — Dark-mode customization example.
+
+  This file demonstrates the documented `body.dark` CONVENTION:
+  - Chota ships NO `body.dark` rule and NO default dark palette.
+  - The overrides live in THIS file (the consumer), not in chota.css.
+  - The `.dark` class is added by THIS file's checkbox handler (a deterministic
+    switch), not by Chota and not by a `prefers-color-scheme` media query.
+  - Only the 14 documented Chota custom properties are overridden. See the
+    `:root` block in docs/index.html and test/vrt/api-manifest.json for the
+    full public API surface.
+
+  Open this file directly in a browser — no build, no Jekyll, no server.
+
+  NOTE on the side-by-side demo: the documented convention is `body.dark`
+  (overrides scoped to <body> with the .dark class). A single page only has
+  one <body>, so to show light and dark SIDE BY SIDE this demo additionally
+  mirrors the same overrides onto a `.demo-pane.dark` selector. The dark
+  preview pane is a `.demo-pane.dark` root, not <body>. The `body.dark` block
+  below is the documented contract; the `.demo-pane.dark` block is a
+  demo-only mirror so both states can coexist on one page. In your own site
+  you would use `body.dark` (or any selector you choose) — see the
+  "Customizing" section of docs/index.html.
+-->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chota — dark-mode example (body.dark convention)</title>
+  <link rel="stylesheet" href="https://unpkg.com/chota" />
+  <style>
+    /*
+      Consumer-owned overrides — the documented `body.dark` convention.
+      This is the ONLY thing that makes "dark mode" dark. Chota defines no
+      body.dark rule; this block is yours. Override only the tokens you want
+      to change; the rest keep their light-theme defaults from chota.css.
+      The values below match the documented example in docs/index.html.
+    */
+    body.dark {
+      --bg-color: #000;
+      --bg-secondary-color: #131316;
+      --font-color: #f5f5f5;
+      --color-grey: #ccc;
+      --color-darkGrey: #777;
+    }
+
+    /*
+      Demo-only mirror so light and dark can coexist on one page. A single
+      page has only one <body>, so the side-by-side dark pane mirrors the
+      same overrides onto its own root. This block is NOT part of the
+      documented contract — it exists only for this demo. In your own site,
+      use `body.dark` (or any selector you choose).
+    */
+    .demo-pane.dark {
+      --bg-color: #000;
+      --bg-secondary-color: #131316;
+      --font-color: #f5f5f5;
+      --color-grey: #ccc;
+      --color-darkGrey: #777;
+      background-color: var(--bg-color);
+      color: var(--font-color);
+    }
+
+    /* Demo-only layout (not part of the dark-mode contract): */
+    .demo-pane { border: 1px solid var(--color-lightGrey); padding: 1.5rem; border-radius: .4rem; }
+    .demo-label { font-size: 1.2rem; color: var(--color-darkGrey); margin-bottom: 1rem; }
+  </style>
+</head>
+<body id="top">
+  <div class="container">
+    <header class="row is-mobile">
+      <div class="col">
+        <h1>Dark mode — <code>body.dark</code> convention</h1>
+        <p>
+          Chota ships <strong>no built-in dark theme</strong>. <code>body.dark</code> is a
+          <strong>consumer convention</strong>: a selector <em>you</em> own, where you
+          override Chota's custom properties. The class itself does nothing without the
+          overrides (there is no default dark palette to fall back to), and Chota does not
+          add the class for you.
+        </p>
+        <p>
+          This page renders light and dark states <strong>side by side from a deterministic
+          switch</strong> (the checkbox below) so you can see both without relying on the OS
+          preference. The two panes use identical markup; only the <code>.dark</code> class on
+          the dark pane's root differs.
+        </p>
+        <p>
+          <label class="is-mobile">
+            <input id="dark-toggle" type="checkbox" checked />
+            Apply the dark overrides to the dark preview pane
+          </label>
+        </p>
+      </div>
+    </header>
+
+    <hr />
+
+    <!--
+      Two panes with identical markup. The LIGHT pane never gets .dark.
+      The DARK pane is toggled by the checkbox below. Because a page has only
+      one <body>, the side-by-side dark pane uses a demo-only mirror selector
+      (.demo-pane.dark) that carries the same overrides as the documented
+      body.dark block above. See the file's top comment for the rationale.
+    -->
+    <div class="row">
+      <div class="col-6">
+        <div class="demo-pane" id="light-pane">
+          <p class="demo-label">Light (default — no <code>.dark</code> class)</p>
+          <div class="card">
+            <header><h4>Card</h4></header>
+            <p>This card consumes <code>--bg-color</code> for its background.</p>
+            <footer class="is-right">
+              <a class="button primary">Submit</a>
+              <a class="button">Cancel</a>
+            </footer>
+          </div>
+          <p>
+            <span class="tag">tag</span>
+            <span class="tag is-small">small tag</span>
+            — tags consume <code>--color-grey</code>.
+          </p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="demo-pane" id="dark-pane">
+          <p class="demo-label">Dark (<code>.dark</code> class + consumer overrides)</p>
+          <div class="card">
+            <header><h4>Card</h4></header>
+            <p>This card consumes <code>--bg-color</code> for its background.</p>
+            <footer class="is-right">
+              <a class="button primary">Submit</a>
+              <a class="button">Cancel</a>
+            </footer>
+          </div>
+          <p>
+            <span class="tag">tag</span>
+            <span class="tag is-small">small tag</span>
+            — tags consume <code>--color-grey</code>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+    <h3>What this example proves</h3>
+    <ul>
+      <li>
+        <strong>Chota defines no <code>body.dark</code> rule.</strong> The dark palette comes
+        entirely from the <code>&lt;style&gt;</code> block in this file (the consumer), not
+        from <code>chota.css</code>.
+      </li>
+      <li>
+        <strong>The class does nothing without the overrides.</strong> Uncheck the toggle:
+        the dark pane loses the <code>.dark</code> class and falls back to the light theme.
+        The overrides (not the class) are what make it dark.
+      </li>
+      <li>
+        <strong>Only documented custom properties are used</strong>:
+        <code>--bg-color</code>, <code>--bg-secondary-color</code>, <code>--font-color</code>,
+        <code>--color-grey</code>, <code>--color-darkGrey</code>. These are part of the
+        public API surface (see <code>docs/index.html</code> and
+        <code>test/vrt/api-manifest.json</code>).
+      </li>
+      <li>
+        <strong>The "when to apply" decision is yours.</strong> Here a deterministic checkbox
+        toggle is used for demo purposes. In a real site you might use a
+        <code>prefers-color-scheme</code> media query, a JS toggle, or a stored user
+        preference — Chota does not add the class for you.
+      </li>
+    </ul>
+    <p>
+      <a href="../index.html#dark-mode">Back to the Customizing section</a>
+    </p>
+  </div>
+
+  <script>
+    // Deterministic demo switch (NOT shipped by Chota). Toggles the .dark class
+    // on the dark preview pane's root so you can see both states without the OS
+    // preference. In a real consumer, this is YOUR decision to make.
+    (function () {
+      var toggle = document.getElementById('dark-toggle');
+      var darkPane = document.getElementById('dark-pane');
+      function apply() {
+        if (toggle.checked) {
+          darkPane.classList.add('dark');
+        } else {
+          darkPane.classList.remove('dark');
+        }
+      }
+      toggle.addEventListener('change', apply);
+      apply();
+    })();
+  </script>
+</body>
+</html>

@@ -117,9 +117,54 @@
 /* Other styles..... */
 {% endhighlight %}
 <br>
-<p>Addtionally, you can add dark mode to your site, to support devices that prefer dark mode.</p>
+<h4 id="dark-mode">Dark mode</h4>
+<p>
+  Chota ships <strong>no built-in dark theme</strong>. The <code>body.dark</code>
+  selector you may have seen in examples is <strong>a consumer convention</strong>,
+  not a Chota style block: Chota defines <em>no</em> <code>body.dark</code> rule.
+  It is a hook <em>you</em> own, where you override Chota's custom properties
+  with the values you want for a dark palette.
+</p>
+<p>
+  Two decisions are yours, and they are independent:
+</p>
+<ol>
+  <li>
+    <strong>What overrides to apply</strong> — declare the custom-property
+    overrides under a selector of your choosing. The documented convention is
+    <code>body.dark</code>, but any selector works (e.g. <code>[data-theme="dark"]</code>,
+    <code>.theme-dark</code>). The class itself does <em>nothing</em> without
+    these overrides; there is no default dark palette to fall back to.
+  </li>
+  <li>
+    <strong>When to apply it</strong> — decide how the selector gets added:
+    a <code>prefers-color-scheme</code> media query, a JavaScript toggle, a
+    stored user preference, or a manual <code>body.dark</code> class. Chota
+    does not add the class for you and does not ship a JS toggle.
+  </li>
+</ol>
+<p>
+  The custom properties below are the public API surface you can override —
+  the same tokens Chota's components consume. Override only the ones you want
+  to change; the rest keep their light-theme defaults.
+</p>
+{% highlight css %}
+/* 1. YOUR overrides — this is the only thing that makes "dark mode" dark. */
+/*    Chota ships no body.dark rule; this block is yours. */
+body.dark {
+  --bg-color: #000;
+  --bg-secondary-color: #131316;
+  --font-color: #f5f5f5;
+  --color-grey: #ccc;
+  --color-darkGrey: #777;
+}
+{% endhighlight %}
 {% highlight html %}
-  <style>
+<!-- 2. YOUR decision: when the .dark class is present. Choose ONE approach: -->
+
+<!-- Option A — media query only (no JS). Put the overrides INSIDE the query: -->
+<style>
+  @media (prefers-color-scheme: dark) {
     body.dark {
       --bg-color: #000;
       --bg-secondary-color: #131316;
@@ -127,14 +172,24 @@
       --color-grey: #ccc;
       --color-darkGrey: #777;
     }
-  </style>
-  <script>
-    if (window.matchMedia &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.body.classList.add('dark');
-    }
-  </script>
+  }
+</style>
+
+<!-- Option B — JS adds the class; overrides live in a plain body.dark block. -->
+<script>
+  if (window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.body.classList.add('dark');
+  }
+</script>
 {% endhighlight %}
+<p>
+  A complete, runnable side-by-side example is in
+  <a href="./examples/dark-mode.html"><code>docs/examples/dark-mode.html</code></a>.
+  It uses only the documented custom properties above and renders light and
+  dark states from a deterministic switch so you can see both without relying
+  on the OS preference.
+</p>
     </section>
     <section id="components">
       <div class="row">
