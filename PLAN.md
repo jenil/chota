@@ -71,7 +71,8 @@ Evidence must be real and current: commands and exit status, commit SHA, test/VR
 | 2 | 3 | #180 full-page and per-section docs-page VRT coverage | Test-harness card; must land before #137/#138 shared CSS migrations. |
 | 3 | 1 | #139 focus, #140 dark-mode docs, #141 interaction docs | #139 uses #130 findings; #140/#141 can run independently. |
 | 3 | 2 | #137 root-font migration, #138 token normalization | #137 needs #124 (VRT) and #131 (API contract); avoid concurrent edits to shared base/token CSS. |
-| 3 | 3 | #142 migration/API docs | Requires #137 and #138 completion; verifies against current source and built dist/. |
+| 3 | 3 | #190 test:vrt discovery mechanism | Test-harness follow-up to #138; must land before #142 and any further VRT spec additions. |
+| 3 | 4 | #142 migration/API docs | Requires #137, #138, and #190 completion; verifies against current source and built dist/. |
 | 4 | 1 | #143 RC readiness, #144 RC validation | Feature scope is frozen except owner-approved release blockers. |
 | 4 | 2 | #145 final release, #146 post-v1 roadmap | #145 is the sole `v1` to `main` integration path. |
 
@@ -103,12 +104,13 @@ Evidence must be real and current: commands and exit status, commit SHA, test/VR
 
 #133 (validate #77, WordPress tag collision) was investigated and closed out-of-scope: the `.tag` public API is preserved and no v1 fix is shipped. It is marked Done on the board as a closed validation, but is not counted in the plan total below.
 
-### Weeks 3–4 — IN PROGRESS (5/9 cards)
+### Weeks 3–4 — IN PROGRESS (5/10 cards)
 - ✅ #139 restore visible keyboard focus (PR #182, merge `78fbcf4`)
 - ✅ #140 document dark-mode convention (PR #184, merge `9ceb770`)
 - ✅ #141 document interaction boundaries (PR #183, merge `3e1f65e`)
 - ✅ #137 migrate root font sizing (PR #188, merge `9b9aee0`)
 - ✅ #138 normalize design tokens (PR #189, merge `3efaa00`)
+- ⏳ #190 replace explicit test:vrt spec list with a maintainable discovery mechanism
 - ⏳ #142 write migration guide
 - ⏳ #143 prepare RC package
 - ⏳ #144 run RC validation
@@ -116,12 +118,12 @@ Evidence must be real and current: commands and exit status, commit SHA, test/VR
 - ⏳ #146 create post-v1 roadmap
 
 ### Summary
-- **Total cards:** 28 (excludes coordinator #121; #133 is a closed out-of-scope validation, marked Done on the board but not counted here)
-- **Completed:** 23 (82%) — 6 Week 1 + 12 Week 2 + 5 Week 3
+- **Total cards:** 29 (excludes coordinator #121; #133 is a closed out-of-scope validation, marked Done on the board but not counted here)
+- **Completed:** 23 (79%) — 6 Week 1 + 12 Week 2 + 5 Week 3
 - **Closed out-of-scope:** 1 (#133)
 - **Week 1:** 6/6 (100%)
 - **Week 2:** 12/12 (100%)
-- **Week 3:** 5/6 (83%)
+- **Week 3:** 5/7 (71%)
 - **Week 4:** 0/4 (0%)
 
 ## Week 1 — contract and reproducible build
