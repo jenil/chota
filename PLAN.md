@@ -104,13 +104,13 @@ Evidence must be real and current: commands and exit status, commit SHA, test/VR
 
 #133 (validate #77, WordPress tag collision) was investigated and closed out-of-scope: the `.tag` public API is preserved and no v1 fix is shipped. It is marked Done on the board as a closed validation, but is not counted in the plan total below.
 
-### Weeks 3–4 — IN PROGRESS (5/10 cards)
+### Weeks 3–4 — IN PROGRESS (6/10 cards)
 - ✅ #139 restore visible keyboard focus (PR #182, merge `78fbcf4`)
 - ✅ #140 document dark-mode convention (PR #184, merge `9ceb770`)
 - ✅ #141 document interaction boundaries (PR #183, merge `3e1f65e`)
 - ✅ #137 migrate root font sizing (PR #188, merge `9b9aee0`)
 - ✅ #138 normalize design tokens (PR #189, merge `3efaa00`)
-- ⏳ #190 replace explicit test:vrt spec list with a maintainable discovery mechanism
+- ✅ #190 replace explicit test:vrt spec list with discovery mechanism (PR #191, merge `7d2da71`)
 - ⏳ #142 write migration guide
 - ⏳ #143 prepare RC package
 - ⏳ #144 run RC validation
@@ -119,11 +119,11 @@ Evidence must be real and current: commands and exit status, commit SHA, test/VR
 
 ### Summary
 - **Total cards:** 29 (excludes coordinator #121; #133 is a closed out-of-scope validation, marked Done on the board but not counted here)
-- **Completed:** 23 (79%) — 6 Week 1 + 12 Week 2 + 5 Week 3
+- **Completed:** 24 (83%) — 6 Week 1 + 12 Week 2 + 6 Week 3
 - **Closed out-of-scope:** 1 (#133)
 - **Week 1:** 6/6 (100%)
 - **Week 2:** 12/12 (100%)
-- **Week 3:** 5/7 (71%)
+- **Week 3:** 6/7 (86%)
 - **Week 4:** 0/4 (0%)
 
 ## Week 1 — contract and reproducible build
