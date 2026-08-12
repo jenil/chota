@@ -23,6 +23,29 @@ yarn test:api
 npx playwright test test/vrt/browser-smoke.spec.js --project=firefox --project=webkit
 ```
 
+## How the VRT gate is wired (#190)
+
+`test:vrt` no longer lists spec files. It runs `npx playwright test --project=chromium`, and Playwright discovers every `*.spec.js` under `test/vrt/` (via `testDir` + `testMatch` in `playwright.config.js`).
+
+The `chromium` project carries a per-project `testIgnore` that excludes the four specs which are **not** part of the VRT gate:
+
+| Excluded spec | Own gate |
+|---|---|
+| `a11y.spec.js` | `yarn test:a11y` (Chromium) |
+| `api.spec.js` | `yarn test:api` (Chromium) |
+| `browser-smoke.spec.js` | CI smoke step (Firefox + WebKit) |
+| `root-font-scaling.spec.js` | manual-run |
+
+Why per-project `testIgnore` instead of a top-level one: Playwright applies `testIgnore` even to files passed explicitly on the command line, so a top-level ignore would silently zero-out `test:a11y`, `test:api`, and the smoke step. The ignore therefore lives only on the `chromium` project; `test:a11y` / `test:api` run on the dedicated `chromium-a11y-api` project (no `testIgnore`, explicit paths) and the smoke step runs on `firefox` / `webkit`. The VRT project keeps the name `chromium` because Playwright embeds the project name in the snapshot suffix — renaming it would break every `-chromium-<platform>.png` baseline. All four gates stay Chromium-pinned (or Firefox/WebKit-only for smoke) and the CI gate order is unchanged.
+
+### Adding a VRT spec
+
+1. Drop a new `*.spec.js` under `test/vrt/` (validation specs go in `test/vrt/validations/`).
+2. That's it — no `package.json` or `playwright.config.js` edit. The spec is picked up by `chromium` discovery automatically and runs in `yarn test:vrt`.
+3. If the new spec produces screenshots, add the matching `-chromium-linux.png` (and `-chromium-darwin.png` for local runs) baselines under `test/vrt/snapshots/` — see [Snapshot Layout and Platform Policy](#snapshot-layout-and-platform-policy).
+
+Adding a non-VRT spec (e.g. a new a11y or API contract file) is the exception: add it to the `NON_VRT_SPECS` array in `playwright.config.js` and give it its own dedicated gate, mirroring `a11y.spec.js` / `api.spec.js`.
+
 ## Test Structure
 
 ```
@@ -136,6 +159,8 @@ To update Chromium baselines (e.g., after approved CSS changes):
 ```bash
 npx playwright test --project=chromium --update-snapshots
 ```
+
+(`--project=chromium` targets the VRT gate only — the `chromium` project's `testIgnore` keeps the non-VRT specs out, so this updates VRT baselines without running `test:a11y` / `test:api` / smoke / manual specs.)
 
 **Important**: Only update snapshots after owner review of the visual changes. The CI workflow uploads diff artifacts on failure for review.
 
