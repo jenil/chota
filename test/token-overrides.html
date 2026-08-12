@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chota token overrides</title>
+  <link rel="stylesheet" href="/dist/chota.css">
+  <style>
+    :root {
+      --border-radius: 0px;
+      --transition-duration: 0.5s;
+      --color-placeholder: #ff0000;
+    }
+  </style>
+</head>
+<body>
+  <div class="card" data-test-id="card">card</div>
+  <button class="button" data-test-id="button">button</button>
+  <input type="text" placeholder="test" data-test-id="input">
+  <div class="grouped gapless">
+    <button class="button" data-test-id="grouped-first">first</button>
+    <button class="button" data-test-id="grouped-last">last</button>
+  </div>
+</body>
+</html>

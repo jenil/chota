@@ -15,7 +15,10 @@
     "--font-size",
     "--font-color",
     "--font-family-sans",
-    "--font-family-mono"
+    "--font-family-mono",
+    "--color-placeholder",
+    "--border-radius",
+    "--transition-duration"
   ],
   "selectors": [
     ":root",

@@ -53,3 +53,36 @@ Previously Chota forced `1rem = 10px`, which overrode the consumer's root font-s
 ### Note on em-based typography
 
 Em-based typography (`h1`–`h6`, `.tag.is-small`/`.is-large`, `.nav .brand`, `code`/`kbd`) is unchanged — it was always relative to the body font-size, which remains 16px.
+
+## Design Tokens
+
+### What changed
+
+Chota now exposes three component-level design tokens as CSS custom properties, replacing previously hardcoded values:
+
+| Property | Before | After | Default |
+|---|---|---|---|
+| `--color-placeholder` | `#bdbfc4` (hardcoded in `::placeholder`) | `var(--color-placeholder)` | `#bdbfc4` |
+| `--border-radius` | `4px` (hardcoded on `.card`, inputs, buttons, `code`/`kbd`, `.grouped.gapless` outer corners) | `var(--border-radius)` | `4px` |
+| `--transition-duration` | `0.2s` (hardcoded on input/button transitions) | `var(--transition-duration)` | `0.2s` |
+
+### Why
+
+Consumers previously had to override these values with specificity battles against Chota's selectors. Exposing them as custom properties lets consumers override once on `:root` (or any selector) and have the change propagate to every affected component.
+
+### Consumer impact
+
+- **Consumers who do not override:** no visual change. Every token resolves to its previous hardcoded value.
+- **Consumers who override:** set the token on `:root` after importing `chota.css`:
+
+```css
+@import url(chota.css);
+
+:root {
+  --border-radius: 8px; /* rounder corners on cards, inputs, buttons */
+}
+```
+
+### Note on `.grouped.gapless`
+
+The `.grouped.gapless` first/last child rules use `var(--border-radius)` for their outer corners (preserving `!important`); the inner corners stay `0` because they are joined-border geometry, not a theming knob. Overriding `--border-radius` to `0` squares both standalone buttons and gapless group outer corners consistently.

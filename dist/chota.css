@@ -18,6 +18,9 @@
     "Avenir Next", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   --font-family-mono: monaco, "Consolas", "Lucida Console", monospace;
+  --color-placeholder: #bdbfc4;
+  --border-radius: 4px;
+  --transition-duration: 0.2s;
 }
 /* Chota does not set the root font-size. All rem values are relative to the
    consumer's html font-size (browser default 16px). Dividing the original
@@ -129,7 +132,7 @@ code,
 kbd {
   font-size: 90%;
   white-space: pre-wrap;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   padding: 0.2em 0.4em;
   background-color: var(--bg-secondary-color);
   color: var(--color-error);
@@ -379,10 +382,10 @@ textarea,
 textarea[type="text"] {
   font-family: inherit;
   padding: 0.5rem 0.625rem;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   border: 1px solid var(--color-lightGrey);
   font-size: 1em;
-  transition: all 0.2s ease;
+  transition: all var(--transition-duration) ease;
   display: block;
   width: 100%;
 }
@@ -407,12 +410,12 @@ button {
   padding: 0.625rem 1.5625rem;
   color: var(--color-darkGrey);
   background: var(--color-lightGrey);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   border: 1px solid transparent;
   font-size: var(--font-size);
   line-height: 1;
   text-align: center;
-  transition: opacity 0.2s ease;
+  transition: opacity var(--transition-duration) ease;
   text-decoration: none;
   transform: scale(1);
   display: inline-block;
@@ -467,10 +470,10 @@ button:disabled:hover {
 }
 .grouped.gapless > *:first-child {
   margin: 0 !important;
-  border-radius: 4px 0 0 4px !important;
+  border-radius: var(--border-radius) 0 0 var(--border-radius) !important;
 }
 .grouped.gapless > *:last-child {
-  border-radius: 0 4px 4px 0 !important;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0 !important;
 }
 /* Responsive wrapping: enabled only on narrow viewports.
    On desktop, grouped controls stay horizontal (existing behavior).
@@ -570,7 +573,7 @@ button:active:not(:disabled) {
   transform: scale(0.98);
 }
 ::placeholder {
-  color: #bdbfc4;
+  color: var(--color-placeholder);
 }
 .nav {
   display: flex;
@@ -637,7 +640,7 @@ button:active:not(:disabled) {
 }
 .card {
   padding: 0.625rem 1.25rem;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   background: var(--bg-color);
   box-shadow: 0 1px 3px var(--color-grey);
 }

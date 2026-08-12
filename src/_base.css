@@ -15,6 +15,9 @@
     "Avenir Next", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   --font-family-mono: monaco, "Consolas", "Lucida Console", monospace;
+  --color-placeholder: #bdbfc4;
+  --border-radius: 4px;
+  --transition-duration: 0.2s;
 }
 
 /* Chota does not set the root font-size. All rem values are relative to the
@@ -149,7 +152,7 @@ code,
 kbd {
   font-size: 90%;
   white-space: pre-wrap;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   padding: 0.2em 0.4em;
   background-color: var(--bg-secondary-color);
   color: var(--color-error);

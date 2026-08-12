@@ -57,11 +57,10 @@ src/chota.css
 
 Chota exposes CSS custom properties for theming. Override on `:root` or any selector:
 
-- Color tokens: `--color-primary`, `--color-success`, `--color-error`, `--color-darkGrey`, `--color-grey`, `--color-lightGrey`, `--bg-color`, `--bg-secondary-color`, `--font-color`
+- Color tokens: `--color-primary`, `--color-success`, `--color-error`, `--color-darkGrey`, `--color-grey`, `--color-lightGrey`, `--bg-color`, `--bg-secondary-color`, `--font-color`, `--color-placeholder`
 - Spacing tokens: `--grid-gutter`, `--grid-maxWidth`
 - Typography tokens: `--font-size`, `--font-family-sans`, `--font-family-mono`
-
-**Note:** Border radius (hardcoded as `4px`) and transition duration (hardcoded as `0.2s`) are **not** exposed as CSS variables.
+- Component tokens: `--border-radius`, `--transition-duration`
 
 ### Grid System
 
