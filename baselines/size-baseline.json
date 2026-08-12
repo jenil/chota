@@ -1,6 +1,6 @@
 {
-  "capturedAt": "2026-08-09T15:15:46.109Z",
-  "branch": "v1",
+  "capturedAt": "2026-08-11T00:00:00.000Z",
+  "branch": "work/138-design-tokens",
   "buildCommand": "yarn build",
   "browserslist": [
     "last 2 Chrome versions",
@@ -10,10 +10,10 @@
     "ios >= 15.4"
   ],
   "source": "src/chota.css",
-  "dist_chota_css_bytes": 19039,
-  "dist_chota_min_css_bytes": 14419,
-  "gzip_bytes": 3373,
+  "dist_chota_css_bytes": 19323,
+  "dist_chota_min_css_bytes": 14693,
+  "gzip_bytes": 3409,
   "gzip_ceiling_bytes": 4096,
-  "gzip_budget_remaining_bytes": 723,
-  "rationale": "card #137 root-font migration: removed html { font-size: 62.5% } and divided all rem values by 1.6 to preserve rendered pixels at a 16px consumer root. 1-byte gzip increase from marginally longer decimal tokens (e.g. 0.625rem vs 1rem). Body font-size remains 16px (--font-size: 1rem at 16px root). Em-based typography (h1-h6, .tag.is-small/large, .nav .brand, code/kbd) is unchanged."
+  "gzip_budget_remaining_bytes": 687,
+  "rationale": "card #138 design tokens: added --color-placeholder, --border-radius, --transition-duration custom properties to :root and replaced 9 hardcoded sites (6 border-radius, 2 transition-duration, 1 placeholder color) with var() references. Defaults preserve rendered output. 36-byte gzip increase from the 3 new :root declarations plus longer var() token references at each substituted site."
 }
