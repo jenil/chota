@@ -85,10 +85,30 @@ Chota exposes CSS custom properties for theming. Override on `:root` or any sele
 
 Common helper classes: `.is-hidden`, `.is-marginless`, `.is-paddingless`, text alignment, etc.
 
+### `body.dark` Convention
+
+Chota ships **no** `body.dark` rule and **no** default dark palette.
+`body.dark` is a consumer convention: the consumer owns the selector, the
+custom-property overrides, and the decision of when to apply the class. See
+[`docs/examples/dark-mode.html`](./examples/dark-mode.html) for a runnable
+example.
+
+### CSS-Only Interaction Boundary
+
+Chota is CSS-only. `.dropdown` is purely visual — native `<details>`/`<summary>`
+supplies disclosure behavior. `.tabs` is visual navigation, not an ARIA Tabs
+widget. Chota does not manage ARIA state, focus traps, or menu/tab keyboard
+interaction; consumers layer their own JS and ARIA on top.
+
 ## Release Flow
 
 1. **Build**: `yarn build` — lint, process CSS, minify, report size
-2. **Verify**: Check `dist/` output, size under 4KB gzip ceiling
+2. **Verify**: Check `dist/` output, size under the 4096-byte gzip ceiling
+   (current baseline: 3409 bytes)
 3. **Publish**: `npm publish` — publishes `chota@1.0.0` to npm
 
-The repository publishes a single package: `chota`. The `main` field in `package.json` points to `dist/chota.min.css`.
+The repository publishes a single package: `chota`. The `main` field in
+`package.json` points to `dist/chota.min.css`.
+
+See [MIGRATION.md](../MIGRATION.md) for the v1 upgrade guide and
+[CHANGELOG.md](../CHANGELOG.md) for the change history.
